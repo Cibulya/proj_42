@@ -24,5 +24,15 @@
   "bugs": {
     "url": "https://github.com/Cibulya/proj__42/issues"
   },
-  "homepage": "https://github.com/Cibulya/proj__42#readme"
+  "homepage": "https://github.com/Cibulya/proj__42#readme",
+  "devDependencies": {
+    "@types/node": "^18.11.18",
+    "@types/webpack": "^5.28.0",
+    "html-webpack-plugin": "^5.5.0",
+    "ts-loader": "^9.4.2",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.5",
+    "webpack": "^5.69.1",
+    "webpack-cli": "^4.9.2"
+  }
 }
