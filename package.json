@@ -1,0 +1,28 @@
+{
+  "name": "proj__42",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cibulya/proj__42.git"
+  },
+  "keywords": [],
+  "author": "",
+  "contributors": [
+    {
+      "name": "Siarhei Drobysh"
+    },
+    {
+      "name": "Marina Kovel"
+    }
+  ],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Cibulya/proj__42/issues"
+  },
+  "homepage": "https://github.com/Cibulya/proj__42#readme"
+}
