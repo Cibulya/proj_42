@@ -1,11 +1,7 @@
 import React from 'react';
 
 const AboutPage = () => {
-  return (
-    <div>
-      loldasafdfds
-    </div>
-  );
+	return <div> 12dsdasd3</div>;
 };
 
 export default AboutPage;
