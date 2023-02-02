@@ -1,35 +1,8 @@
 import path from 'path';
 import webpack from 'webpack';
-import { BuildOptions } from './config/build/types';
-import { buildPlugins } from './config/build/buildPlugins';
-import { buildLoaders } from './config/build/buildLoaders';
-import { buildResolves } from './config/build/buildResolvesrs';
-import { quickDev } from './config/build/cDevServer';
+import { cDevWebpackConfig } from './config/build/cDevConfig';
 import { BuildEnv } from './config/build/types';
 import { BuildPaths } from './config/build/types';
-
-export function cDevWebpackConfig(
-	options: BuildOptions
-): webpack.Configuration {
-	const { paths, mode, isDev } = options;
-
-	return {
-		mode: 'development',
-		entry: paths.entry,
-		output: {
-			filename: '[name].[contenthash].js',
-			path: paths.build,
-			clean: true,
-		},
-		plugins: buildPlugins(options),
-		module: {
-			rules: buildLoaders(options),
-		},
-		resolve: buildResolves(),
-		devtool: 'inline-source-map',
-		devServer: quickDev(options),
-	};
-}
 
 export default (env: BuildEnv) => {
 	const paths: BuildPaths = {
