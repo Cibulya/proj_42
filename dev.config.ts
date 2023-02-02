@@ -1,18 +1,11 @@
 import path from 'path';
 import webpack from 'webpack';
-// import { BuildOptions } from './types/index';
 import { BuildOptions } from './config/build/types';
-// import { buildPlugins } from './buildPlugins';
 import { buildPlugins } from './config/build/buildPlugins';
-// import { buildLoaders } from './buildLoaders';
 import { buildLoaders } from './config/build/buildLoaders';
-// import { buildResolves } from './buildResolvesrs';
 import { buildResolves } from './config/build/buildResolvesrs';
-// import { quickDev } from './cDevServer';
 import { quickDev } from './config/build/cDevServer';
-// import { BuildEnv } from './types/index';
 import { BuildEnv } from './config/build/types';
-// import { BuildPaths } from './types/index';
 import { BuildPaths } from './config/build/types';
 
 export function cDevWebpackConfig(
