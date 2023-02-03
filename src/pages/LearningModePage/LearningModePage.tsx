@@ -3,8 +3,8 @@ import CoffeeMachineFront from '../../components/coffeeMachineFront/coffeeMachin
 
 const LearningModePage = () => {
   return (
-    <div className ="container">
-      <CoffeeMachineFront/> 
+    <div>
+      <CoffeeMachineFront/>
     </div>
   );
 };
