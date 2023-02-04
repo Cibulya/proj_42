@@ -21,17 +21,18 @@
     border-radius: 10px 10px 0 0;
     display: flex;
     justify-content: space-around;
-    padding: 5% 2%;
+    padding: 5% 4%;
 }
-.control__onOff {
+.control > button {
     width: 20px;
     height: 20px;
     border-radius: 25px;
     box-shadow: 1px 1px 10px 4px red;
     padding: 0 2%;
+    margin-right: 5px;
     background: url('https://raw.githubusercontent.com/MarinaKovel/onlinestoredata/main/on.png') 100% 100%/100% 100% no-repeat;
 }
-.control__onOff:active {
+.control > button[aria-pressed="true"] {
     box-shadow: 1px 1px 10px 4px green;
 }
 .control__middle {
@@ -42,13 +43,16 @@
     width: 50%;
     height: 100%;
 }
+.control__middle > button {
+    border-radius: 4px;
+}
 .drink {
     width: 30%;
     height: 48%;
     background-color: #000;
     font-size: 0.6rem;
     text-align: center;
-    border-radius: 5px;
+    border-radius: 4px !important;
 }
 .drink:hover {
     border: 1px solid #000;
@@ -71,9 +75,6 @@
 }
 .mocha {
     background: url('https://raw.githubusercontent.com/MarinaKovel/onlinestoredata/main/mocha.png') 100% 100%/100% 100% no-repeat;
-}
-.control__right {
-    border: 1px solid #000;
 }
 .control__screen {
     width: 100%;
