@@ -1,5 +1,5 @@
 import React from 'react';
-import CoffeeMachineFront from 'src/components/coffeeMachineFront/coffeeMachineFront';
+import CoffeeMachineFront from '../../components/coffeeMachineFront/coffeeMachineFront';
 
 const PauseModePage = () => {
   return (
