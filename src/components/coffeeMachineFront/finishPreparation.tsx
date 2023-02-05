@@ -1,7 +1,6 @@
 import React from 'react';
 import { Howl } from "howler";
 
-
 function FinishPreparation() {
     const msg = document.querySelector('.control__screen');
     setTimeout(() => {
@@ -17,13 +16,11 @@ function FinishPreparation() {
             (drinks[i] as HTMLButtonElement).disabled = false;
         }
     });
-    
 
     const sound = new Howl({
         src: ['https://github.com/MarinaKovel/coffeemachinesounds/blob/main/onOff.mp3?raw=true'],
     });
     sound.play()
-    
 
     return ;
   }

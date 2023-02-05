@@ -24,7 +24,6 @@ const CoffeeMachineFront = function() {
                 <div className = "shelf"></div>
             </div>
         </div>
-        
     );
 }
 export default CoffeeMachineFront;
