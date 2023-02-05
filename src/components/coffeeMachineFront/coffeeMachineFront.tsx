@@ -1,7 +1,8 @@
 import React from 'react';
 import './coffeeMachineFront.scss';
 import TurnOnOff from './onOffBtn';
-import ToggleButtons from './coffeeBtns';
+import ChooseCoffee from './chooseCoffee';
+import AddIndicators from './addIndicators';
 
 const CoffeeMachineFront = function() {
 
@@ -11,20 +12,15 @@ const CoffeeMachineFront = function() {
             <div className = "machine">
                 <div className = "control">
                     <TurnOnOff/>
-                    <ToggleButtons/>
+                    <ChooseCoffee/>
                     <div className = "control__right">
-                        <div className = "control__screen">Choose your coffee</div>
-                        <div className = "indicators">
-                            <div className = "indicator indicator__water"></div>
-                            <div className = "icon__water"></div>
-                            <div className = "indicator indicator__coffee"></div>
-                            <div className = "icon__coffee"></div>
-                            <div className = "indicator indicator__waste"></div>
-                            <div className = "icon__waste"></div>
-                        </div>
+                        <div className = "control__screen">Turn on the coffee machine</div>
+                        <AddIndicators/>
                     </div>
                 </div>
-                <div className = "placeForCup"></div>
+                <div className = "placeForCup">
+                    <div className = "cup"></div>
+                </div>
                 <div className = "shelf"></div>
             </div>
         </div>
