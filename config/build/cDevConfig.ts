@@ -22,7 +22,7 @@ export function cDevWebpackConfig(
 		module: {
 			rules: buildLoaders(options),
 		},
-		resolve: buildResolves(),
+		resolve: buildResolves(options),
 		devtool: 'inline-source-map',
 		devServer: quickDev(options),
 	};
