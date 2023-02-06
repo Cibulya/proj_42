@@ -8,11 +8,12 @@ import { StatisticPageAsync } from './pages/StatisticPage/StatisticPage.async';
 import { useTheme } from './theme/useTheme';
 
 import './styles/index.scss';
+import {classNames} from './helpers/classNames/classNames';
 const App = () => {
 	const { theme, toggleTheme } = useTheme();
 
 	return (
-		<div className={`app ${theme}`}>
+		<div className={classNames('app', {}, [theme])}>
 			<button onClick={toggleTheme}> dark/light</button>
 			<Link to={'/'}>About</Link>
 			<Link to={'/pause'}>Pause Mode</Link>
