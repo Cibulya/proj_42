@@ -1,7 +1,6 @@
-import React from 'react';
 import { water, grains, wastePlace } from './manageResources';
 
-function CheckResources() {
+function checkResources() {
     let resources = [water, grains, wastePlace];
     let indicators = [
         document.querySelector('.indicator__water'), 
@@ -23,4 +22,4 @@ function CheckResources() {
     return;
   }
 
-  export default CheckResources;
+  export default checkResources;

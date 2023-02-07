@@ -3,6 +3,10 @@ import './coffeeMachineFront.scss';
 import TurnOnOff from './onOffBtn';
 import ChooseCoffee from './chooseCoffee';
 import AddIndicators from './addIndicators';
+import Cup from '../cup/cup';
+import '../cup/cup.scss';
+import Steam from '../cup/steam';
+
 
 const CoffeeMachineFront = function() {
 
@@ -19,7 +23,9 @@ const CoffeeMachineFront = function() {
                     </div>
                 </div>
                 <div className = "placeForCup">
-                    <div className = "cup"></div>
+                    <div className="liquid"></div>
+                    <Steam/>
+                    <Cup/>
                 </div>
                 <div className = "shelf"></div>
             </div>

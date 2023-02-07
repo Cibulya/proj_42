@@ -1,0 +1,137 @@
+.wrapper {
+  display: none;
+  width: 35vh;
+  height: 100%;
+  flex-wrap: wrap;
+  align-content: flex-end;
+  margin: 0 auto;
+}
+.cup-container {
+  position: relative;
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-end;
+}
+.controls {
+  max-width: 190px;
+}
+#Drawing {
+  max-width: 400px;
+}
+#Coffee {
+  transition: cubic-bezier(.68,-0.55,.27,1.35) all 3s;
+  transform-origin: bottom;
+}
+
+@keyframes liquid {
+    0% {
+      height: 0px;  
+      opacity: 1;
+    }
+    5% {
+      height: 0px;  
+      opacity: 1;
+    }
+    20% {
+      height: 180px;  
+      opacity: 1;
+    }
+    95% {
+      height: 180px;
+      opacity: 1;
+    }
+    100% {
+      height: 180px;
+      opacity: 0;
+    }
+  }
+
+.liquid {
+  display: none;
+  width: 16px;
+  border-radius: 0 0 5px 5px;
+  height: 181px;
+  opacity: 0;
+  position: absolute;
+  top: 50px;
+  left: calc(50% - 3px);
+  background-color: #443530;
+  animation: liquid 4s 4s linear infinite;
+}
+
+.coffee-medium__smoke {
+  width: 8px;
+  height: 20px;
+  position: absolute;  
+  border-radius: 5px;
+  background-color: #b3aeae;
+}
+@keyframes smokeOne {
+  0% {
+    bottom: 15vh;
+    opacity: 0;
+  }
+  40% {
+    bottom: 20vh;
+    opacity: .5;
+  }
+  80% {
+    bottom: 30vh;
+    opacity: .3;
+  }
+  100% {
+    bottom: 30vh;
+    opacity: 0;
+  }
+}
+@keyframes smokeTwo {
+  0% {
+    bottom: 20vh;
+    opacity: 0;
+  }
+  40% {
+    bottom: 25vh;
+    opacity: .5;
+  }
+  80% {
+    bottom: 35vh;
+    opacity: .3;
+  }
+  100% {
+    bottom: 35vh;
+    opacity: 0;
+  }
+}
+.coffee-medium__smoke-one {
+  opacity: 0;
+  bottom: 50vh;
+  left: 25vh;
+  filter: blur(4px);
+  animation: smokeOne 3s 4s linear infinite;
+}
+.coffee-medium__smoke-two {
+  opacity: 0;
+  bottom: 70vh;
+  left: 30vh;
+  filter: blur(4px);
+  animation: smokeTwo 3s 5s linear infinite;
+}
+.coffee-medium__smoke-three {
+  opacity: 0;
+  bottom: 65vh;
+  right: 28vh;
+  filter: blur(4px);
+  animation: smokeTwo 3s 6s linear infinite;
+}
+.coffee-medium__smoke-four {
+  opacity: 0;
+  bottom: 50vh;
+  right: 25vh;
+  filter: blur(4px);
+  animation: smokeOne 3s 5s linear infinite;
+}
+.steam {
+  display: none;
+}
