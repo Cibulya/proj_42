@@ -1,0 +1,7 @@
+@font-face {
+  font-family: 'DigitalNumbers-Regular';
+  src: url('./fonts/DigitalNumbers-Regular.ttf') format('woff');
+}
+canvas {
+  font-family: DigitalNumbers-Regular, sans-serif;
+}
