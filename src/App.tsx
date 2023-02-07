@@ -1,14 +1,10 @@
-import { Link, Route, Routes } from 'react-router-dom';
-import React, { Suspense } from 'react';
-import { AboutPageAsync } from './pages/AboutPage/AboutPage.async';
-import { PauseModePageAsync } from './pages/PauseModePage/PauseModePage.async';
-import { LearningModePageAsync } from './pages/LearningModePage/LearningModePage.async';
-import { AuthPageAsync } from './pages/AuthPage/AuthPage.async';
-import { StatisticPageAsync } from './pages/StatisticPage/StatisticPage.async';
-import { useTheme } from './theme/useTheme';
+import { Link } from 'react-router-dom';
+import React from 'react';
+import { useTheme } from 'theme/useTheme';
+import {classNames} from 'helpers/classNames/classNames';
+import AppRouter from 'providers/router/AppRouter';
 
 import './styles/index.scss';
-import {classNames} from './helpers/classNames/classNames';
 const App = () => {
 	const { theme, toggleTheme } = useTheme();
 
@@ -20,21 +16,7 @@ const App = () => {
 			<Link to={'/learning'}>Learning Mode</Link>
 			<Link to={'/auth'}>Auth</Link>
 			<Link to={'/statistic'}>Statistic</Link>
-			<Suspense fallback={<div>LOADING....</div>}>
-				<Routes>
-					<Route path={'/'} element={<AboutPageAsync />} />
-					<Route path={'/pause'} element={<PauseModePageAsync />} />
-					<Route
-						path={'/learning'}
-						element={<LearningModePageAsync />}
-					/>
-					<Route path={'/auth'} element={<AuthPageAsync />} />
-					<Route
-						path={'/statistic'}
-						element={<StatisticPageAsync />}
-					/>
-				</Routes>
-			</Suspense>
+			<AppRouter/>
 		</div>
 	);
 };
