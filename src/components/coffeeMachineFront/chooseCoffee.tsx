@@ -3,10 +3,8 @@ import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import CheckResources from './checkResources';
 import AddCup from './AddCup';
+import { water, grains, wastePlace, reduceResources } from './manageResources';
 
-export let water = 2;
-export let grains = 2;
-export let wastePlace = 3;
 
 function ChooseCoffee() {
     const [alignment, setAlignment] = React.useState<string | null>('left');
@@ -35,13 +33,13 @@ function ChooseCoffee() {
                     AddCup();
                     console.log('Выбран напиток ' + coffee);
                     msg.innerHTML = `Preparing ${coffee}...`;
+                    const onBtn = document.getElementsByClassName('onBtn');
+                    (onBtn[0] as HTMLButtonElement).disabled = true;
                     const drinks = document.getElementsByClassName('drink');
                     for (let i = 0; i < drinks.length; i++) {
                         (drinks[i] as HTMLButtonElement).disabled = true;
                     }
-                    water--;
-                    grains--;
-                    wastePlace--;
+                    reduceResources();
                 }
             }
         }

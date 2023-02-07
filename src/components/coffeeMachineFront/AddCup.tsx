@@ -12,6 +12,6 @@ function AddCup() {
     FinishPreparation();
 
     return;
-  }
+}
 
   export default AddCup;

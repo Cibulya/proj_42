@@ -1,5 +1,5 @@
 import React from 'react';
-import { water, grains, wastePlace } from './chooseCoffee';
+import { water, grains, wastePlace } from './manageResources';
 
 function CheckResources() {
     let resources = [water, grains, wastePlace];
@@ -10,10 +10,8 @@ function CheckResources() {
     ];
 
     const msg = document.querySelector('.control__screen');
+    msg.innerHTML = '';
     const msgNoResources = ['Add water. ', 'Add coffee grains. ', 'Empty waste container'];
-    if (!resources[0] || !resources[1] || !resources[2]) {
-        msg.innerHTML = '';
-    }
 
     for (let i = 0; i < resources.length; i++) {
         if (!resources[i]) {

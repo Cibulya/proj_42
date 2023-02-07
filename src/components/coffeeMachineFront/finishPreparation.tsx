@@ -11,6 +11,8 @@ function FinishPreparation() {
     cup.addEventListener('click', () => {
         (cup as HTMLElement).style.display = "none";
         msg.innerHTML = `Choose your coffee`;
+        const onBtn = document.getElementsByClassName('onBtn');
+        (onBtn[0] as HTMLButtonElement).disabled = false;
         const drinks = document.getElementsByClassName('drink');
         for (let i = 0; i < drinks.length; i++) {
             (drinks[i] as HTMLButtonElement).disabled = false;

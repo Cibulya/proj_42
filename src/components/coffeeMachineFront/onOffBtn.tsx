@@ -24,8 +24,13 @@ function TurnOnOff() {
             onChange={() => {
                 setSelected(!selected);
                 sound.play('onOff');
-                console.log('Вкл/выкл');
+                const btn = event.target;
+                (btn as HTMLButtonElement).disabled = true;
+                setTimeout(() => {
+                    (btn as HTMLButtonElement).disabled = false;
+                }, 1000)
             }}
+            className="onBtn"
         >
             <div className = "control__onOff"></div>
         </ToggleButton>
