@@ -29,6 +29,7 @@
 	},
 	"homepage": "https://github.com/Cibulya/proj__42#readme",
 	"devDependencies": {
+		"@mui/material": "^5.11.8",
 		"@types/howler": "^2.2.7",
 		"@types/node": "^18.11.18",
 		"@types/react": "^17.0.39",
@@ -61,7 +62,6 @@
 		"@emotion/react": "^11.10.5",
 		"@emotion/styled": "^11.10.5",
 		"@material-ui/core": "^4.12.4",
-		"@mui/material": "^5.11.7",
 		"howler": "^2.2.3",
 		"react": "^17.0.2",
 		"react-dom": "^17.0.2",
