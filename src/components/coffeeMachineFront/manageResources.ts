@@ -1,4 +1,3 @@
-import React from 'react';
 import CheckResources from './checkResources';
 import { sound } from "../sound/allSounds";
 
@@ -6,7 +5,7 @@ export let water = 1;
 export let grains = 2;
 export let wastePlace = 1;
 
-export function addWater() { 
+export function addWater() {
     if (!water) sound.play('water');
     water = 1;
     const indicator = document.querySelector('.indicator__water');

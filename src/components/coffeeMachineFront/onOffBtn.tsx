@@ -2,6 +2,7 @@ import React from 'react';
 import { ToggleButton } from '@mui/material';
 import { sound } from "../sound/allSounds";
 
+
 function TurnOnOff() {
     const [selected, setSelected] = React.useState(false);
 
@@ -17,19 +18,21 @@ function TurnOnOff() {
         msg.innerHTML = 'Turn on the coffee machine';
     }
 
+    function toggle() {
+        setSelected(!selected);
+        sound.play('onOff');
+        const btn = event.target;
+        (btn as HTMLButtonElement).disabled = true;
+        setTimeout(() => {
+            (btn as HTMLButtonElement).disabled = false;
+        }, 1000)
+    }
+
     return (
         <ToggleButton
             value="check"
             selected={selected}
-            onChange={() => {
-                setSelected(!selected);
-                sound.play('onOff');
-                const btn = event.target;
-                (btn as HTMLButtonElement).disabled = true;
-                setTimeout(() => {
-                    (btn as HTMLButtonElement).disabled = false;
-                }, 1000)
-            }}
+            onChange={() => toggle() }
             className="onBtn"
         >
             <div className = "control__onOff"></div>
