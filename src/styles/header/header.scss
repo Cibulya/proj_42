@@ -1,0 +1,21 @@
+.header {
+  width: 100%;
+  height: var(--header-height);
+  background: var(--inverted-bg-color);
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
+.navbar {
+  margin-left: auto;
+}
+.link {
+  margin-right: 15px;
+  color: var(--primary-color)
+}
+.primary {
+  color: var(--primary-color)
+}
+.secondary {
+  color: var(--inverted-primary-color)
+}
