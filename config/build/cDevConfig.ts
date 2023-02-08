@@ -16,13 +16,12 @@ export function cDevWebpackConfig(
 		output: {
 			filename: '[name].[contenthash].js',
 			path: paths.build,
-			clean: true,
 		},
 		plugins: buildPlugins(options),
 		module: {
 			rules: buildLoaders(options),
 		},
-		resolve: buildResolves(),
+		resolve: buildResolves(options),
 		devtool: 'inline-source-map',
 		devServer: quickDev(options),
 	};

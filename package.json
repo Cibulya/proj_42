@@ -29,6 +29,7 @@
 	},
 	"homepage": "https://github.com/Cibulya/proj__42#readme",
 	"devDependencies": {
+		"@svgr/webpack": "^6.5.1",
 		"@mui/material": "^5.11.8",
 		"@types/howler": "^2.2.7",
 		"@types/node": "^18.11.18",
@@ -40,6 +41,7 @@
 		"@typescript-eslint/eslint-plugin": "^5.50.0",
 		"@typescript-eslint/parser": "^5.50.0",
 		"clean-webpack-plugin": "^4.0.0",
+		"copy-webpack-plugin": "^11.0.0",
 		"css-loader": "^6.7.3",
 		"eslint": "^8.2.0",
 		"eslint-config-airbnb-base": "^15.0.0",
@@ -47,6 +49,7 @@
 		"eslint-plugin-import": "^2.25.2",
 		"eslint-plugin-prettier": "^4.2.1",
 		"howler": "^2.2.3",
+		"file-loader": "^6.2.0",
 		"html-webpack-plugin": "^5.5.0",
 		"mini-css-extract-plugin": "^2.7.2",
 		"sass": "^1.58.0",
