@@ -1,9 +1,9 @@
 {
-  "Lang" : "EN",
   "About": "О приложении",
-  "Pause Mode": "Режим паузы",
-  "Learning Mode": "Режим обучения",
   "Auth": "Аунт",
+  "Lang": "EN",
+  "Learning Mode": "Режим обучения",
+  "Pause Mode": "Режим паузы",
   "Statistic": "Статистика",
   "Theme": "Темный/светлый"
 }

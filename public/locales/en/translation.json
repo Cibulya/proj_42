@@ -1,9 +1,9 @@
 {
-  "Lang" : "RU",
   "About": "About",
-  "Pause Mode": "Pause Mode",
-  "Learning Mode": "Learning Mode",
   "Auth": "Auth",
+  "Lang": "RU",
+  "Learning Mode": "Learning Mode",
+  "Pause Mode": "Pause Mode",
   "Statistic": "Statistic",
   "Theme": "Dark/light"
 }
