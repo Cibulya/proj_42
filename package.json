@@ -10,7 +10,7 @@
     "build:dev": "webpack --env mode=development",
     "lint:scss": "npx stylelint \"**/*.scss\"",
     "lint:scss:fix": "npx stylelint \"**/*.scss\" --fix",
-    "test": "jest"
+    "unit": "jest --config ./config/jest/jest.config.ts"
   },
   "repository": {
     "type": "git",
