@@ -16,7 +16,6 @@ export function cDevWebpackConfig(
 		output: {
 			filename: '[name].[contenthash].js',
 			path: paths.build,
-			clean: true,
 		},
 		plugins: buildPlugins(options),
 		module: {
