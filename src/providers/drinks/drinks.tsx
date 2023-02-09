@@ -4,6 +4,13 @@ import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import startPreparation from "components/coffeeMachineFront/startPreparation";
 
+interface Drink {
+    name: string;
+    recipe: string;
+    picture: string;
+    size: string;
+    index: string;
+}
 
 const Drinks = () => {
     const [data, setData] = useState(null);
@@ -21,7 +28,6 @@ const Drinks = () => {
                     arrData.push(response[i])
                 }
                 setData(arrData);
-                console.log(arrData);
             })
 
             .catch((err) => console.error(err));
@@ -36,11 +42,16 @@ const Drinks = () => {
             exclusive
             onChange={() => startPreparation() }
         >
-            {data && data.map((drinkData: object, index: number) => {
-                let className = `drink ${data[index].name.toLowerCase()}`;
-                return <ToggleButton value={data && data[index].name} className = {className}>
-                    <img src= {data[index].picture} className = "drink__picture"/>
-            </ToggleButton>
+            {data && data.map((drinkData: Drink) => {
+                let className = `drink ${drinkData.name.toLowerCase()}`;
+                return <ToggleButton 
+                    key={drinkData.index}
+                    value={data && drinkData.name}
+                    className = {className}
+                    data-size = {drinkData.size}
+                    name = {drinkData.recipe}>
+                    <img src= {drinkData.picture} className = "drink__picture"/>
+                </ToggleButton>
             })}
         </ToggleButtonGroup>
     );
