@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Suspense} from 'react';
 import { useTheme } from 'theme/useTheme';
 import {classNames} from 'helpers/classNames/classNames';
 import AppRouter from 'providers/router/AppRouter';
@@ -10,8 +10,10 @@ const App = () => {
 	const { theme } = useTheme();
 	return (
 		<div className={classNames('app', {}, [theme])}>
-			<Header/>
-			<AppRouter/>
+			<Suspense fallback=''>
+				<Header/>
+				<AppRouter/>
+			</Suspense>
 		</div>
 	);
 };

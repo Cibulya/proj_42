@@ -4,6 +4,7 @@ import {PauseModePage} from 'pages/PauseModePage';
 import {LearningModePage} from 'pages/LearningModePage';
 import {AuthPage} from 'pages/AuthPage';
 import {StatisticPage} from 'pages/StatisticPage';
+import {NotFoundPage} from 'pages/NotFoundPage';
 
 export enum AppRoutes {
   ABOUT = 'about',
@@ -11,6 +12,7 @@ export enum AppRoutes {
   LEARNING = 'learning',
   AUTH = 'auth',
   STATISTIC = 'statistic',
+  NOT_FOUND = 'not_found'
 }
 
 export const RoutePath: Record<AppRoutes, string> = {
@@ -19,6 +21,7 @@ export const RoutePath: Record<AppRoutes, string> = {
   [AppRoutes.LEARNING]: '/learning',
   [AppRoutes.AUTH]: '/auth',
   [AppRoutes.STATISTIC]: '/statistic',
+  [AppRoutes.NOT_FOUND]: '*'
 }
 
 export const routeConfig: Record<AppRoutes, RouteProps> = {
@@ -42,4 +45,9 @@ export const routeConfig: Record<AppRoutes, RouteProps> = {
     path: RoutePath.statistic,
     element: <StatisticPage/>
   },
+  [AppRoutes.NOT_FOUND]: {
+    path: RoutePath.not_found,
+    element: <NotFoundPage/>
+  }
+
 }

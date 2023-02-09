@@ -6,6 +6,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 export function buildPlugins({
 	paths,
+	isDev
 }: BuildOptions): webpack.WebpackPluginInstance[] {
 	return [
 		new CleanWebpackPlugin(),
@@ -18,5 +19,8 @@ export function buildPlugins({
 			chunkFilename: 'css/[name].[contenthash:8].css',
 		}),
 		new webpack.HotModuleReplacementPlugin(),
+		new webpack.DefinePlugin({
+			__IS_DEV__: JSON.stringify(isDev),
+		})
 	];
 }
