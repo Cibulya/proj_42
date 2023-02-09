@@ -1,11 +1,11 @@
 import React from 'react';
 import './coffeeMachineFront.scss';
 import TurnOnOff from './onOffBtn';
-import ChooseCoffee from './chooseCoffee';
 import AddIndicators from './addIndicators';
 import Cup from '../cup/cup';
 import '../cup/cup.scss';
 import Steam from '../cup/steam';
+import Drinks from '../../providers/drinks/drinks';
 
 
 const CoffeeMachineFront = function() {
@@ -16,7 +16,7 @@ const CoffeeMachineFront = function() {
             <div className = "machine">
                 <div className = "control">
                     <TurnOnOff/>
-                    <ChooseCoffee/>
+                    <Drinks/>
                     <div className = "control__right">
                         <div className = "control__screen">Turn on the coffee machine</div>
                         <AddIndicators/>
