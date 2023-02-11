@@ -19,6 +19,16 @@ function TurnOnOff() {
     }
 
     function toggle() {
+        const drinks = document.querySelector('.control__middle');
+        const screen = document.querySelector('.control__screen');
+
+        if (!selected) {
+            (drinks as HTMLElement).style.flex = '2';
+            (screen as HTMLElement).style.display = 'none';
+        } else {
+            (drinks as HTMLElement).style.flex = '0';
+            (screen as HTMLElement).style.display = 'flex';
+        }
         setSelected(!selected);
         sound.play('onOff');
         const btn = event.target;
@@ -26,6 +36,11 @@ function TurnOnOff() {
         setTimeout(() => {
             (btn as HTMLButtonElement).disabled = false;
         }, 1000)
+
+        
+
+        
+        
     }
 
     return (
