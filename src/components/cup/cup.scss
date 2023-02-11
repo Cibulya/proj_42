@@ -14,6 +14,7 @@
   display: flex;
   flex-wrap: wrap;
   align-content: flex-end;
+  cursor: auto;
 }
 .controls {
   max-width: 190px;
@@ -36,28 +37,28 @@
       opacity: 1;
     }
     20% {
-      height: 180px;  
+      height: 70px;  
       opacity: 1;
     }
     95% {
-      height: 180px;
+      height: 70px;
       opacity: 1;
     }
     100% {
-      height: 180px;
+      height: 70px;
       opacity: 0;
     }
   }
 
 .liquid {
   display: none;
-  width: 16px;
+  width: 8px;
   border-radius: 0 0 5px 5px;
-  height: 181px;
+  height: 71px;
   opacity: 0;
   position: absolute;
-  top: 50px;
-  left: calc(50% - 3px);
+  top: 20vh;
+  left: 48%;
   background-color: #443530;
   animation: liquid 4s 4s linear infinite;
 }
@@ -115,7 +116,7 @@
 .coffee-medium__smoke-two {
   opacity: 0;
   bottom: 70vh;
-  left: 30vh;
+  left: 23vh;
   filter: blur(4px);
   animation: smokeTwo 3s 5s linear infinite;
 }

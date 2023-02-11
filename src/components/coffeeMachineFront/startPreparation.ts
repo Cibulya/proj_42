@@ -10,22 +10,26 @@ function startPreparation() {
     const color = drinkBtn.getAttribute('name');
 
     const msg = document.querySelector('.control__screen');
-    const isOn = document.querySelector('.control__middle').previousElementSibling.getAttribute("aria-pressed");
+    const isOn = document.querySelector('.onBtn').getAttribute("aria-pressed");
+
+    const drinks = document.querySelector('.control__middle');
+    (drinks as HTMLElement).style.flex = '0';
+    (msg as HTMLElement).style.display = 'flex';
 
     const cupContainer = document.querySelector('.cup-container');
     const steamOne = document.querySelector('.coffee-medium__smoke-one');
     const steamTwo = document.querySelector('.coffee-medium__smoke-two');
     if (size === 'S') {
-        (cupContainer as HTMLDivElement).style.flex = '0.5';
-        (steamOne as HTMLDivElement).style.left = '32vh';
-        (steamTwo as HTMLDivElement).style.right = '32vh';
+        (cupContainer as HTMLDivElement).style.flex = '0.4';
+        (steamOne as HTMLDivElement).style.left = '22vh';
+        (steamTwo as HTMLDivElement).style.right = '30vh';
     } else if (size === 'M') {
-        (cupContainer as HTMLDivElement).style.flex = '0.7';
-        (steamOne as HTMLDivElement).style.left = '27vh';
+        (cupContainer as HTMLDivElement).style.flex = '0.5';
+        (steamOne as HTMLDivElement).style.left = '25vh';
         (steamTwo as HTMLDivElement).style.right = '27vh';
     } else {
-        (cupContainer as HTMLDivElement).style.flex = '1';
-        (steamOne as HTMLDivElement).style.left = '25vh';
+        (cupContainer as HTMLDivElement).style.flex = '0.6';
+        (steamOne as HTMLDivElement).style.left = '28vh';
         (steamTwo as HTMLDivElement).style.right = '25vh';
     }
 

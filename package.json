@@ -47,7 +47,7 @@
     "@types/webpack-dev-server": "^4.7.2",
     "@typescript-eslint/eslint-plugin": "^5.50.0",
     "@typescript-eslint/parser": "^5.50.0",
-    "babel-loader": "^8.2.3",
+    "babel-loader": "^8.3.0",
     "babel-plugin-i18next-extract": "^0.9.0",
     "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^11.0.0",

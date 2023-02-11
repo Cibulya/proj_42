@@ -18,6 +18,8 @@ function finishPreparation() {
     
     setTimeout(() => {
         msg.innerHTML = `Enjoy your coffee! Take your cup.`;
+        const cupContainer = document.querySelector('.cup-container');
+        (cupContainer as HTMLElement).style.cursor = 'pointer';
         cup.addEventListener('click', takeCup);
     }, 11000);
 
@@ -25,6 +27,12 @@ function finishPreparation() {
         (cup as HTMLElement).style.display = "none";
         (steam as HTMLElement).style.display = "none";
         msg.innerHTML = `Choose your coffee`;
+        const drinkBtns = document.querySelector('.control__middle');
+        setTimeout(() => {
+            (msg as HTMLElement).style.display = 'none';
+            (drinkBtns as HTMLElement).style.flex = '2';
+        }, 1500);
+        
         const onBtn = document.getElementsByClassName('onBtn');
         (onBtn[0] as HTMLButtonElement).disabled = false;
         const drinks = document.getElementsByClassName('drink');
