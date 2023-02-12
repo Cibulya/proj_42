@@ -1,5 +1,5 @@
 import {RouteProps} from 'react-router-dom';
-import {AboutPage} from 'pages/AboutPage';
+import {MainPage} from 'pages/MainPage';
 import {PauseModePage} from 'pages/PauseModePage';
 import {LearningModePage} from 'pages/LearningModePage';
 import {AuthPage} from 'pages/AuthPage';
@@ -7,7 +7,7 @@ import {StatisticPage} from 'pages/StatisticPage';
 import {NotFoundPage} from 'pages/NotFoundPage';
 
 export enum AppRoutes {
-  ABOUT = 'about',
+  MAIN = 'main',
   PAUSE = 'pause',
   LEARNING = 'learning',
   AUTH = 'auth',
@@ -16,7 +16,7 @@ export enum AppRoutes {
 }
 
 export const RoutePath: Record<AppRoutes, string> = {
-  [AppRoutes.ABOUT]: '/',
+  [AppRoutes.MAIN]: '/',
   [AppRoutes.PAUSE]: '/pause',
   [AppRoutes.LEARNING]: '/learning',
   [AppRoutes.AUTH]: '/auth',
@@ -25,9 +25,9 @@ export const RoutePath: Record<AppRoutes, string> = {
 }
 
 export const routeConfig: Record<AppRoutes, RouteProps> = {
-  [AppRoutes.ABOUT]: {
-    path: RoutePath.about,
-    element: <AboutPage/>
+  [AppRoutes.MAIN]: {
+    path: RoutePath.main,
+    element: <MainPage/>
   },
   [AppRoutes.PAUSE]: {
     path: RoutePath.pause,
