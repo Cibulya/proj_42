@@ -2,46 +2,42 @@ import { sound } from "../sound/allSounds";
 import fillCup from './fillCup';
 
 function finishPreparation() {
-    const msg = document.querySelector('.control__screen');
-    const cup = document.querySelector('.wrapper');
-    const steam = document.querySelector('.steam');
-    
-    fillCup(0.1);
-    setTimeout(() => {
-        sound.play('fillcup');
-        fillCup(1.6);
-        const liquid = document.querySelector(".liquid");
-        setTimeout(() => {
-            (liquid as HTMLElement).style.display = 'none';
-        }, 4000)
-    }, 8000)
-    
-    setTimeout(() => {
-        msg.innerHTML = `Enjoy your coffee! Take your cup.`;
-        const cupContainer = document.querySelector('.cup-container');
-        (cupContainer as HTMLElement).style.cursor = 'pointer';
-        cup.addEventListener('click', takeCup);
-    }, 11000);
+  const msg = document.querySelector('.control__screen');
+  const cup = document.querySelector('.wrapper');
+  const steam = document.querySelector('.steam');
 
-    function takeCup() {
-        (cup as HTMLElement).style.display = "none";
-        (steam as HTMLElement).style.display = "none";
-        msg.innerHTML = `Choose your coffee`;
-        const drinkBtns = document.querySelector('.control__middle');
-        setTimeout(() => {
-            (msg as HTMLElement).style.display = 'none';
-            (drinkBtns as HTMLElement).style.flex = '2';
-        }, 1500);
-        
-        const onBtn = document.getElementsByClassName('onBtn');
-        (onBtn[0] as HTMLButtonElement).disabled = false;
-        const drinks = document.getElementsByClassName('drink');
-        for (let i = 0; i < drinks.length; i++) {
-            (drinks[i] as HTMLButtonElement).disabled = false;
-        }
-    }
+  fillCup(0.1);
+  setTimeout(() => {
+    sound.play('fillcup');
+    fillCup(1.6);
+    const liquid = document.querySelector(".liquid");
+    setTimeout(() => {
+      (liquid as HTMLElement).style.display = 'none';
+    }, 4000)
+  }, 8000)
 
-    return;
+  setTimeout(() => {
+    msg.innerHTML = `Enjoy your coffee! Take your cup.`;
+    const cupContainer = document.querySelector('.cup-container');
+    (cupContainer as HTMLElement).style.cursor = 'pointer';
+    cup.addEventListener('click', takeCup);
+  }, 11000);
+
+  function takeCup() {
+    (cup as HTMLElement).style.display = "none";
+    (steam as HTMLElement).style.display = "none";
+    msg.innerHTML = `Choose your coffee`;
+    const drinkBtns = document.querySelector('.control__middle');
+    setTimeout(() => {
+      (msg as HTMLElement).style.display = 'none';
+      (drinkBtns as HTMLElement).style.flex = '2';
+    }, 1500);
+
+    const onBtn = document.getElementsByClassName('onBtn');
+    (onBtn[0] as HTMLButtonElement).disabled = false;
   }
 
-  export default finishPreparation;
+  return;
+}
+
+export default finishPreparation;
