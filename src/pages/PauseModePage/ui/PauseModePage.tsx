@@ -3,7 +3,7 @@ import CoffeeMachineFront from 'components/coffeeMachineFront/coffeeMachineFront
 
 const PauseModePage = () => {
 	return (
-		<div>
+		<div className='pause-mode'>
 			<CoffeeMachineFront />
 		</div>
 	);

@@ -1,7 +1,12 @@
 import React from 'react';
+import CanvasClock from 'components/canvasClock';
 
 const AboutPage = () => {
-	return <div> 12dssfdfddasd3</div>;
+  return (
+    <div>
+      <CanvasClock id="canvas" top="5" left="-15" width="100" height="50" fontSize = "14"/>
+    </div>
+  );
 };
 
 export default AboutPage;
