@@ -19,7 +19,6 @@ const Drinks = () => {
         fetch("http://localhost:5000/coffees/")
            .then((response) => {
                 if (response.ok) return response.json();
-                throw new Error('Bad response');
             })
 
             .then((response) => { 
