@@ -12,10 +12,12 @@ function TurnOnOff() {
   }
 
   const msg = document.querySelector('.control__screen');
+  const drinks = document.querySelector('.control__middle');
   if (msg && msg.innerHTML === 'Turn on the coffee machine') {
     msg.innerHTML = 'Choose coffee';
   } else if (msg) {
     msg.innerHTML = 'Turn on the coffee machine';
+    (drinks as HTMLElement).style.width = '0px';
   }
 
   function toggle() {
@@ -24,9 +26,11 @@ function TurnOnOff() {
 
     if (!selected) {
       (drinks as HTMLElement).style.width = '100%';
+      (drinks as HTMLElement).style.flex = '1';
       (screen as HTMLElement).style.display = 'none';
     } else {
       (drinks as HTMLElement).style.width = '0px';
+      (drinks as HTMLElement).style.flex = '0';
       (screen as HTMLElement).style.display = 'flex';
     }
     setSelected(!selected);
