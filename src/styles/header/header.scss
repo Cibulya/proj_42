@@ -1,12 +1,14 @@
+
 .header {
   width: 100%;
   height: var(--header-height);
-  background: var(--inverted-bg-color);
   display: flex;
   align-items: center;
   padding: 20px;
   position: relative;
   z-index: 1;
+  background: url('https://raw.githubusercontent.com/MarinaKovel/coffeemachinedata/main/design/header.png') center top no-repeat;
+  background-size: 100% var(--header-height);
 }
 
 .header-logo {
