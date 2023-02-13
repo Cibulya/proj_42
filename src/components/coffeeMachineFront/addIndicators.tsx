@@ -1,18 +1,18 @@
 import React from 'react';
-import { addWater, addGrains, emptyWasteContainer } from './manageResources';
+import { addWater, addBeans, emptyWasteContainer } from './manageResources';
 
 function AddIndicators() {
 
-    return (
-        <div className = "indicators">
-            <div className = "indicator indicator__water"></div>
-            <div className = "icon__water" onClick={addWater}></div>
-            <div className = "indicator indicator__grains"></div>
-            <div className = "icon__grains" onClick={addGrains}></div>
-            <div className = "indicator indicator__waste"></div>
-            <div className = "icon__waste" onClick={emptyWasteContainer}></div>
-        </div>
-    );
-  }
+  return (
+    <div className = "indicators">
+      <div className = "indicator indicator__water"></div>
+      <button className = "icon icon__water" onClick={addWater}></button>
+      <div className = "indicator indicator__beans" ></div>
+      <button className = "icon icon__beans" onClick={addBeans}></button>
+      <div className = "indicator indicator__waste"></div>
+      <button className = "icon icon__waste" onClick={emptyWasteContainer}></button>
+    </div>
+  );
+}
 
-  export default AddIndicators;
+export default AddIndicators;
