@@ -21,7 +21,7 @@ function finishPreparation() {
     const cupContainer = document.querySelector('.cup-container');
     (cupContainer as HTMLElement).style.cursor = 'pointer';
     cup.addEventListener('click', takeCup);
-  }, 11000);
+  }, 12000);
 
   function takeCup() {
     (cup as HTMLElement).style.display = "none";
