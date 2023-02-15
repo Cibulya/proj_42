@@ -12,7 +12,8 @@ const StartCard = (props: CardProps) => {
 	const {t} = useTranslation();
 	return (
 		<div className={classNames('card',{}, [`${props.className}`] )}>
-			<AppLink theme={AppLinkTheme.SECONDARY} to={props.to}>{t(`${props.linkTitle}`)}</AppLink>
+			<h2>{t(`${props.linkTitle}`)}</h2>
+			<AppLink theme={AppLinkTheme.SECONDARY} to={props.to}>{t(`next`)}</AppLink>
 		</div>
 	);
 };

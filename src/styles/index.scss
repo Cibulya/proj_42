@@ -1,10 +1,12 @@
+@import "./variables/global";
+@import "./themes/light";
+@import "./themes/dark";
+@import "./header/header";
+
 @import "reset";
-@import "variables/global";
-@import "themes/light";
-@import "themes/dark";
-@import "header/header";
 @import "mainPage";
 @import "LearningPage";
+@import "fonts";
 
 @font-face {
   font-family: "DigitalNumbers";
