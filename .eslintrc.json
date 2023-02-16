@@ -1,14 +1,35 @@
 {
-	"extends": [
-		"airbnb-typescript/base",
-		"plugin:import/recommended",
-		"plugin:prettier/recommended"
-	],
-	"import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
-	"parserOptions": {
-		"project": "./tsconfig.json"
+	"env": {
+		"browser": true,
+		"es2021": true
 	},
+	"extends": [
+		"eslint:recommended",
+		"plugin:react-hooks/recommended",
+		"plugin:@typescript-eslint/recommended",
+		"plugin:react/recommended"
+	],
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+		"ecmaFeatures": {
+			"jsx": true
+		},
+		"ecmaVersion": "latest",
+		"sourceType": "module",
+	    "project": "./tsconfig.json"
+	},
+	"plugins": [
+		"react",
+		"@typescript-eslint"
+	],
 	"rules": {
-		"no-console": "off"
+		"no-debugger": "off",
+		"no-console": "off",
+		"no-unused-vars": "warn",
+		"no-underscore-dangle": "off",
+		"react/react-in-jsx-scope": "warn"
+	},
+	"globals": {
+		"__IS_DEV__": true
 	}
 }

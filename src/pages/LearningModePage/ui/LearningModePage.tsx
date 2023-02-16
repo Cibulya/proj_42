@@ -4,6 +4,8 @@ import { classNames } from 'helpers/classNames/classNames';
 import { LearningSteps } from 'fonts/LearningSteps';
 import { useTranslation } from 'react-i18next';
 import CoffeeMachineFront from 'components/coffeeMachineFront/coffeeMachineFront';
+import Box from '@mui/material/Box';
+import LinearProgress from '@mui/material/LinearProgress';
 
 export interface LearningPropsType {
 	modalCenter?: ModalStateType;
@@ -132,6 +134,9 @@ const LearningModePage = () => {
           <CoffeeMachineFront/>
         </div>
       }
+			<Box className={classNames('progress')} sx={{ width: '80%' }}>
+				<LinearProgress variant="buffer" value={progress / 18 * 100} valueBuffer={100} />
+			</Box>
 		</div>
 	);
 }

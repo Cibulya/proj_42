@@ -1,30 +1,49 @@
+
 .header {
   width: 100%;
   height: var(--header-height);
-  background: var(--inverted-bg-color);
   display: flex;
   align-items: center;
   padding: 20px;
   position: relative;
   z-index: 1;
+  background: url('https://raw.githubusercontent.com/MarinaKovel/coffeemachinedata/main/design/header.png') center top no-repeat;
+  background-size: 100% var(--header-height);
+
+  .lang-switcher,
+  .theme-switcher {
+    font: var(--font-xl);
+    color: var(--inverted-primary-color);
+    letter-spacing: -3px;
+  }
+
+  .link {
+    letter-spacing: -3px;
+    font: var(--font-xl);
+    text-decoration: none;
+  }
 }
 
 .header-logo {
   z-index: 10;
   position: relative;
-  width: calc(122px * 0.5);
-  height: calc(114px * 0.5);
+  width: calc(122px * 1);
+  height: calc(114px * 1);
   display: block;
   background: url("https://raw.githubusercontent.com/MarinaKovel/coffeemachinedata/main/design/logo.png") no-repeat;
   background-size: contain;
 }
 
 .navbar {
+  margin-top: 2px;
   margin-left: auto;
 }
 
 .link {
+  text-decoration: none;
+  text-transform: uppercase;
   margin-right: 15px;
+  margin-bottom: 10px;
   color: var(--primary-color)
 }
 

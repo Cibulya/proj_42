@@ -6,5 +6,9 @@ export function buildDevServer(options: BuildOptions): DevServerConfiguration {
 		open: true,
 		historyApiFallback: true,
 		hot: true,
+		devMiddleware: {
+			index: 'index.html',
+			writeToDisk: true,
+		},
 	};
 }
