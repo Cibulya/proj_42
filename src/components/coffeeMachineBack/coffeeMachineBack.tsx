@@ -1,5 +1,5 @@
 import React from 'react';
-import 'components/coffeeMachineBack/coffeeMachineBack.scss';
+import 'styles/coffeeMachineBack.scss';
 
 const CoffeeMachineBack = function() {
 

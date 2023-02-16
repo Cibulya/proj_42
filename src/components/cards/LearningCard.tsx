@@ -33,17 +33,19 @@ const LearningCard = (props: CardProps) => {
 				: <></>
 			}
 			{props.state.picture !== ''
-				? <img src={props.state.picture} width='320px' height='240px' alt='MVC model'/>
+				? <img src={props.state.picture} width='280px' height='200px' alt='MVC model'/>
 				: <></>
 			}
 			{props.state.buttonOne !== ''
-				? <button onClick={(event) => {
-					raiseProgress(props.progress + 1)
+				? <button className="learning__btn" onClick={(event) => {
+					t(`${props.state.buttonOne}`) !== "Repeat" 
+					? raiseProgress(props.progress + 1)
+					: raiseProgress(0)
 				}}>{t(`${props.state.buttonOne}`)}</button>
 				: <></>
 			}
 			{props.state.buttonTwo !== ''
-				? <button onClick={(event) => {
+				? <button className="learning__btn" onClick={(event) => {
 					raiseProgress(props.progress + 1)
 				}}>{t(`${props.state.buttonTwo}`)}</button>
 				: <></>

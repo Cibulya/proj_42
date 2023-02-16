@@ -1,5 +1,5 @@
 import React from 'react';
-import './cup.scss';
+import 'styles/cup.scss';
 
 function Cup() {
 

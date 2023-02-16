@@ -11,11 +11,16 @@ function TurnOnOff() {
     indicators[0].classList.remove('active')
   }
 
-  const msg = document.querySelector('.control__screen');
+  const msg = document.querySelector('.message');
   const drinks = document.querySelector('.control__middle');
-  if (msg && msg.innerHTML === 'Turn on the coffee machine') {
+  const modal = document.querySelector('.card');
+  
+  if (msg && msg.innerHTML === 'Turn on the coffee machine' && selected) {
     msg.innerHTML = 'Choose coffee';
-  } else if (msg) {
+  } else if (msg && modal) {
+    msg.innerHTML = '';
+    (drinks as HTMLElement).style.width = '0px';
+  } else if (msg && !modal) {
     msg.innerHTML = 'Turn on the coffee machine';
     (drinks as HTMLElement).style.width = '0px';
   }

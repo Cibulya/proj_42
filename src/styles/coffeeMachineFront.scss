@@ -7,7 +7,8 @@
 .invitation {
   margin: 20px;
   background-color: #89607ccf;
-  border-radius: 10px;
+  color: #fff;
+  border-radius: 20px;
   padding: 15px;
 }
 .machine {
@@ -33,13 +34,13 @@
   width: 3vh;
   height: 3vh;
   border-radius: 25px;
-  box-shadow: 1px 1px 10px 4px red;
+  box-shadow: 1px 1px 10px 4px #ff0000;
   padding: 0 2%;
   margin-right: 5px;
   background: url('https://raw.githubusercontent.com/MarinaKovel/onlinestoredata/main/on.png') 100% 100%/100% 100% no-repeat;
 }
 .container__left > button[aria-pressed="true"] {
-  box-shadow: 1px 1px 10px 4px green;
+  box-shadow: 1px 1px 10px 4px #008000;
 }
 .container__left {
   position: relative;
@@ -53,6 +54,7 @@
   flex-wrap: wrap;
   height: 100%;
   width: 0px;
+  margin-top: 1px;
 }
 .control__middle > button {
   border-radius: 4px;
@@ -87,7 +89,13 @@
   font-size: 0.9rem;
   line-height: 100%;
   flex: 1;
-
+  display: flex;
+  flex-direction: column;
+}
+.message {
+  position: relative;
+  top: -5px;
+  text-align: center;
 }
 .indicators {
   display: flex;
@@ -105,8 +113,8 @@
   margin: 15% 11%;
 }
 .active {
-  background-color: red;
-  box-shadow: 0px 0px 4px 2px red;
+  background-color: #ff0000;
+  box-shadow: 0px 0px 4px 2px #ff0000;
 }
 .icon__water {
   width: 4vh;
@@ -140,7 +148,6 @@
   left: calc((70vh / 1.2 / 2) - 17.5vh);
   width: 35vh;
   height: 35vh;
-  background: url('https://raw.githubusercontent.com/MarinaKovel/onlinestoredata/main/cup.png') 100% 100% / 100% 100% no-repeat;
 }
 button {
   border: none;
@@ -167,4 +174,5 @@ button {
   border-radius: 50px !important;
   background: linear-gradient(to right, #b81e88, #924eb8);
   box-shadow: 2px 3px 5px rgb(16, 16, 16);
+  color: #fff !important;
 }

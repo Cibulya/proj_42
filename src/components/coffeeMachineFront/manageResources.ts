@@ -49,5 +49,5 @@ export function reduceResources() {
 document.addEventListener('keydown', function(event) {
   if (event.code == 'KeyW') addWater();
   if (event.code == 'KeyB') addBeans();
-  if (event.code == 'KeyC') emptyWasteContainer();
+  if (event.code == 'KeyE') emptyWasteContainer();
 });

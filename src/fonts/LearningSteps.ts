@@ -3,7 +3,7 @@ import { LearningPropsType } from 'pages/LearningModePage/ui/LearningModePage';
 export const LearningSteps: Array<LearningPropsType> =  [
 	{
 		modalCenter: {
-			text: 'Welcome! \n Hello. Here we mix Real Life and Digital! We would like to introduce you the MVC architecture pattern on the Real Life Example – Coffee Machine. Or you can relax and drink a digital Coffee :)',
+			text: 'Welcome! \n Here we mix Real Life and Digital! We would like to introduce you the MVC architecture pattern on the Real Life Example – Coffee Machine. Or you can relax and drink a digital Coffee :)',
 			picture: '',
 			buttonOne: 'Let’s start!',
 			buttonTwo: ''
@@ -347,7 +347,7 @@ export const LearningSteps: Array<LearningPropsType> =  [
 			buttonTwo: ''
 		},
 		modalLeft: {
-			text: 'Choose (click) the correct element for this step:\n\nYou filled in the Login form',
+			text: 'Choose the correct element for this step (press "M" for MODEL, "V" for VIEW or "C" for CONTROLLER): You filled in the Login form',
 			picture: '',
 			buttonOne: 'Next',
 			buttonTwo: ''
@@ -373,7 +373,7 @@ export const LearningSteps: Array<LearningPropsType> =  [
 			buttonTwo: ''
 		},
 		modalLeft: {
-			text: 'Choose (click) the correct element for this step:\n\nPreparation of the coffee',
+			text: 'Choose the correct element for this step (press "M" for MODEL, "V" for VIEW or "C" for CONTROLLER): Preparation of the coffee',
 			picture: '',
 			buttonOne: 'Next',
 			buttonTwo: ''
@@ -399,7 +399,7 @@ export const LearningSteps: Array<LearningPropsType> =  [
 			buttonTwo: ''
 		},
 		modalLeft: {
-			text: 'Choose (click) the correct element for this step:\n\nChecking water, coffee beans and free space in the waste container',
+			text: 'Choose the correct element for this step (press "M" for MODEL, "V" for VIEW or "C" for CONTROLLER): Checking water, coffee beans and free space in the waste container',
 			picture: '',
 			buttonOne: 'Next',
 			buttonTwo: ''
@@ -425,7 +425,7 @@ export const LearningSteps: Array<LearningPropsType> =  [
 			buttonTwo: ''
 		},
 		modalLeft: {
-			text: 'Choose (click) the correct element for this step:\n\nYou choose a drink',
+			text: 'Choose the correct element for this step (press "M" for MODEL, "V" for VIEW or "C" for CONTROLLER): You choose a drink',
 			picture: '',
 			buttonOne: 'Next',
 			buttonTwo: ''
@@ -451,7 +451,7 @@ export const LearningSteps: Array<LearningPropsType> =  [
 			buttonTwo: ''
 		},
 		modalLeft: {
-			text: 'Choose (click) the correct element for this step:\n\nChecking validation of the User',
+			text: 'Choose the correct element for this step (press "M" for MODEL, "V" for VIEW or "C" for CONTROLLER): Checking validation of the User',
 			picture: '',
 			buttonOne: 'Next',
 			buttonTwo: ''

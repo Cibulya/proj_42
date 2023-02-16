@@ -2,10 +2,6 @@ import { sound } from "../sound/allSounds";
 import fillCup from './fillCup';
 
 function finishPreparation() {
-  const msg = document.querySelector('.control__screen');
-  const cup = document.querySelector('.wrapper');
-  const steam = document.querySelector('.steam');
-
   fillCup(0.1);
   setTimeout(() => {
     sound.play('fillcup');
@@ -16,6 +12,9 @@ function finishPreparation() {
     }, 4000)
   }, 8000)
 
+  const msg = document.querySelector('.message');
+  const cup = document.querySelector('.wrapper');
+
   setTimeout(() => {
     msg.innerHTML = `Enjoy your coffee! Take your cup.`;
     const cupContainer = document.querySelector('.cup-container');
@@ -23,14 +22,19 @@ function finishPreparation() {
     cup.addEventListener('click', takeCup);
   }, 12000);
 
+  const modal = document.querySelector('.card');
+
   function takeCup() {
+    const steam = document.querySelector('.steam');
     (cup as HTMLElement).style.display = "none";
     (steam as HTMLElement).style.display = "none";
-    msg.innerHTML = `Choose your coffee`;
+    !modal ? msg.innerHTML = 'Choose your coffee' : msg.innerHTML = '';
+    
+    const screen = document.querySelector('.control__screen');
     const drinkBtns = document.querySelector('.control__middle');
     setTimeout(() => {
-      (msg as HTMLElement).style.display = 'none';
-      (drinkBtns as HTMLElement).style.flex = '2';
+      if (!modal) (screen as HTMLElement).style.display = 'none';
+      if (!modal) (drinkBtns as HTMLElement).style.flex = '2';
     }, 1500);
 
     const onBtn = document.getElementsByClassName('onBtn');
