@@ -37,7 +37,7 @@ export const renderDigitalClock = (context: any, props: any) => {
 	context.font = fontSize + 'px DigitalNumbers';
 	context.fillText(
 		hour + secBlink + min + ':' + sec,
-		width / 2,
+		width / 4,
 		height / 2.5
 	);
 	setTimeout(() => renderDigitalClock(context, props), 50);

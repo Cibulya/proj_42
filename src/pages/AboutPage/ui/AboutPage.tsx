@@ -4,8 +4,7 @@ import CoffeeMachineBack from 'components/coffeeMachineBack/coffeeMachineBack';
 
 const AboutPage = () => {
   return (
-    <div>
-      <CanvasClock id="canvas" top="5" left="-15" width="100" height="50" fontSize = "14"/>
+    <div className = "container">
       <CoffeeMachineBack/>
     </div>
   );

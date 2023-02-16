@@ -39,7 +39,7 @@ const Drinks = () => {
             className = "control__middle"
             value={alignment}
             exclusive
-            onChange={() => startPreparation() }
+            onChange={() => startPreparation()}
         >
             {data && data.map((drinkData: Drink) => {
                 let className = `drink ${drinkData.name.toLowerCase()}`;

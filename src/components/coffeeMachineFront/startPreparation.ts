@@ -5,17 +5,18 @@ import { water, beans, wastePlace, reduceResources } from './manageResources';
 
 function startPreparation() {
   const drinkBtn = (event.target as HTMLElement).parentElement;
+  
   const coffee = drinkBtn.getAttribute('value');
   const size = drinkBtn.getAttribute('data-size');
   const color = drinkBtn.getAttribute('name');
 
-  const msg = document.querySelector('.control__screen');
+  const screen = document.querySelector('.control__screen');
   const isOn = document.querySelector('.onBtn').getAttribute("aria-pressed");
 
   const drinks = document.querySelector('.control__middle');
   (drinks as HTMLElement).style.width = '0px';
   (drinks as HTMLElement).style.flex = '0';
-  (msg as HTMLElement).style.display = 'flex';
+  (screen as HTMLElement).style.display = 'flex';
 
   const cupContainer = document.querySelector('.cup-container');
   const steamOne = document.querySelector('.coffee-medium__smoke-one');
@@ -39,16 +40,26 @@ function startPreparation() {
   liquid.style.fill = color;
   (stream as HTMLElement).style.backgroundColor = color;
 
-  if (isOn === "true") {
-    CheckResources();
+  const msg = document.querySelector('.message');
+  const modal = document.querySelector('.card');
+
+  function start() {
+    if (!modal) CheckResources();
     if (water > 0 && beans > 0 && wastePlace > 0) {
       addCup();
-      msg.innerHTML = `Preparing ${coffee}...`;
+      !modal ? msg.innerHTML = `Preparing ${coffee}...` : modal.innerHTML += coffee;
+      
       const onBtn = document.getElementsByClassName('onBtn');
       (onBtn[0] as HTMLButtonElement).disabled = true;
-      reduceResources();
+
+      if (!modal) reduceResources();
     }
   }
+
+  if (isOn === "true") {
+    modal ? setTimeout(() => {start()}, 8000) : start();
+  }
+  
   return;
 }
 

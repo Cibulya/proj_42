@@ -8,9 +8,9 @@ function checkResources() {
     document.querySelector('.indicator__waste')
   ];
 
-  const msg = document.querySelector('.control__screen');
+  const msg = document.querySelector('.message');
   msg.innerHTML = '';
-  const msgNoResources = ['Add water (press "W"). ', 'Add coffee beans (press "B"). ', 'Empty waste container (press "C").'];
+  const msgNoResources = ['Add water (press "W"). ', 'Add coffee beans (press "B"). ', 'Empty waste container (press "E").'];
   const drinks = document.querySelector('.control__middle');
 
   for (let i = 0; i < resources.length; i++) {
