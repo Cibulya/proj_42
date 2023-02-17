@@ -48,13 +48,13 @@ const SignForm = (props: SignFormPropsType) => {
     <div className={classNames('sign-wrapper', {}, [props.className])}>
       <h2>{t(`${props.typeForm}`)}</h2>
       <form className="form" onSubmit={checkSubmitForm} noValidate>
-        {props.typeForm === 'sign-up' || (
+        {props.typeForm === 'sign-up' && (
           <InputForm type={'username'} checkInputChange={checkInputChange} initialState={initialState} />
         )}
         <InputForm type={'email'} checkInputChange={checkInputChange} initialState={initialState} />
         <InputForm type={'password'} checkInputChange={checkInputChange} initialState={initialState} />
         <div className="submit">
-          <button className="learning__btn">{t('register')}</button>
+          <button className="learning__btn">{props.typeForm === 'sign-up' ? t('register') : t('sign-in')}</button>
         </div>
       </form>
     </div>
