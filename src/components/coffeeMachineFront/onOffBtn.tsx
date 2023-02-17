@@ -28,12 +28,23 @@ function TurnOnOff() {
   function toggle() {
     const drinks = document.querySelector('.control__middle');
     const screen = document.querySelector('.control__screen');
+    const authIcon = document.querySelector('.auth-icon');
+    const auth = document.querySelector('.auth');
 
     if (!selected) {
-      (drinks as HTMLElement).style.width = '100%';
-      (drinks as HTMLElement).style.flex = '1';
-      (screen as HTMLElement).style.display = 'none';
+      if (modal) {
+        (authIcon as HTMLElement).style.display = 'block';
+        (drinks as HTMLElement).style.width = '0px';
+        (drinks as HTMLElement).style.flex = '0';
+        (screen as HTMLElement).style.display = 'none';
+      } else {
+        (auth as HTMLElement).style.display = 'none';
+        (drinks as HTMLElement).style.width = '100%';
+        (drinks as HTMLElement).style.flex = '1';
+        (screen as HTMLElement).style.display = 'none';
+      }
     } else {
+      (auth as HTMLElement).style.display = 'none';
       (drinks as HTMLElement).style.width = '0px';
       (drinks as HTMLElement).style.flex = '0';
       (screen as HTMLElement).style.display = 'flex';
@@ -45,6 +56,10 @@ function TurnOnOff() {
     setTimeout(() => {
       (btn as HTMLButtonElement).disabled = false;
     }, 1000)
+
+    authIcon.addEventListener('click', () => {
+      (auth as HTMLElement).style.display = 'flex';
+    })
     }
 
   return (

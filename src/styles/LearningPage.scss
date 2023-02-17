@@ -60,6 +60,16 @@
     grid-row: 3/5;
   }
 
+  .card.auth {
+    display: none;
+    grid-column: 5/7;
+    grid-row: 1/5;
+  }
+  .input {
+    position: relative;
+    z-index: 2;
+  }
+
   .learning__machine {
     display: flex;
     position: relative;

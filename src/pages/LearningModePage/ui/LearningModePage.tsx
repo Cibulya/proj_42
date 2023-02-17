@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next';
 import CoffeeMachineFront from 'components/coffeeMachineFront/coffeeMachineFront';
 import Box from '@mui/material/Box';
 import LinearProgress from '@mui/material/LinearProgress';
+import SignForm from 'components/auth/SignForm';
 
 export interface LearningPropsType {
 	modalCenter?: ModalStateType;
@@ -24,6 +25,7 @@ const LearningModePage = () => {
   const msg = document.querySelector('.message');
   const modal = document.getElementsByClassName('card');
   const btn = document.querySelector('.learning__btn');
+
   const answers = [
     ['right__machine', 'wrong__modal', 'wrong__modal'],
     ['wrong__machine', 'right__modal', 'wrong__modal'],
@@ -32,8 +34,13 @@ const LearningModePage = () => {
 
   switch (progress) {
     case 1:
-      const onBtn = document.querySelector('.onBtn');
-      onBtn.addEventListener('click', () => {setProgress(progress + 1)})
+      const submit = document.querySelector('.submit');
+      const auth = document.querySelector('.auth');
+      submit.addEventListener('click', () => {
+        setProgress(progress + 1);
+        (auth as HTMLElement).style.display = 'none';
+      
+      })
       break;
     case 4:
       machine.classList.add('blink__machine');
@@ -137,6 +144,7 @@ const LearningModePage = () => {
 			<Box className={classNames('progress')} sx={{ width: '80%' }}>
 				<LinearProgress variant="buffer" value={progress / 18 * 100} valueBuffer={100} />
 			</Box>
+      <SignForm className={'card auth'} typeForm={'sign-in'} />
 		</div>
 	);
 }
