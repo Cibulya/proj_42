@@ -144,7 +144,7 @@ const LearningModePage = () => {
 			<Box className={classNames('progress')} sx={{ width: '80%' }}>
 				<LinearProgress variant="buffer" value={progress / 18 * 100} valueBuffer={100} />
 			</Box>
-      <SignForm className={'card auth'} typeForm={'sign-in'} />
+      <SignForm className={'card auth'} typeForm={'sign-up'} />
 		</div>
 	);
 }
