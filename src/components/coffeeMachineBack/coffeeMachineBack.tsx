@@ -5,6 +5,16 @@ const CoffeeMachineBack = function() {
 
   return (
     <div className="container__back">
+      <div className="description">This application is designed for educational purposes only, 
+        and may not be used as a commercial application. <br/><br/>
+        The code is written in TypeScript and React with use of libraries Material UI, 
+        i18next, Howler.js.<br/>
+        REST API Back-end is created from zero on Nest.js and has a history of commits. 
+        It’s deployed and response to GET, POST, PATCH requests (used for Drinks, User 
+        Authorization, Learning progress and in generating Learning levels).<br/><br/>
+        Webpack, SaSS, Node.js, Git, ESLint, Prettier, Babel, canvas, Jest were used for development. 
+        Project is built on MVC architecture with a functional component approach.
+        </div>
       <div className="machine__back">
         <div>DEVELOPERS</div>
         <div className="devs">
@@ -20,16 +30,6 @@ const CoffeeMachineBack = function() {
           <div className="design">Design by Antanna95</div>
         </div>
       </div>
-      <div className="description">This application is designed for educational purposes only, 
-        and may not be used as a commercial application. <br/><br/>
-        The code is written in TypeScript and React with use of libraries Material UI, 
-        i18next, Howler.js.<br/>
-        REST API Back-end is created from zero on Nest.js and has a history of commits. 
-        It’s deployed and response to GET, POST, PATCH requests (used for Drinks, User 
-        Authorization, Learning progress and in generating Learning levels).<br/><br/>
-        Webpack, SaSS, Node.js, Git, ESLint, Prettier, Babel, canvas, Jest were used for development. 
-        Project is built on MVC architecture with a functional component approach.
-        </div>
     </div>
     
   );

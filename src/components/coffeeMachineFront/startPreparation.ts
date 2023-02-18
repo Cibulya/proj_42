@@ -14,8 +14,7 @@ function startPreparation() {
   const isOn = document.querySelector('.onBtn').getAttribute("aria-pressed");
 
   const drinks = document.querySelector('.control__middle');
-  (drinks as HTMLElement).style.width = '0px';
-  (drinks as HTMLElement).style.flex = '0';
+  drinks.classList.add('hidden');
   (screen as HTMLElement).style.display = 'flex';
 
   const cupContainer = document.querySelector('.cup-container');

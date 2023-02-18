@@ -16,7 +16,7 @@ const Drinks = () => {
     const [data, setData] = useState(null);
 
     useEffect(() => {
-        fetch("http://localhost:5000/coffees/")
+        fetch("https://guiseppe-production.up.railway.app/coffees/")
            .then((response) => {
                 if (response.ok) return response.json();
             })
@@ -36,7 +36,7 @@ const Drinks = () => {
 
     return (
         <ToggleButtonGroup
-            className = "control__middle"
+            className = "control__middle hidden"
             value={alignment}
             exclusive
             onChange={() => startPreparation()}

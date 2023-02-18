@@ -19,32 +19,46 @@ function TurnOnOff() {
     msg.innerHTML = 'Choose coffee';
   } else if (msg && modal) {
     msg.innerHTML = '';
-    (drinks as HTMLElement).style.width = '0px';
+    drinks.classList.add('hidden');
   } else if (msg && !modal) {
     msg.innerHTML = 'Turn on the coffee machine';
-    (drinks as HTMLElement).style.width = '0px';
+    drinks.classList.add('hidden');
   }
 
   function toggle() {
     const drinks = document.querySelector('.control__middle');
     const screen = document.querySelector('.control__screen');
+    const authIcon = document.querySelector('.auth-icon');
+    const auth = document.querySelector('.auth');
 
     if (!selected) {
-      (drinks as HTMLElement).style.width = '100%';
-      (drinks as HTMLElement).style.flex = '1';
-      (screen as HTMLElement).style.display = 'none';
+      if (modal) {
+        (authIcon as HTMLElement).style.display = 'block';
+        (screen as HTMLElement).style.display = 'none';
+        drinks.classList.add('hidden');
+        
+      } else {
+        if (auth) (auth as HTMLElement).style.display = 'none';
+        (screen as HTMLElement).style.display = 'none';
+        drinks.classList.remove('hidden');
+      }
     } else {
-      (drinks as HTMLElement).style.width = '0px';
-      (drinks as HTMLElement).style.flex = '0';
+      if (auth) (auth as HTMLElement).style.display = 'none';
       (screen as HTMLElement).style.display = 'flex';
+      drinks.classList.add('hidden');
     }
     setSelected(!selected);
     sound.play('onOff');
     const btn = event.target;
+   
     (btn as HTMLButtonElement).disabled = true;
     setTimeout(() => {
-      (btn as HTMLButtonElement).disabled = false;
+      if (!modal) (btn as HTMLButtonElement).disabled = false;
     }, 1000)
+
+    authIcon.addEventListener('click', () => {
+      if (auth) (auth as HTMLElement).style.display = 'flex';
+    })
     }
 
   return (
