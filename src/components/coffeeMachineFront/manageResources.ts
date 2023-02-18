@@ -8,8 +8,7 @@ export let wastePlace = 1;
 function openDrinkChoice() {
   if (water && beans && wastePlace) {
     const drinks = document.querySelector('.control__middle');
-    (drinks as HTMLElement).style.width = '100%';
-    (drinks as HTMLElement).style.flex = '1';
+    drinks.classList.remove('hidden');
     const screen = document.querySelector('.control__screen');
     (screen as HTMLElement).style.display = 'none';
   }

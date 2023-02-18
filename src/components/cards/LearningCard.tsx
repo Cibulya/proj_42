@@ -38,9 +38,11 @@ const LearningCard = (props: CardProps) => {
 			}
 			{props.state.buttonOne !== ''
 				? <button className="learning__btn" onClick={(event) => {
-					t(`${props.state.buttonOne}`) !== "Repeat" 
-					? raiseProgress(props.progress + 1)
-					: raiseProgress(0)
+					if (t(`${props.state.buttonOne}`) !== "Repeat") {
+						raiseProgress(props.progress + 1)
+					} else {
+						raiseProgress(0);
+					}
 				}}>{t(`${props.state.buttonOne}`)}</button>
 				: <></>
 			}

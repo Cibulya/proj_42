@@ -17,8 +17,7 @@ function checkResources() {
     if (!resources[i]) {
       indicators[i].classList.add('active');
       msg.innerHTML += msgNoResources[i];
-      (drinks as HTMLElement).style.width = '0px';
-      (drinks as HTMLElement).style.flex = '0';
+      drinks.classList.add('hidden');
     }
   }
 

@@ -1,6 +1,7 @@
 import { sound } from "../sound/allSounds";
 import fillCup from './fillCup';
 
+
 function finishPreparation() {
   fillCup(0.1);
   setTimeout(() => {
@@ -34,7 +35,7 @@ function finishPreparation() {
     const drinkBtns = document.querySelector('.control__middle');
     setTimeout(() => {
       if (!modal) (screen as HTMLElement).style.display = 'none';
-      if (!modal) (drinkBtns as HTMLElement).style.flex = '2';
+      if (!modal) drinkBtns.classList.remove('hidden');
     }, 1500);
 
     const onBtn = document.getElementsByClassName('onBtn');

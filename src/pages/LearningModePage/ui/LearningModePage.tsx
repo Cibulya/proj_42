@@ -7,6 +7,8 @@ import CoffeeMachineFront from 'components/coffeeMachineFront/coffeeMachineFront
 import Box from '@mui/material/Box';
 import LinearProgress from '@mui/material/LinearProgress';
 import SignForm from 'components/auth/SignForm';
+import Weather from 'weatherWidget/Weather';
+import Radio from 'components/sound/radio';
 
 export interface LearningPropsType {
 	modalCenter?: ModalStateType;
@@ -16,6 +18,10 @@ export interface LearningPropsType {
 }
 
 const LearningModePage = () => {
+  const dark = document.querySelector('.dark');
+  let bg: string;
+  !dark ? bg = 'bglearn' : bg = 'bglearn-night';
+
 	const { t } = useTranslation();
 	const [progress, setProgress] = useState(0);
 	const state = LearningSteps[progress];
@@ -25,7 +31,10 @@ const LearningModePage = () => {
   const msg = document.querySelector('.message');
   const modal = document.getElementsByClassName('card');
   const btn = document.querySelector('.learning__btn');
-
+  const auth = document.querySelector('.auth');
+  const authIcon = document.querySelector('.auth-icon');
+  const drinks = document.querySelector('.control__middle');
+  const screen = document.querySelector('.control__screen');
   const answers = [
     ['right__machine', 'wrong__modal', 'wrong__modal'],
     ['wrong__machine', 'right__modal', 'wrong__modal'],
@@ -35,11 +44,9 @@ const LearningModePage = () => {
   switch (progress) {
     case 1:
       const submit = document.querySelector('.submit');
-      const auth = document.querySelector('.auth');
       submit.addEventListener('click', () => {
         setProgress(progress + 1);
         (auth as HTMLElement).style.display = 'none';
-      
       })
       break;
     case 4:
@@ -61,8 +68,10 @@ const LearningModePage = () => {
       }, 9000)
       break;
     case 6:
-      const btns = document.querySelector('.control__middle');
-      btns.addEventListener('click', () => {
+      if (authIcon) (authIcon as HTMLElement).style.display = 'none';
+      (screen as HTMLElement).style.display = 'none';
+      setTimeout(() => {drinks.classList.remove('hidden');}, 0)
+      drinks.addEventListener('click', () => {
         setProgress(progress + 1)
         msg.innerHTML = '';
       })
@@ -89,6 +98,10 @@ const LearningModePage = () => {
     case 15:
     case 17:
       setBlick(1);
+      break;
+    case 18:
+      const bonus = document.querySelector('.bonus');
+      (bonus as HTMLElement).style.display = 'flex';
       break;
     default:
   }
@@ -118,6 +131,13 @@ const LearningModePage = () => {
 
 	return (
 		<div className={classNames('learning-mode')}>
+      <div className={bg}></div>
+      {
+        <Box className={classNames('progress')} sx={{ width: '80%' }}>
+				  <LinearProgress color="secondary" variant="buffer" value={progress / 18 * 100} valueBuffer={100} />
+			  </Box>
+      }
+      
 			{LearningSteps.length > progress
 				? modals.map((modal) => {
 					if (modal[1].text !== '') {
@@ -141,10 +161,12 @@ const LearningModePage = () => {
           <CoffeeMachineFront/>
         </div>
       }
-			<Box className={classNames('progress')} sx={{ width: '80%' }}>
-				<LinearProgress variant="buffer" value={progress / 18 * 100} valueBuffer={100} />
-			</Box>
+			
       <SignForm className={'card auth'} typeForm={'sign-up'} />
+      <div className='bonus'>
+        <Weather/>
+        <Radio/>
+      </div>
 		</div>
 	);
 }

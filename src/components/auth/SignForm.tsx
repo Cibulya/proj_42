@@ -55,7 +55,10 @@ const SignForm = (props: SignFormPropsType) => {
         <InputForm type={'email'} checkInputChange={checkInputChange} initialState={initialState} />
         <InputForm type={'password'} checkInputChange={checkInputChange} initialState={initialState} />
         <div className="submit">
-          <button onClick={() => fetchDataReg(initialState.username, initialState.password, initialState.email)} className="learning__btn">{props.typeForm === 'sign-up' ? t('register') : t('sign-in')}</button>
+          <button 
+          //onClick={() => fetchDataReg(initialState.username, initialState.password, initialState.email)} 
+          
+          className="learning__btn">{props.typeForm === 'sign-up' ? t('register') : t('sign-in')}</button>
         </div>
       </form>
     </div>
