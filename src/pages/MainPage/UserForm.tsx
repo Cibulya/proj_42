@@ -1,7 +1,7 @@
-import React, { ChangeEvent, useEffect, useState } from 'react';
-import { classNames } from 'helpers/classNames/classNames';
-import { useTranslation } from 'react-i18next';
 import { Avatar } from '@mui/material';
+import { classNames } from 'helpers/classNames/classNames';
+import { ChangeEvent, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 type UserFormPropsType = {
   className?: string;
@@ -13,7 +13,7 @@ const UserForm = (props: UserFormPropsType) => {
   const [urlPhoto, setUrlPhoto] = useState('');
 
   useEffect(() => {
-    fetch('https://guiseppe-production.up.railway.app/api/login', {
+    fetch('http://localhost:7000/api/login', {
       method: 'POST',
       credentials: 'include',
       mode: 'cors',
@@ -34,20 +34,16 @@ const UserForm = (props: UserFormPropsType) => {
   });
   const checkSubmitForm = (event: any) => {
     const formData = new FormData();
-    formData.append('image', photo);
-    console.log(photo);
+    formData.append('userImage', photo);
+    formData.append('email', 'cibulyadev@gmail.com');
+    console.log(formData.get('userImage'));
     event.preventDefault();
     fetch('https://guiseppe-production.up.railway.app/api/setpicture', {
-      method: 'PATCH',
+      method: 'POST',
       credentials: 'same-origin',
       mode: 'cors',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        userImage: formData,
-        email: 'cibulyadev@gmail.com',
-      }),
+      headers: {},
+      body: formData,
     })
       .then((response) => response.json())
       .then((data) => {
