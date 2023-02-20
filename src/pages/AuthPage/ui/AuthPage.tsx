@@ -1,11 +1,12 @@
 import React from 'react';
-import SignForm from 'components/auth/SignForm';
+import Authorization from 'components/auth/Authorization';
+import UserSettingsForm from 'components/auth/UserSettingsForm';
 
 const AuthPage = () => {
   return (
     <div className="learning-mode">
-      <SignForm className={'card'} typeForm={'sign-up'} />
-      <SignForm className={'card'} typeForm={'sign-in'} />
+      <Authorization className={'card'} />
+      <UserSettingsForm className={'card'} />
     </div>
   );
 };

@@ -8,6 +8,7 @@
 @import "LearningPage";
 @import "fonts";
 @import "SignUp";
+@import "UserSettingsForm";
 
 
 @font-face {
@@ -18,8 +19,14 @@
 }
 
 .app {
+  position: relative;
   font: var(--font-m);
   background: var(--bg-color);
   color: var(--primary-color);
   min-height: 100vh;
+}
+.loading {
+  position: absolute;
+  left: 50%;
+  top: 50%;
 }
