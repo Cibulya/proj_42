@@ -3,7 +3,7 @@ import ErrorSpan from 'components/auth/ErrorSpan';
 import { useTranslation } from 'react-i18next';
 import { SignState } from 'components/auth/SignForm';
 
-export type InputType = 'username' | 'email' | 'password';
+export type InputType = 'username' | 'email' | 'password' | 'secretWord';
 
 type InputFormPropsType = {
   type: InputType;
@@ -31,6 +31,9 @@ const InputForm = (props: InputFormPropsType) => {
           ? ''
           : 'Password must be minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character';
         break;
+      case 'secretWord':
+        props.initialState.errors.secretWord = value.length < 5 ? 'Secret word must be 5 characters long!' : '';
+        break;
       default:
         break;
     }
@@ -42,7 +45,7 @@ const InputForm = (props: InputFormPropsType) => {
   };
 
   return (
-    <div className={props.type}>
+    <div className={props.type === 'secretWord' ? 'username' : props.type}>
       <label className="label" htmlFor={props.type}>
         {t(`${props.type}`)}
       </label>
