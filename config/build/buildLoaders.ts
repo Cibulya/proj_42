@@ -1,84 +1,81 @@
-import webpack from "webpack";
-import MiniCssExtractPlugin from "mini-css-extract-plugin";
-import { BuildOptions } from "./types";
+import webpack from 'webpack';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import { BuildOptions } from './types';
 
 export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
   const svgLoader = {
     test: /\.svg$/,
-    use: ["@svgr/webpack"]
+    use: ['@svgr/webpack'],
   };
   const fileLoader = {
     test: /.(png|jpe?g|gif)$/i,
     use: [
       {
-        loader: "file-loader"
-      }
-    ]
+        loader: 'file-loader',
+      },
+    ],
   };
   const imgLoader = {
     test: /\.(avif|jpe?g|png|webp)$/,
-    type: "asset"
+    type: 'asset',
   };
   const soundLoader = {
     test: /\.(mp3|ogg)$/,
-    type: "asset/resource",
+    type: 'asset/resource',
     generator: {
-      filename: "assets/media/[name][ext]"
-    }
+      filename: 'assets/media/[name][ext]',
+    },
   };
 
   const fontLoader = {
     test: /\.(woff|woff2|eot|ttf|otf)$/i,
-    type: "asset/resource",
+    type: 'asset/resource',
     generator: {
-      filename: "assets/fonts/[name][ext]"
-    }
+      filename: 'assets/fonts/[name][ext]',
+    },
   };
   const cssLoader = {
     test: /\.s[ac]ss$/i,
     use: [
-      isDev ? "style-loader" : MiniCssExtractPlugin.loader,
+      isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
       {
-        loader: "css-loader",
+        loader: 'css-loader',
         options: {
           modules: {
-            auto: (resPath: string) =>
-              Boolean(resPath.includes(".module.")),
-            localIdentName: isDev
-              ? "[path][name][ext]"
-              : "[name][ext]"
-          }
-        }
+            auto: (resPath: string) => Boolean(resPath.includes('.module.')),
+            localIdentName: isDev ? '[path][name][ext]' : '[name][ext]',
+          },
+        },
       },
-      "sass-loader"
-    ]
+      'sass-loader',
+    ],
   };
 
   const typescriptLoader = {
     test: /\.(tsx|ts|js)$/i,
-    use: "ts-loader",
-    exclude: /node_modules/
+    use: 'ts-loader',
+    exclude: /node_modules/,
   };
   const babelLoader = {
     test: /\.(js|jsx|ts|tsx)$/,
     exclude: /node_modules/,
     use: {
-      loader: "babel-loader",
+      loader: 'babel-loader',
       options: {
-        presets: ["@babel/preset-env"],
+        presets: ['@babel/preset-env'],
         plugins: [
           [
-            "i18next-extract",
+            'i18next-extract',
             {
-              locales: ["en", "ru"],
+              locales: ['en', 'ru'],
               keyAsDefaultValue: false,
               saveMissing: true,
-              outputPath: "public/locales/{{locale}}/{{ns}}.json"
-            }
-          ]
-        ]
-      }
-    }
+              outputPath: 'public/locales/{{locale}}/{{ns}}.json',
+            },
+          ],
+        ],
+      },
+    },
   };
-  return [fileLoader,soundLoader, svgLoader, fontLoader, babelLoader, typescriptLoader, cssLoader, imgLoader];
+  return [fileLoader, soundLoader, svgLoader, fontLoader, babelLoader, typescriptLoader, cssLoader, imgLoader];
 }

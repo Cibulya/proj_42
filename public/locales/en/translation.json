@@ -13,5 +13,9 @@
   "register": "Register",
   "sign-in": "Sign In",
   "sign-up": "Sign up",
-  "username": "User name"
+  "username": "User name",
+  "userSettings": "User settings",
+  "add-file" : "Add new photo",
+  "authorization": "Authorization",
+  "restore": "Restore password"
 }
