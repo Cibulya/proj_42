@@ -56,15 +56,14 @@ const SignForm = (props: SignFormPropsType) => {
         <InputForm type={'password'} checkInputChange={checkInputChange} initialState={initialState} />
         <div className="submit">
           <button 
-          //onClick={() => fetchDataReg(initialState.username, initialState.password, initialState.email)} 
-          
+          //</div>onClick={() => fetchDataReg()} 
           className="learning__btn">{props.typeForm === 'sign-up' ? t('register') : t('sign-in')}</button>
         </div>
       </form>
     </div>
   );
 };
-async function fetchDataLogin(password: string, email: string) {
+async function fetchDataLogin() {
   await fetch('https://guiseppe-production.up.railway.app/api/login', {
     method: 'POST',
     credentials: 'include',
@@ -74,27 +73,33 @@ async function fetchDataLogin(password: string, email: string) {
         'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-    "password": password,
-    "email": email
+    "name":"Юра1",
+    "password":"passsword",
+    "email": "drobysh_sv@mail.ru"
 })
 }).then((response) => response.json()).then((data) => console.log(data))
 }
 
-async function fetchDataReg(username: string, password: string, email: string) {
+async function fetchDataReg() {
   await fetch('https://guiseppe-production.up.railway.app/api/register', {
     method: 'POST',
-    cache: 'force-cache',
     credentials: 'include',
     mode: 'cors',
     //origin: 'https://guiseppe-production.up.railway.app/',
     headers: {
-        'Content-Type': 'application/json',
+      'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-    "name": username,
-    "password": password,
-    "email": email
-})
-}).then((response) => response.json()).then((data) => console.log(data))
+      name: 'Marina',
+      email: 'waveee@gmail.com',
+      password: 'password',
+      secretWord: 'password',
+    }),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      //setUrlPhoto(data.userImage);
+    });
 }
 export default SignForm;

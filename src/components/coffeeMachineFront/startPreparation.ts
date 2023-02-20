@@ -4,7 +4,13 @@ import addCup from '../cup/addCup';
 import { water, beans, wastePlace, reduceResources } from './manageResources';
 
 function startPreparation() {
-  const drinkBtn = (event.target as HTMLElement).parentElement;
+  let drinkBtn;
+  if ((event.target as HTMLElement).getAttribute('class').includes('drink')) {
+    drinkBtn = (event.target as HTMLElement).parentElement;
+  } else {
+    drinkBtn = (event.target as HTMLElement);
+  } 
+  
   
   const coffee = drinkBtn.getAttribute('value');
   const size = drinkBtn.getAttribute('data-size');
