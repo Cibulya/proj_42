@@ -2,6 +2,7 @@ import React from 'react';
 import { ToggleButton } from '@mui/material';
 import { sound } from "../sound/allSounds";
 
+export let turnOff: Function;
 
 function TurnOnOff() {
   const [selected, setSelected] = React.useState(false);
@@ -11,21 +12,27 @@ function TurnOnOff() {
     indicators[0].classList.remove('active')
   }
 
+  const invitation = document.querySelector('.invitation');
+  const chooseMessage = document.querySelector('.choose__message');
   const msg = document.querySelector('.message');
   const drinks = document.querySelector('.control__middle');
   const modal = document.querySelector('.card');
   
   if (msg && msg.innerHTML === 'Turn on the coffee machine' && selected) {
     msg.innerHTML = 'Choose coffee';
+    (invitation as HTMLElement).style.display = 'none';
+    (chooseMessage as HTMLElement).style.display = 'flex';
   } else if (msg && modal) {
     msg.innerHTML = '';
     drinks.classList.add('hidden');
   } else if (msg && !modal) {
     msg.innerHTML = 'Turn on the coffee machine';
     drinks.classList.add('hidden');
+    (invitation as HTMLElement).style.display = 'flex';
+    (chooseMessage as HTMLElement).style.display = 'none';
   }
 
-  function toggle() {
+  const toggle = function() {
     const drinks = document.querySelector('.control__middle');
     const screen = document.querySelector('.control__screen');
     const authIcon = document.querySelector('.auth-icon');
@@ -60,6 +67,7 @@ function TurnOnOff() {
       if (auth) (auth as HTMLElement).style.display = 'flex';
     })
     }
+    turnOff = toggle;
 
   return (
     <ToggleButton

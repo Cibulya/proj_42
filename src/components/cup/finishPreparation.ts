@@ -1,6 +1,7 @@
 import { sound } from "../sound/allSounds";
 import fillCup from './fillCup';
 
+export let removeCup: Function; 
 
 function finishPreparation() {
   fillCup(0.1);
@@ -25,7 +26,7 @@ function finishPreparation() {
 
   const modal = document.querySelector('.card');
 
-  function takeCup() {
+  const takeCup = function () {
     const steam = document.querySelector('.steam');
     (cup as HTMLElement).style.display = "none";
     (steam as HTMLElement).style.display = "none";
@@ -41,6 +42,8 @@ function finishPreparation() {
     const onBtn = document.getElementsByClassName('onBtn');
     (onBtn[0] as HTMLButtonElement).disabled = false;
   }
+
+  removeCup = takeCup;
 
   return;
 }

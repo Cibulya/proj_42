@@ -17,6 +17,8 @@ export interface LearningPropsType {
 	modalRightBottom?: ModalStateType;
 }
 
+let score = 0;
+
 const LearningModePage = () => {
   const dark = document.querySelector('.dark');
   let bg: string;
@@ -87,6 +89,7 @@ const LearningModePage = () => {
       break;
     case 11:
       setTimeout(() => { setProgress(progress + 1) }, 7000)
+      score = 0;
       break;
     case 13:
     case 16:
@@ -100,6 +103,10 @@ const LearningModePage = () => {
       setBlick(1);
       break;
     case 18:
+      setTimeout(() => {
+        const finishMsg = document.querySelector('.modalCenter');
+        if (finishMsg) finishMsg.innerHTML += `QUIZ RESULT: You got ${score}/5 points!`;
+      }, 0);
       const bonus = document.querySelector('.bonus');
       (bonus as HTMLElement).style.display = 'flex';
       break;
@@ -121,12 +128,21 @@ const LearningModePage = () => {
   }
 
   function removeBlick() {
+    countScore();
     machine.classList.remove('right__machine');
     machine.classList.remove('wrong__machine');
     modal[1].classList.remove('right__modal');
     modal[1].classList.remove('wrong__modal');
     modal[2].classList.remove('right__modal');
     modal[2].classList.remove('wrong__modal');
+  }
+
+  function countScore() {
+    if (machine && modal[1] && modal [2]) {
+      if (machine.getAttribute('class').includes('right__machine') || 
+        modal[1].getAttribute('class').includes('right__modal') || 
+        modal[2].getAttribute('class').includes('right__modal')) score++
+    }
   }
 
 	return (
