@@ -7,15 +7,19 @@
   "Pause Mode": "Pause Mode",
   "Statistic": "Statistic",
   "Theme": "Day/Night",
+  "add-file": "Add new photo",
+  "authorization": "Authorization",
+  "changePassword": "Change password",
+  "changePhoto": "Change photo",
   "email": "Email",
   "next": "Next",
   "password": "Password",
   "register": "Register",
+  "restore": "Restore password",
+  "save": "Save",
   "sign-in": "Sign In",
   "sign-up": "Sign up",
-  "username": "User name",
+  "userPhoto": "User photo",
   "userSettings": "User settings",
-  "add-file" : "Add new photo",
-  "authorization": "Authorization",
-  "restore": "Restore password"
+  "username": "User name"
 }
