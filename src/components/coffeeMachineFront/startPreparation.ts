@@ -4,7 +4,13 @@ import addCup from '../cup/addCup';
 import { water, beans, wastePlace, reduceResources } from './manageResources';
 
 function startPreparation() {
-  const drinkBtn = (event.target as HTMLElement).parentElement;
+  let drinkBtn;
+  if ((event.target as HTMLElement).getAttribute('class').includes('drink')) {
+    drinkBtn = (event.target as HTMLElement).parentElement;
+  } else {
+    drinkBtn = (event.target as HTMLElement);
+  } 
+  
   
   const coffee = drinkBtn.getAttribute('value');
   const size = drinkBtn.getAttribute('data-size');
@@ -14,8 +20,7 @@ function startPreparation() {
   const isOn = document.querySelector('.onBtn').getAttribute("aria-pressed");
 
   const drinks = document.querySelector('.control__middle');
-  (drinks as HTMLElement).style.width = '0px';
-  (drinks as HTMLElement).style.flex = '0';
+  drinks.classList.add('hidden');
   (screen as HTMLElement).style.display = 'flex';
 
   const cupContainer = document.querySelector('.cup-container');

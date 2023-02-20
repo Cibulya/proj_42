@@ -27,10 +27,11 @@
 .header-logo {
   z-index: 10;
   position: relative;
-  width: calc(122px * 1);
-  height: calc(114px * 1);
+  top: 0.5vh;
+  width: 18vh;
+  height: 15vh;
   display: block;
-  background: url("https://raw.githubusercontent.com/MarinaKovel/coffeemachinedata/main/design/logo.png") no-repeat;
+  background: url("https://raw.githubusercontent.com/MarinaKovel/coffeemachinedata/main/design/logo.png") 0% 50%/ 100% no-repeat;
   background-size: contain;
 }
 

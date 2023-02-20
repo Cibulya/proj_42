@@ -2,6 +2,8 @@ import React from 'react';
 import { classNames } from 'helpers/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { LearningSteps } from 'fonts/LearningSteps';
+import { turnOff } from 'components/coffeeMachineFront/onOffBtn';
+import { removeCup } from 'components/cup/finishPreparation';
 
 export type ModalStateType = {
 	text: string;
@@ -38,9 +40,15 @@ const LearningCard = (props: CardProps) => {
 			}
 			{props.state.buttonOne !== ''
 				? <button className="learning__btn" onClick={(event) => {
-					t(`${props.state.buttonOne}`) !== "Repeat" 
-					? raiseProgress(props.progress + 1)
-					: raiseProgress(0)
+					if (t(`${props.state.buttonOne}`) !== "Repeat") {
+						raiseProgress(props.progress + 1)
+					} else {
+						const onBtn = document.querySelector('.onBtn');
+						
+						if (onBtn.getAttribute('aria-pressed') === 'true') turnOff();
+						removeCup();
+						raiseProgress(0);
+					}
 				}}>{t(`${props.state.buttonOne}`)}</button>
 				: <></>
 			}

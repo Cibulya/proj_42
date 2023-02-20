@@ -27,7 +27,7 @@ const InputForm = (props: InputFormPropsType) => {
         props.initialState.errors.email = RegexEmail.test(value) ? '' : 'Email is not valid!';
         break;
       case 'password':
-        props.initialState.errors.password = RegexPassword.test(value)
+        props.initialState.errors.password =  value.length > 5
           ? ''
           : 'Password must be minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character';
         break;

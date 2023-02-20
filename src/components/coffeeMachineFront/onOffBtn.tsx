@@ -2,6 +2,7 @@ import React from 'react';
 import { ToggleButton } from '@mui/material';
 import { sound } from "../sound/allSounds";
 
+export let turnOff: Function;
 
 function TurnOnOff() {
   const [selected, setSelected] = React.useState(false);
@@ -11,41 +12,62 @@ function TurnOnOff() {
     indicators[0].classList.remove('active')
   }
 
+  const invitation = document.querySelector('.invitation');
+  const chooseMessage = document.querySelector('.choose__message');
   const msg = document.querySelector('.message');
   const drinks = document.querySelector('.control__middle');
   const modal = document.querySelector('.card');
   
   if (msg && msg.innerHTML === 'Turn on the coffee machine' && selected) {
     msg.innerHTML = 'Choose coffee';
+    (invitation as HTMLElement).style.display = 'none';
+    (chooseMessage as HTMLElement).style.display = 'flex';
   } else if (msg && modal) {
     msg.innerHTML = '';
-    (drinks as HTMLElement).style.width = '0px';
+    drinks.classList.add('hidden');
   } else if (msg && !modal) {
     msg.innerHTML = 'Turn on the coffee machine';
-    (drinks as HTMLElement).style.width = '0px';
+    drinks.classList.add('hidden');
+    (invitation as HTMLElement).style.display = 'flex';
+    (chooseMessage as HTMLElement).style.display = 'none';
   }
 
-  function toggle() {
+  const toggle = function() {
     const drinks = document.querySelector('.control__middle');
     const screen = document.querySelector('.control__screen');
+    const authIcon = document.querySelector('.auth-icon');
+    const auth = document.querySelector('.auth');
 
     if (!selected) {
-      (drinks as HTMLElement).style.width = '100%';
-      (drinks as HTMLElement).style.flex = '1';
-      (screen as HTMLElement).style.display = 'none';
+      if (modal) {
+        (authIcon as HTMLElement).style.display = 'block';
+        (screen as HTMLElement).style.display = 'none';
+        drinks.classList.add('hidden');
+        
+      } else {
+        if (auth) (auth as HTMLElement).style.display = 'none';
+        (screen as HTMLElement).style.display = 'none';
+        drinks.classList.remove('hidden');
+      }
     } else {
-      (drinks as HTMLElement).style.width = '0px';
-      (drinks as HTMLElement).style.flex = '0';
+      if (auth) (auth as HTMLElement).style.display = 'none';
       (screen as HTMLElement).style.display = 'flex';
+      drinks.classList.add('hidden');
     }
     setSelected(!selected);
     sound.play('onOff');
     const btn = event.target;
+   
     (btn as HTMLButtonElement).disabled = true;
     setTimeout(() => {
-      (btn as HTMLButtonElement).disabled = false;
+      if (!modal) (btn as HTMLButtonElement).disabled = false;
     }, 1000)
+
+    authIcon.addEventListener('click', () => {
+      if (auth) (auth as HTMLElement).style.display = 'flex';
+    })
     }
+    turnOff = toggle;
 
   return (
     <ToggleButton

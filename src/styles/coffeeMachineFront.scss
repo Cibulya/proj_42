@@ -1,3 +1,22 @@
+.bg {
+  position: absolute;
+  top: 0px;
+  height: 100%;
+  width: 100%;
+  background: url('https://raw.githubusercontent.com/MarinaKovel/coffeemachinedata/main/design/table-light.jpg') center top no-repeat;
+  background-size: auto 100vh;
+  z-index: 0;
+}
+.bg-night {
+  position: absolute;
+  top: 0px;
+  height: 100%;
+  width: 100%;
+  background: url('https://raw.githubusercontent.com/MarinaKovel/coffeemachinedata/main/design/table-dark.jpg') center top no-repeat;
+  background-size: auto 100vh;
+  z-index: 0;
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -5,13 +24,17 @@
   align-items: center;
 }
 .invitation {
+  position: relative;
+  display: flex;
   margin: 20px;
   background-color: #89607ccf;
   color: #fff;
   border-radius: 20px;
   padding: 15px;
+  font-size: 1.2rem;
 }
 .machine {
+  position: relative;
   width: calc(70vh / 1.5);
   height: 70vh;
   border-radius: 10px;
@@ -53,8 +76,11 @@
   align-items: center;
   flex-wrap: wrap;
   height: 100%;
-  width: 0px;
+  width: 100%;
   margin-top: 1px;
+}
+.hidden {
+  display: none !important;
 }
 .control__middle > button {
   border-radius: 4px;
@@ -74,7 +100,6 @@
   background-color: #000;
   border-radius: 4px !important;
   padding: 0 !important;
-  margin: 0 2%;
   overflow: hidden;
 }
 .control__right {
@@ -155,7 +180,7 @@ button {
 .music__container {
   display: flex;
   justify-content: center;
-  background-color: #00000068;
+  background-color: #b32a73c9;
   border-radius: 15px;
   padding: 20px;
   width: 100%;
@@ -176,3 +201,36 @@ button {
   box-shadow: 2px 3px 5px rgb(16, 16, 16);
   color: #fff !important;
 }
+.auth-icon {
+  display: none;
+  width: 9vh;
+  height: 9vh;
+  margin: 1vh 3vh;
+  border-radius: 50px;
+  background: url('https://raw.githubusercontent.com/MarinaKovel/coffeemachinedata/main/user.png') 0% 0% / 100% 100% no-repeat;
+  animation: blinkUser 3s infinite;
+}
+.auth-icon:hover {
+  cursor: pointer;
+}
+.account {
+  font-size: 0.55rem;
+  color: #fff;
+  position: relative;
+  top: 9vh;
+  text-align: center;
+}
+@keyframes blinkUser {
+  50% {box-shadow: 0px 0px 10px 5px #ffffff;}
+}
+
+@media screen and (max-width: 915px) {
+
+  .bg,
+  .bg-night {
+    height: 117%;
+    background-size: auto 117vh;
+  }
+
+}
+

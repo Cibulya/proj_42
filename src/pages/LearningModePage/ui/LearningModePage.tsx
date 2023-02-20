@@ -6,6 +6,9 @@ import { useTranslation } from 'react-i18next';
 import CoffeeMachineFront from 'components/coffeeMachineFront/coffeeMachineFront';
 import Box from '@mui/material/Box';
 import LinearProgress from '@mui/material/LinearProgress';
+import SignForm from 'components/auth/SignForm';
+import Weather from 'weatherWidget/Weather';
+import Radio from 'components/sound/radio';
 
 export interface LearningPropsType {
 	modalCenter?: ModalStateType;
@@ -14,7 +17,13 @@ export interface LearningPropsType {
 	modalRightBottom?: ModalStateType;
 }
 
+let score = 0;
+
 const LearningModePage = () => {
+  const dark = document.querySelector('.dark');
+  let bg: string;
+  !dark ? bg = 'bglearn' : bg = 'bglearn-night';
+
 	const { t } = useTranslation();
 	const [progress, setProgress] = useState(0);
 	const state = LearningSteps[progress];
@@ -24,6 +33,10 @@ const LearningModePage = () => {
   const msg = document.querySelector('.message');
   const modal = document.getElementsByClassName('card');
   const btn = document.querySelector('.learning__btn');
+  const auth = document.querySelector('.auth');
+  const authIcon = document.querySelector('.auth-icon');
+  const drinks = document.querySelector('.control__middle');
+  const screen = document.querySelector('.control__screen');
   const answers = [
     ['right__machine', 'wrong__modal', 'wrong__modal'],
     ['wrong__machine', 'right__modal', 'wrong__modal'],
@@ -32,8 +45,11 @@ const LearningModePage = () => {
 
   switch (progress) {
     case 1:
-      const onBtn = document.querySelector('.onBtn');
-      onBtn.addEventListener('click', () => {setProgress(progress + 1)})
+      const submit = document.querySelector('.submit');
+      submit.addEventListener('click', () => {
+        setProgress(progress + 1);
+        (auth as HTMLElement).style.display = 'none';
+      })
       break;
     case 4:
       machine.classList.add('blink__machine');
@@ -54,8 +70,10 @@ const LearningModePage = () => {
       }, 9000)
       break;
     case 6:
-      const btns = document.querySelector('.control__middle');
-      btns.addEventListener('click', () => {
+      if (authIcon) (authIcon as HTMLElement).style.display = 'none';
+      (screen as HTMLElement).style.display = 'none';
+      setTimeout(() => {drinks.classList.remove('hidden');}, 0)
+      drinks.addEventListener('click', () => {
         setProgress(progress + 1)
         msg.innerHTML = '';
       })
@@ -71,6 +89,7 @@ const LearningModePage = () => {
       break;
     case 11:
       setTimeout(() => { setProgress(progress + 1) }, 7000)
+      score = 0;
       break;
     case 13:
     case 16:
@@ -82,6 +101,14 @@ const LearningModePage = () => {
     case 15:
     case 17:
       setBlick(1);
+      break;
+    case 18:
+      setTimeout(() => {
+        const finishMsg = document.querySelector('.modalCenter');
+        if (finishMsg) finishMsg.innerHTML += `QUIZ RESULT: You got ${score}/5 points!`;
+      }, 0);
+      const bonus = document.querySelector('.bonus');
+      (bonus as HTMLElement).style.display = 'flex';
       break;
     default:
   }
@@ -101,6 +128,7 @@ const LearningModePage = () => {
   }
 
   function removeBlick() {
+    countScore();
     machine.classList.remove('right__machine');
     machine.classList.remove('wrong__machine');
     modal[1].classList.remove('right__modal');
@@ -109,8 +137,23 @@ const LearningModePage = () => {
     modal[2].classList.remove('wrong__modal');
   }
 
+  function countScore() {
+    if (machine && modal[1] && modal [2]) {
+      if (machine.getAttribute('class').includes('right__machine') || 
+        modal[1].getAttribute('class').includes('right__modal') || 
+        modal[2].getAttribute('class').includes('right__modal')) score++
+    }
+  }
+
 	return (
 		<div className={classNames('learning-mode')}>
+      <div className={bg}></div>
+      {
+        <Box className={classNames('progress')} sx={{ width: '80%' }}>
+				  <LinearProgress color="secondary" variant="buffer" value={progress / 18 * 100} valueBuffer={100} />
+			  </Box>
+      }
+      
 			{LearningSteps.length > progress
 				? modals.map((modal) => {
 					if (modal[1].text !== '') {
@@ -134,9 +177,12 @@ const LearningModePage = () => {
           <CoffeeMachineFront/>
         </div>
       }
-			<Box className={classNames('progress')} sx={{ width: '80%' }}>
-				<LinearProgress variant="buffer" value={progress / 18 * 100} valueBuffer={100} />
-			</Box>
+			
+      <SignForm className={'card auth'} typeForm={'sign-up'} />
+      <div className='bonus'>
+        <Weather/>
+        <Radio/>
+      </div>
 		</div>
 	);
 }

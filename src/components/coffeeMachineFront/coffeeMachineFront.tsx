@@ -24,6 +24,9 @@ const CoffeeMachineFront = function() {
             <CanvasClock id="canvas" top="10" left="-13" width="200" height="29" fontSize = "12" dialColor="rgb(227, 214, 214)" bgColor="#a17d8b"/>
             <p className = "message">Turn on the coffee machine</p>
           </div>
+          <div className = "auth-icon">
+            <p className = "account">My Account</p>
+          </div>
         </div>
       </div>
       <div className = "placeForCup">
