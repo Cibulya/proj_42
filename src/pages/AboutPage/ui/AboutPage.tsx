@@ -2,13 +2,13 @@ import React from 'react';
 import CoffeeMachineBack from 'components/coffeeMachineBack/coffeeMachineBack';
 
 const AboutPage = () => {
-  const dark = document.querySelector('.dark');
-  let bg: string;
-  !dark ? bg = 'bgback' : bg = 'bgack-night';
+  const background = document.querySelector('.app');
+  background.classList.remove('main');
+  background.classList.remove('chip');
+	background.classList.add('table')
 
   return (
     <div className = "container">
-      <div className={bg}></div>
       <CoffeeMachineBack/>
     </div>
   );

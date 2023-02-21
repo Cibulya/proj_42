@@ -5,9 +5,17 @@ export enum Theme {
   LIGHT = 'light'
 }
 
+export enum Page {
+  MAIN = 'main',
+  TABLE = 'table',
+  CHIP = 'chip'
+}
+
 export interface ThemeContextProps {
   theme?: Theme;
   setTheme?: (theme: Theme) => void
+  page?: Page;
+  setPage?: (page: Page) => void
 }
 
 export const ThemeContext = createContext<ThemeContextProps>({})

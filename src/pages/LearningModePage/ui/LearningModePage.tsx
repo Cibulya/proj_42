@@ -20,9 +20,10 @@ export interface LearningPropsType {
 let score = 0;
 
 const LearningModePage = () => {
-  const dark = document.querySelector('.dark');
-  let bg: string;
-  !dark ? bg = 'bglearn' : bg = 'bglearn-night';
+  const background = document.querySelector('.app');
+  background.classList.remove('main');
+  background.classList.remove('chip');
+	background.classList.add('table');
 
 	const { t } = useTranslation();
 	const [progress, setProgress] = useState(0);
@@ -147,7 +148,6 @@ const LearningModePage = () => {
 
 	return (
 		<div className={classNames('learning-mode')}>
-      <div className={bg}></div>
       {
         <Box className={classNames('progress')} sx={{ width: '80%' }}>
 				  <LinearProgress color="secondary" variant="buffer" value={progress / 18 * 100} valueBuffer={100} />
