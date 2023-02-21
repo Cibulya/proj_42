@@ -1,8 +1,9 @@
-import React, { FormEvent, useState } from 'react';
+import React, { FormEvent, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import InputForm from 'components/auth/InputForm';
 import { SignType } from 'components/auth/Authorization';
 import { API } from 'Api';
+import ErrorSpan from 'components/auth/ErrorSpan';
 
 export type ErrorsStateType = {
   username: string;
@@ -38,8 +39,11 @@ const SignForm = (props: SignFormPropsType) => {
       secretWord: '',
     },
   });
+  const [error, setError] = useState('');
+  const formRef = useRef();
   const checkInputChange = (state: SignState) => {
     setInitialState({ ...state });
+    setError('');
   };
   const checkSubmitForm = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -53,17 +57,48 @@ const SignForm = (props: SignFormPropsType) => {
             email: initialState.email,
             password: initialState.password,
             secretWord: initialState.secretWord,
-          }).then((data) => console.log(data));
+          }).then((data) => {
+            if (data && data.message === 'User created') {
+              API.loginUser({
+                email: initialState.email,
+                password: initialState.password,
+              }).then((data) => {
+                !data.hasOwnProperty('error')
+                  ? ((formRef.current as HTMLDivElement).parentElement.style.display = 'none')
+                  : setError(data.error || 'Try again');
+              });
+            }
+          });
           break;
         case 'login':
           API.loginUser({
             email: initialState.email,
             password: initialState.password,
-          }).then((data) => console.log(data));
+          }).then((data) => {
+            !data.hasOwnProperty('error')
+              ? ((formRef.current as HTMLDivElement).parentElement.style.display = 'none')
+              : setError(data.error || 'Try again');
+          });
           break;
         case 'restore':
-          break;
-        case 'change-password':
+          API.restoreUser({
+            email: initialState.email,
+            password: initialState.password,
+            secretWord: initialState.secretWord,
+          }).then((data) => {
+            if (data.statusCode !== 500) {
+              API.loginUser({
+                email: initialState.email,
+                password: initialState.password,
+              }).then((data) => {
+                !data.hasOwnProperty('error')
+                  ? ((formRef.current as HTMLDivElement).parentElement.style.display = 'none')
+                  : setError(data.error || 'Try again');
+              });
+            } else {
+              setError(data.message || 'Try again');
+            }
+          });
           break;
         default:
           break;
@@ -84,7 +119,8 @@ const SignForm = (props: SignFormPropsType) => {
   };
 
   return (
-    <form className="form" onSubmit={checkSubmitForm} noValidate>
+    <form ref={formRef} className="form" onSubmit={checkSubmitForm} noValidate>
+      {error.length > 0 && <ErrorSpan text={error} />}
       {props.typeForm === 'login' && (
         <>
           <InputForm type={'email'} checkInputChange={checkInputChange} initialState={initialState} />
@@ -109,13 +145,7 @@ const SignForm = (props: SignFormPropsType) => {
 
       <div className="submit">
         <button className="learning__btn">
-          {props.typeForm === 'sign-up'
-            ? t('register')
-            : props.typeForm === 'restore'
-            ? t('restore')
-            : props.typeForm === 'change-password'
-            ? t('save')
-            : t('login')}
+          {props.typeForm === 'sign-up' ? t('register') : props.typeForm === 'restore' ? t('restore') : t('login')}
         </button>
       </div>
     </form>
@@ -123,4 +153,3 @@ const SignForm = (props: SignFormPropsType) => {
 };
 
 export default SignForm;
-
