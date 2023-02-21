@@ -14,6 +14,7 @@ const Authorization = (props: AuthorizationPropsType) => {
   const { t } = useTranslation();
 
   const [value, setValue] = React.useState<SignType>('login');
+
   const handleChange = async (event: React.SyntheticEvent, newValue: SignType) => {
     await setValue(newValue);
   };
@@ -30,6 +31,7 @@ const Authorization = (props: AuthorizationPropsType) => {
         >
           <Tab value="login" label={t('login')} />
           <Tab value="sign-up" label={t('sign-up')} />
+          <Tab value="restore" disableRipple={true} disabled={true} />
         </Tabs>
       </Box>
       <SignForm typeForm={value} />

@@ -7,6 +7,7 @@ export enum EndPoints {
   LOGIN = 'login/',
   LOGOUT = 'logout/',
   SET_PICTURE = 'setpicture/',
+  RESTORE = 'restore/',
 }
 
 type CreateUserBodyType = {
@@ -16,8 +17,13 @@ type CreateUserBodyType = {
   secretWord: string;
 };
 
-export interface FormDataBody {
-  [key: string]: string | Blob;
+interface IUserType {
+  activationLink: string;
+  coffeeStatus: string;
+  email: string;
+  isActivated: boolean;
+  name: string;
+  userImage: string;
 }
 
 export const API = {
@@ -27,7 +33,9 @@ export const API = {
       credentials: 'include',
       mode: 'cors',
       headers: {},
-    }).then((response) => response.json());
+    })
+      .then((response: Response): Promise<IUserType> => response.json())
+      .catch((error: Error) => console.log(error));
   },
   createUser(body: CreateUserBodyType) {
     return fetch(`${BASE_URL}${EndPoints.REGISTER}`, {
@@ -38,7 +46,9 @@ export const API = {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(body),
-    }).then((response) => response.json());
+    })
+      .then((response) => response.json())
+      .catch((error: Error) => console.log(error));
   },
   loginUser(body: Partial<CreateUserBodyType>) {
     return fetch(`${BASE_URL}${EndPoints.LOGIN}`, {
@@ -49,7 +59,9 @@ export const API = {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(body),
-    }).then((response) => response.json());
+    })
+      .then((response) => response.json())
+      .catch((error: Error) => console.log(error));
   },
   logoutUser() {
     return fetch(`${BASE_URL}${EndPoints.LOGOUT}`, {
@@ -59,7 +71,9 @@ export const API = {
       headers: {
         'Content-Type': 'application/json',
       },
-    }).then((response) => response.json());
+    })
+      .then((response) => response.json())
+      .catch((error: Error) => console.log(error));
   },
   updateAvatar(formData: FormData) {
     return fetch(`${BASE_URL}${EndPoints.SET_PICTURE}`, {
@@ -68,6 +82,21 @@ export const API = {
       mode: 'cors',
       headers: {},
       body: formData,
-    }).then((response) => response.json());
+    })
+      .then((response) => response.json())
+      .catch((error: Error) => console.log(error));
+  },
+  restoreUser(body: Partial<CreateUserBodyType>) {
+    return fetch(`${BASE_URL}${EndPoints.RESTORE}`, {
+      method: 'POST',
+      credentials: 'include',
+      mode: 'cors',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(body),
+    })
+      .then((response) => response.json())
+      .catch((error: Error) => console.log(error));
   },
 };
