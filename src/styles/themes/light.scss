@@ -8,14 +8,19 @@
 .app.light.main {
   background: url('https://raw.githubusercontent.com/MarinaKovel/coffeemachinedata/main/design/bg-main-day.jpg') center top no-repeat;
   background-size: auto 100vh;
+  background-color: #d8a6b0;
 }
 
-.app.light.table {
+.app.light.pause,
+.app.light.learning,
+.app.light.about {
   background: url('https://raw.githubusercontent.com/MarinaKovel/coffeemachinedata/main/design/table-light.jpg') center top no-repeat;
   background-size: auto 100vh;
+  background-color: #d8a6b0;
 }
-.app.light.chip {
+.app.light.auth {
   background: url('https://raw.githubusercontent.com/MarinaKovel/coffeemachinedata/main/design/schema-light.jpg') center top no-repeat;
   background-size: auto 100vh;
+  background-color: #88719b;
 }
 

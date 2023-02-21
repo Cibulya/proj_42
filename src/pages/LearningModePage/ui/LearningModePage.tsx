@@ -20,11 +20,6 @@ export interface LearningPropsType {
 let score = 0;
 
 const LearningModePage = () => {
-  const background = document.querySelector('.app');
-  background.classList.remove('main');
-  background.classList.remove('chip');
-	background.classList.add('table');
-
 	const { t } = useTranslation();
 	const [progress, setProgress] = useState(0);
 	const state = LearningSteps[progress];

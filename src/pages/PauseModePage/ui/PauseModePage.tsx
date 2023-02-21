@@ -4,13 +4,6 @@ import 'styles/coffeeMachineFront.scss';
 import ChooseColor from 'components/coffeeMachineFront/chooseColor';
 
 const PauseModePage = () => {
-  const background = document.querySelector('.app');
-  const theme = document.querySelector('.theme-switcher');
-  background.classList.remove('main');
-  background.classList.remove('chip');
-	background.classList.add('table');
-  theme.addEventListener('click', () => background.classList.add('table'));
-
 
 	return (
 		<div className='pause-mode'>

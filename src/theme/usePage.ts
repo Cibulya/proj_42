@@ -1,16 +1,16 @@
-import {LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext, Page} from "./ThemeContext";
 import {useContext} from "react";
+import { PageContext } from 'theme/PageContext';
 
 interface UsePageResult {
-  togglePage: () => void;
-  page: Page;
+  togglePage: (link: string) => void;
+  page: string;
 }
 
 export function usePage(): UsePageResult {
-  const {page, setPage} = useContext(ThemeContext);
+  const { page, setPage } = useContext(PageContext);
 
-  const togglePage = () => {
-    const newPage = Page.MAIN;
+  const togglePage = (link: string) => {
+    const newPage = link;
 
     setPage(newPage);
   }
