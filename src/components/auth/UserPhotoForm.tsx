@@ -44,12 +44,10 @@ const UserPhotoForm = (props: UserFormPropsType) => {
         });
         if (!data.isActivated) {
           (labelRef.current as HTMLLabelElement).textContent = `${t('activate')}`;
-          (buttonSubmitRef.current as HTMLButtonElement).disabled = Boolean(!initialState.userName);
           (fileInput.current as HTMLInputElement).disabled = Boolean(!initialState.userName);
         }
       } else {
         (labelRef.current as HTMLLabelElement).textContent = `${t('login-reload')}`;
-        (buttonSubmitRef.current as HTMLButtonElement).disabled = Boolean(!initialState.userName);
         (fileInput.current as HTMLInputElement).disabled = Boolean(!initialState.userName);
       }
     });
@@ -68,6 +66,7 @@ const UserPhotoForm = (props: UserFormPropsType) => {
     });
     fileInput.current.value = '';
     setPhoto(null);
+    (buttonSubmitRef.current as HTMLButtonElement).disabled = Boolean(true);
   };
 
   const selectPhoto = (e: ChangeEvent<HTMLInputElement>) => {
@@ -83,6 +82,7 @@ const UserPhotoForm = (props: UserFormPropsType) => {
         ...initialState,
         userImage: URL.createObjectURL(file),
       });
+      (buttonSubmitRef.current as HTMLButtonElement).disabled = Boolean(!initialState.email);
       setError('');
     } else {
       e.target.files = null;
@@ -102,7 +102,7 @@ const UserPhotoForm = (props: UserFormPropsType) => {
       <input ref={fileInput} id="file" className="input input-file" type="file" name="file" onChange={selectPhoto} />
       {error.length > 0 && <ErrorSpan text={error} />}
       <div className="submit">
-        <button ref={buttonSubmitRef} className="learning__btn">
+        <button ref={buttonSubmitRef} className="learning__btn" disabled>
           {t('save')}
         </button>
       </div>
