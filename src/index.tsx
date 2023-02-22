@@ -5,12 +5,15 @@ import ThemeProvider from './theme/ThemeProvider';
 
 import i18n from 'i18n/i18n';
 import { I18nextProvider } from 'react-i18next';
+import PageProvider from 'theme/PageProvider';
 
 render(
   <BrowserRouter>
     <I18nextProvider i18n={i18n}>
       <ThemeProvider>
-        <App />
+        <PageProvider>
+          <App />
+        </PageProvider>
       </ThemeProvider>
     </I18nextProvider>
   </BrowserRouter>,

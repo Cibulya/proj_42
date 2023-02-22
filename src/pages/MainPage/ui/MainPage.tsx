@@ -4,6 +4,7 @@ import StartCard from 'components/cards/StartCard';
 
 
 const MainPage = () => {
+
 	return <div className='main-page'>
 		<div className={classNames('cards')}>
 			<StartCard to={'/pause'} linkTitle={'Pause Mode'}></StartCard>

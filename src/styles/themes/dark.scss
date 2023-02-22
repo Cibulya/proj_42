@@ -1,13 +1,25 @@
 .app.dark {
-  --bg-color: #6e5054;
-  --inverted-bg-color: #e8e8ea;
-
   --primary-color: #dde35e;
   --secondary-color: #ffb856;
 
   --inverted-primary-color: #ffffff;
   --inverted-secondary-color: #262828;
+}
 
+.app.dark.main {
   background: url('https://raw.githubusercontent.com/MarinaKovel/coffeemachinedata/main/design/bg-main-night2.jpg') center top no-repeat;
   background-size: auto 100vh;
+  background-color: #6e5054;
+}
+.app.dark.pause,
+.app.dark.learning,
+.app.dark.about {
+  background: url('https://raw.githubusercontent.com/MarinaKovel/coffeemachinedata/main/design/table-dark.jpg') center top no-repeat;
+  background-size: auto 100vh;
+  background-color: #6e5054;
+}
+.app.dark.auth {
+  background: url('https://raw.githubusercontent.com/MarinaKovel/coffeemachinedata/main/design/schema-dark.jpg') center top no-repeat;
+  background-size: auto 100vh;
+  background-color: #56495b;
 }
