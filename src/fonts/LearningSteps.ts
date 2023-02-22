@@ -347,7 +347,7 @@ export const LearningSteps: Array<LearningPropsType> = [
       buttonTwo: '',
     },
     modalLeft: {
-      text: 'modalLeft-text-14',
+      text: 'modalLeft-text-answer',
       picture: '',
       buttonOne: 'Next',
       buttonTwo: '',
@@ -373,7 +373,7 @@ export const LearningSteps: Array<LearningPropsType> = [
       buttonTwo: '',
     },
     modalLeft: {
-      text: 'modalLeft-text-15',
+      text: 'modalLeft-text-answer',
       picture: '',
       buttonOne: 'Next',
       buttonTwo: '',
@@ -399,7 +399,7 @@ export const LearningSteps: Array<LearningPropsType> = [
       buttonTwo: '',
     },
     modalLeft: {
-      text: 'modalLeft-text-16',
+      text: 'modalLeft-text-answer',
       picture: '',
       buttonOne: 'Next',
       buttonTwo: '',
@@ -425,7 +425,7 @@ export const LearningSteps: Array<LearningPropsType> = [
       buttonTwo: '',
     },
     modalLeft: {
-      text: 'modalLeft-text-17',
+      text: 'modalLeft-text-answer',
       picture: '',
       buttonOne: 'Next',
       buttonTwo: '',
@@ -451,7 +451,7 @@ export const LearningSteps: Array<LearningPropsType> = [
       buttonTwo: '',
     },
     modalLeft: {
-      text: 'modalLeft-text-18',
+      text: 'modalLeft-text-answer',
       picture: '',
       buttonOne: 'Next',
       buttonTwo: '',
@@ -471,9 +471,9 @@ export const LearningSteps: Array<LearningPropsType> = [
   },
   {
     modalCenter: {
-      text: 'modalLeft-text-19',
+      text: 'modalCenter-text-19',
       picture: '',
-      buttonOne: 'modalLeft-buttonOne-19',
+      buttonOne: 'modalCenter-buttonOne-19',
       buttonTwo: '',
     },
     modalLeft: {
