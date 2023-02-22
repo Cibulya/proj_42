@@ -4,7 +4,6 @@ import 'styles/coffeeMachineFront.scss';
 import ChooseColor from 'components/coffeeMachineFront/chooseColor';
 
 const PauseModePage = () => {
-
 	return (
 		<div className='pause-mode'>
 			<div className = "container">

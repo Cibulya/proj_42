@@ -4,10 +4,6 @@ import StartCard from 'components/cards/StartCard';
 
 
 const MainPage = () => {
-	const background = document.querySelector('.app');
-	background.classList.remove('table');
-  	background.classList.remove('chip');
-	background.classList.add('main')
 
 	return <div className='main-page'>
 		<div className={classNames('cards')}>
