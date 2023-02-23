@@ -6,7 +6,7 @@ const AuthPage = () => {
   return (
     <div className="learning-mode">
       <Authorization className={'card'} />
-      <UserSettingsForm className={'card'} />
+      <UserSettingsForm className={'card settings'} />
     </div>
   );
 };

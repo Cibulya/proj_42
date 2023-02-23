@@ -75,18 +75,24 @@ const SignForm = (props: SignFormPropsType) => {
             email: initialState.email,
             password: initialState.password,
           }).then((data) => {
-            !data.hasOwnProperty('error')
-              ? ((formRef.current as HTMLDivElement).parentElement.style.display = 'none')
-              : setError(data.error || 'Try again');
+            if (!data.hasOwnProperty('error')) {
+              ((formRef.current as HTMLDivElement).parentElement.style.display = 'none');
+              const authIcon = document.querySelector('.auth-icon');
+              const account = document.querySelector('.account');
+              account.innerHTML = data.name;
+              (authIcon as HTMLElement).style.backgroundImage = `url(${data.userImage})`;
+            } else {
+              setError(data.error || 'Try again');
+            }
           });
           break;
         case 'restore':
           API.restoreUser({
             email: initialState.email,
-            password: initialState.password,
+            newPassword: initialState.password,
             secretWord: initialState.secretWord,
           }).then((data) => {
-            if (data.statusCode !== 500) {
+            if (data.statusCode !== 403) {
               API.loginUser({
                 email: initialState.email,
                 password: initialState.password,

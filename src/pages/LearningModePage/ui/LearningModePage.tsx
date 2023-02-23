@@ -9,6 +9,9 @@ import LinearProgress from '@mui/material/LinearProgress';
 import SignForm from 'components/auth/SignForm';
 import Weather from 'weatherWidget/Weather';
 import Radio from 'components/sound/radio';
+import Authorization from 'components/auth/Authorization';
+import UserSettingsForm from 'components/auth/UserSettingsForm';
+import 'styles/SignUp.scss'
 
 export interface LearningPropsType {
 	modalCenter?: ModalStateType;
@@ -20,6 +23,9 @@ export interface LearningPropsType {
 let score = 0;
 
 const LearningModePage = () => {
+  //const header = document.querySelector('.header');
+  //header.setAttribute('style', 'display: flex !important')
+
 	const { t } = useTranslation();
 	const [progress, setProgress] = useState(0);
 	const state = LearningSteps[progress];
@@ -33,20 +39,40 @@ const LearningModePage = () => {
   const authIcon = document.querySelector('.auth-icon');
   const drinks = document.querySelector('.control__middle');
   const screen = document.querySelector('.control__screen');
+  const login = document.querySelector('.login');
+  const settings = document.querySelector('.settings');
   const answers = [
     ['right__machine', 'wrong__modal', 'wrong__modal'],
     ['wrong__machine', 'right__modal', 'wrong__modal'],
     ['wrong__machine', 'wrong__modal', 'right__modal']
   ]
 
+  function openAuth() {
+        (login as HTMLElement).style.display = 'flex';
+        (settings as HTMLElement).style.display = 'none';
+      }
+
   switch (progress) {
     case 1:
-      const submit = document.querySelector('.submit');
-      submit.addEventListener('click', () => {
-        setProgress(progress + 1);
-        (auth as HTMLElement).style.display = 'none';
+      if (authIcon) authIcon.addEventListener('click', openAuth);
+
+      const form = document.querySelector('.form');
+      if (form) form.addEventListener('submit', () => {
+        if (authIcon) authIcon.removeEventListener('click', openAuth);
+        (login as HTMLElement).style.display = 'none';
       })
-      break;
+
+
+
+      if (authIcon) authIcon.addEventListener('click', () => {
+        
+        (settings as HTMLElement).style.display = 'flex';
+        form.addEventListener('submit', () => {
+          (settings as HTMLElement).style.display = 'none';
+          if (settings) setProgress(progress + 1);
+        })
+      })
+
     case 4:
       machine.classList.add('blink__machine');
       btn.addEventListener('click', () => { machine.classList.remove('blink__machine'); })
@@ -148,7 +174,8 @@ const LearningModePage = () => {
 				  <LinearProgress color="secondary" variant="buffer" value={progress / 18 * 100} valueBuffer={100} />
 			  </Box>
       }
-      
+      <Authorization className={'card login'} />
+      <UserSettingsForm className={'card settings'} />
 			{LearningSteps.length > progress
 				? modals.map((modal) => {
 					if (modal[1].text !== '') {
@@ -172,8 +199,6 @@ const LearningModePage = () => {
           <CoffeeMachineFront/>
         </div>
       }
-			
-      <SignForm className={'card auth'} typeForm={'sign-up'} />
       <div className='bonus'>
         <Weather/>
         <Radio/>

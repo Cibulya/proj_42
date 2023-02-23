@@ -12,7 +12,7 @@ type InputFormPropsType = {
 };
 
 const RegexEmail = RegExp(/^\s?[A-Z0–9]+[A-Z0–9._+-]{0,}@[A-Z0–9._+-]+\.[A-Z0–9]{2,4}\s?$/i);
-const RegexPassword = RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]{8,30}$/);
+const RegexPassword = RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#_$@!%&*?])[A-Za-z\d#_$@!%&*?]{8,30}$/);
 
 const InputForm = (props: InputFormPropsType) => {
   const { t } = useTranslation();

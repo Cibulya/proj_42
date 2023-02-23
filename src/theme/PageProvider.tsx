@@ -14,7 +14,11 @@ const PageProvider: FC = ({ children }) => {
     [page]
   );
 
-  return <PageContext.Provider value={defaultProps}>{children}</PageContext.Provider>;
+  return (
+    <PageContext.Provider value={defaultProps}>
+      {children}
+    </PageContext.Provider>
+  );
 };
 
 export default PageProvider;
