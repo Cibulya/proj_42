@@ -50,6 +50,8 @@
   }
 
   .card.modalRightTop {
+    position: relative;
+    z-index: 3;
     display: flex;
     width: 270px;
     height: 130px;
@@ -58,6 +60,8 @@
   }
 
   .card.modalRightBottom {
+    position: relative;
+    z-index: 3;
     display: flex;
     width: 270px;
     height: 130px;

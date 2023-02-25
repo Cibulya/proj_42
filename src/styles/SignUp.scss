@@ -2,7 +2,7 @@
   display: none;
   position: relative;
   z-index: 3;
-  height: 420px;
+  
   width: 320px;
   padding: 20px;
   flex-direction: column;
@@ -30,7 +30,7 @@
       font: var(--font-m);
     }
     .input {
-      background: #b81e88;
+      background: #ebc8e9;
       padding: 10px 10px;
       border-radius: 5px;
       outline: none;

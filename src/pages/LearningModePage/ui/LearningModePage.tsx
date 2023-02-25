@@ -138,6 +138,22 @@ const LearningModePage = () => {
   }
 
   function setBlick(i: number) {
+    setTimeout(() => {
+      const elements = [machine, modal[3], modal[4]];
+      removeBlick();
+      elements.forEach((element) => element.addEventListener('click', showAnswer, {once: true}));
+      function showAnswer() {
+        elements.forEach((element) => element.removeEventListener('click', showAnswer));
+        elements.forEach((element: HTMLElement, index: number) => {
+          if (element === event.currentTarget) (event.currentTarget as HTMLElement).classList.add(answers[i][index]);
+        });
+        setTimeout(() => { 
+          removeBlick();
+          setProgress(progress + 1);
+        }, 1500)
+      }
+    }, 0)
+
     document.addEventListener('keydown', function(event) {
       removeBlick();
       if (event.code == 'KeyV') machine.classList.add(answers[i][0]);
