@@ -61,6 +61,32 @@ export const LearningSteps: Array<LearningPropsType> =  [
 			buttonTwo: ''
 		},
 		modalLeft: {
+			text: 'We are Hugs and bugs team. And you?',
+			picture: '',
+			buttonOne: '',
+			buttonTwo: ''
+		},
+		modalRightTop: {
+			text: '',
+			picture: '',
+			buttonOne: '',
+			buttonTwo: ''
+		},
+		modalRightBottom: {
+			text: '',
+			picture: '',
+			buttonOne: '',
+			buttonTwo: ''
+		}
+	},
+	{
+		modalCenter: {
+			text: '',
+			picture: '',
+			buttonOne: '',
+			buttonTwo: ''
+		},
+		modalLeft: {
 			text: 'Personal account in Coffee Machine? No way! Do you know that Coffee Machine is conceivable as an application divided on 3 parts, like MVC pattern?',
 			picture: '',
 			buttonOne: 'Let’s see',

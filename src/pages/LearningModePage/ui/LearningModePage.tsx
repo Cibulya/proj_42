@@ -6,12 +6,12 @@ import { useTranslation } from 'react-i18next';
 import CoffeeMachineFront from 'components/coffeeMachineFront/coffeeMachineFront';
 import Box from '@mui/material/Box';
 import LinearProgress from '@mui/material/LinearProgress';
-import SignForm from 'components/auth/SignForm';
 import Weather from 'weatherWidget/Weather';
 import Radio from 'components/sound/radio';
 import Authorization from 'components/auth/Authorization';
 import UserSettingsForm from 'components/auth/UserSettingsForm';
-import 'styles/SignUp.scss'
+import 'styles/SignUp.scss';
+
 
 export interface LearningPropsType {
 	modalCenter?: ModalStateType;
@@ -23,9 +23,6 @@ export interface LearningPropsType {
 let score = 0;
 
 const LearningModePage = () => {
-  //const header = document.querySelector('.header');
-  //header.setAttribute('style', 'display: flex !important')
-
 	const { t } = useTranslation();
 	const [progress, setProgress] = useState(0);
 	const state = LearningSteps[progress];
@@ -35,12 +32,11 @@ const LearningModePage = () => {
   const msg = document.querySelector('.message');
   const modal = document.getElementsByClassName('card');
   const btn = document.querySelector('.learning__btn');
-  const auth = document.querySelector('.auth');
   const authIcon = document.querySelector('.auth-icon');
   const drinks = document.querySelector('.control__middle');
   const screen = document.querySelector('.control__screen');
-  const login = document.querySelector('.login');
-  const settings = document.querySelector('.settings');
+  const login = document.querySelector('.sign-wrapper.card.login');
+  const settings = document.querySelector('.sign-wrapper.card.settings');
   const answers = [
     ['right__machine', 'wrong__modal', 'wrong__modal'],
     ['wrong__machine', 'right__modal', 'wrong__modal'],
@@ -48,50 +44,56 @@ const LearningModePage = () => {
   ]
 
   function openAuth() {
-        (login as HTMLElement).style.display = 'flex';
-        (settings as HTMLElement).style.display = 'none';
-      }
+    (login as HTMLElement).style.display = 'flex';
+    (settings as HTMLElement).style.display = 'none';
+  }
+  function openSettings() {
+    (settings as HTMLElement).style.display = 'flex';
+  }
 
   switch (progress) {
     case 1:
+      const onBtn = document.querySelector('.onBtn');
+      onBtn.addEventListener('click', () => setProgress(progress + 1));
+      break;
+    case 2:
       if (authIcon) authIcon.addEventListener('click', openAuth);
-
       const form = document.querySelector('.form');
+      const close = document.querySelector('.close');
       if (form) form.addEventListener('submit', () => {
         if (authIcon) authIcon.removeEventListener('click', openAuth);
-        (login as HTMLElement).style.display = 'none';
+        if (authIcon) authIcon.addEventListener('click', openSettings);
+      });
+      (close as HTMLButtonElement).addEventListener('click', () => {
+        (modal[1] as HTMLElement).style.display = 'none';
+        (authIcon as HTMLElement).style.animation = 'none';
+        setTimeout(() => { 
+          (authIcon as HTMLElement).style.display = 'none';
+          (screen as HTMLElement).style.display = 'flex';
+          setProgress(progress + 1); 
+        }, 2000)
       })
-
-
-
-      if (authIcon) authIcon.addEventListener('click', () => {
-        
-        (settings as HTMLElement).style.display = 'flex';
-        form.addEventListener('submit', () => {
-          (settings as HTMLElement).style.display = 'none';
-          if (settings) setProgress(progress + 1);
-        })
-      })
-
-    case 4:
-      machine.classList.add('blink__machine');
-      btn.addEventListener('click', () => { machine.classList.remove('blink__machine'); })
       break;
     case 5:
       machine.classList.add('blink__machine');
-      setTimeout(() => {
-        if (machine) machine.classList.remove('blink__machine');
-        if (modal[1]) modal[1].classList.add('blink__modal');
-      }, 3000)
-      setTimeout(() => {
-        if (modal[1]) modal[1].classList.remove('blink__modal');
-        if (modal[2]) modal[2].classList.add('blink__modal');
-      }, 6000)
-      setTimeout(() => {
-        if (modal[2]) modal[2].classList.remove('blink__modal');
-      }, 9000)
+      btn.addEventListener('click', () => { machine.classList.remove('blink__machine'); })
       break;
     case 6:
+      machine.classList.add('blink__machine');
+      console.log(modal)
+      setTimeout(() => {
+        if (machine) machine.classList.remove('blink__machine');
+        if (modal[3]) modal[3].classList.add('blink__modal');
+      }, 3000)
+      setTimeout(() => {
+        if (modal[3]) modal[3].classList.remove('blink__modal');
+        if (modal[4]) modal[4].classList.add('blink__modal');
+      }, 6000)
+      setTimeout(() => {
+        if (modal[4]) modal[4].classList.remove('blink__modal');
+      }, 9000)
+      break;
+    case 7:
       if (authIcon) (authIcon as HTMLElement).style.display = 'none';
       (screen as HTMLElement).style.display = 'none';
       setTimeout(() => {drinks.classList.remove('hidden');}, 0)
@@ -100,34 +102,34 @@ const LearningModePage = () => {
         msg.innerHTML = '';
       })
       break;
-    case 7:
     case 8:
     case 9:
     case 10:
+    case 11:
       setTimeout(() => {
         setProgress(progress + 1)
         msg.innerHTML = '';
       }, 3000)
       break;
-    case 11:
+    case 12:
       setTimeout(() => { setProgress(progress + 1) }, 7000)
       score = 0;
       break;
-    case 13:
-    case 16:
+    case 14:
+    case 17:
       setBlick(0);
       break;
-    case 14:
+    case 15:
       setBlick(2);
       break;
-    case 15:
-    case 17:
+    case 16:
+    case 18:
       setBlick(1);
       break;
-    case 18:
+    case 19:
       setTimeout(() => {
         const finishMsg = document.querySelector('.modalCenter');
-        if (finishMsg) finishMsg.innerHTML += `QUIZ RESULT: You got ${score}/5 points!`;
+        if (finishMsg && !finishMsg.innerHTML.includes('QUIZ')) finishMsg.prepend(`QUIZ RESULT: You got ${score}/5 points.`);
       }, 0);
       const bonus = document.querySelector('.bonus');
       (bonus as HTMLElement).style.display = 'flex';
@@ -139,8 +141,8 @@ const LearningModePage = () => {
     document.addEventListener('keydown', function(event) {
       removeBlick();
       if (event.code == 'KeyV') machine.classList.add(answers[i][0]);
-      if (event.code == 'KeyC') modal[1].classList.add(answers[i][1]);
-      if (event.code == 'KeyM') modal[2].classList.add(answers[i][2]);
+      if (event.code == 'KeyC') modal[3].classList.add(answers[i][1]);
+      if (event.code == 'KeyM') modal[4].classList.add(answers[i][2]);
       setTimeout(() => { 
         removeBlick();
         setProgress(progress + 1);
@@ -153,17 +155,17 @@ const LearningModePage = () => {
     countScore();
     machine.classList.remove('right__machine');
     machine.classList.remove('wrong__machine');
-    modal[1].classList.remove('right__modal');
-    modal[1].classList.remove('wrong__modal');
-    modal[2].classList.remove('right__modal');
-    modal[2].classList.remove('wrong__modal');
+    modal[3].classList.remove('right__modal');
+    modal[3].classList.remove('wrong__modal');
+    modal[4].classList.remove('right__modal');
+    modal[4].classList.remove('wrong__modal');
   }
 
   function countScore() {
     if (machine && modal[1] && modal [2]) {
       if (machine.getAttribute('class').includes('right__machine') || 
-        modal[1].getAttribute('class').includes('right__modal') || 
-        modal[2].getAttribute('class').includes('right__modal')) score++
+        modal[3].getAttribute('class').includes('right__modal') || 
+        modal[4].getAttribute('class').includes('right__modal')) score++
     }
   }
 
@@ -171,7 +173,7 @@ const LearningModePage = () => {
 		<div className={classNames('learning-mode')}>
       {
         <Box className={classNames('progress')} sx={{ width: '80%' }}>
-				  <LinearProgress color="secondary" variant="buffer" value={progress / 18 * 100} valueBuffer={100} />
+				  <LinearProgress color="secondary" variant="buffer" value={progress / 19 * 100} valueBuffer={100} />
 			  </Box>
       }
       <Authorization className={'card login'} />

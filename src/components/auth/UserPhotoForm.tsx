@@ -31,6 +31,7 @@ const UserPhotoForm = (props: UserFormPropsType) => {
 
   const labelRef = useRef();
   const buttonSubmitRef = useRef();
+  const formRef = useRef();
 
   useEffect(() => {
     API.getUser().then((data) => {
@@ -63,6 +64,8 @@ const UserPhotoForm = (props: UserFormPropsType) => {
         ...initialState,
         userImage: data,
       });
+      const authIcon = document.querySelector('.auth-icon');
+      (authIcon as HTMLElement).style.backgroundImage = `url(${data})`;
     });
     fileInput.current.value = '';
     setPhoto(null);
@@ -93,7 +96,7 @@ const UserPhotoForm = (props: UserFormPropsType) => {
   };
 
   return (
-    <form className="form" onSubmit={checkSubmitForm} noValidate>
+    <form ref={formRef} className="form" onSubmit={checkSubmitForm} noValidate>
       <Avatar alt={t('userPhoto')} src={initialState.userImage} sx={{ width: 72, height: 72 }} />
       <h3>{initialState.userName}</h3>
       <label ref={labelRef} className="label label-file" htmlFor="file">
@@ -104,6 +107,9 @@ const UserPhotoForm = (props: UserFormPropsType) => {
       <div className="submit">
         <button ref={buttonSubmitRef} className="learning__btn" disabled>
           {t('save')}
+        </button>
+        <button className="learning__btn close">
+          {t('closePhoto')}
         </button>
       </div>
     </form>

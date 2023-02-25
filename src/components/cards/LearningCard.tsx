@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { LearningSteps } from 'fonts/LearningSteps';
 import { turnOff } from 'components/coffeeMachineFront/onOffBtn';
 import { removeCup } from 'components/cup/finishPreparation';
+import { API } from 'Api';
 
 export type ModalStateType = {
 	text: string;
@@ -25,6 +26,7 @@ const LearningCard = (props: CardProps) => {
 		if (ind === LearningSteps.length) {
 			props.callback(ind - 1)
 			window.open("https://www.youtube.com/watch?v=OBGxt8zhbRk")
+      setTimeout(() => { API.logoutUser().then((data) => {}) }, 0)
 		} else props.callback(ind)
 	}
 	return (
@@ -44,10 +46,14 @@ const LearningCard = (props: CardProps) => {
 						raiseProgress(props.progress + 1)
 					} else {
 						const onBtn = document.querySelector('.onBtn');
-						
 						if (onBtn.getAttribute('aria-pressed') === 'true') turnOff();
-						removeCup();
+						if (removeCup) removeCup();
 						raiseProgress(0);
+            API.logoutUser().then((data) => {});
+            const authIcon = document.querySelector('.auth-icon');
+            const account = document.querySelector('.account');
+            (authIcon as HTMLElement).style.backgroundImage = "url('https://raw.githubusercontent.com/MarinaKovel/coffeemachinedata/main/user.png')";
+            account.innerHTML = 'My Account';
 					}
 				}}>{t(`${props.state.buttonOne}`)}</button>
 				: <></>

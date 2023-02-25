@@ -1,6 +1,7 @@
 {
   "About": "About",
   "Auth": "Auth",
+  "Close": "",
   "Lang": "RU",
   "Learning Mode": "Learning Mode",
   "Not found": "Page not found",
@@ -14,6 +15,8 @@
   "authorization": "Authorization",
   "changePassword": "Change password",
   "changePhoto": "Change photo",
+  "close": "",
+  "closePhoto": "Close",
   "email": "Email",
   "loadImg": "Please load only PNG, JP(E)G files less 512kb",
   "login": "Login",

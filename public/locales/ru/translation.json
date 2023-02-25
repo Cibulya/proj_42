@@ -1,6 +1,7 @@
 {
   "About": "О приложении",
   "Auth": "Аунт",
+  "Close": "",
   "Lang": "EN",
   "Learning Mode": "Режим обучения",
   "Not found": "Страница не найдена",
@@ -14,6 +15,8 @@
   "authorization": "Авторизация",
   "changePassword": "Сменить пароль",
   "changePhoto": "Сменить фото",
+  "close": "",
+  "closePhoto": "Закрыть",
   "email": "Эл.почта",
   "loadImg": "Пожалуйста, загружайте только PNG, JP(E)G файлы менее 512кб",
   "login": "Войти",

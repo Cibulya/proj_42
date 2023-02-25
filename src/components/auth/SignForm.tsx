@@ -67,6 +67,8 @@ const SignForm = (props: SignFormPropsType) => {
                   ? ((formRef.current as HTMLDivElement).parentElement.style.display = 'none')
                   : setError(data.error || 'Try again');
               });
+            } else {
+              setError(data.message || 'Try again');
             }
           });
           break;
