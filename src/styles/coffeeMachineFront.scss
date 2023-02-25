@@ -188,7 +188,10 @@ button {
   height: 9vh;
   margin: 1vh 3vh;
   border-radius: 50px;
-  background: url('https://raw.githubusercontent.com/MarinaKovel/coffeemachinedata/main/user.png') 0% 0% / 100% 100% no-repeat;
+  background-image: url('https://raw.githubusercontent.com/MarinaKovel/coffeemachinedata/main/user.png');
+  background-position: 0% 0%;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
   animation: blinkUser 3s infinite;
 }
 .auth-icon:hover {

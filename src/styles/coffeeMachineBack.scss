@@ -43,12 +43,15 @@
   width: 13vh;
   height: 13vh;
   line-height: 3vh;
-  padding-top: 3vh;
+  padding: 2vh 2px 0px;
   border-radius: 50px;
   background: linear-gradient(#1e1b20, #1e1b20) padding-box, linear-gradient(130deg, #fb02ac, #9648b3) border-box;
   border: 0.5vh solid transparent;
   font-size: 0.7rem;
   margin: 1.5vh;
+}
+.design:hover {
+  font-size: 0.8rem;
 }
 .dev:hover,
 .design:hover {

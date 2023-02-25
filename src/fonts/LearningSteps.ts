@@ -61,6 +61,32 @@ export const LearningSteps: Array<LearningPropsType> = [
       buttonTwo: '',
     },
     modalLeft: {
+      text: 'modalLeft-text-2-1',
+      picture: '',
+      buttonOne: '',
+      buttonTwo: '',
+    },
+    modalRightTop: {
+      text: '',
+      picture: '',
+      buttonOne: '',
+      buttonTwo: '',
+    },
+    modalRightBottom: {
+      text: '',
+      picture: '',
+      buttonOne: '',
+      buttonTwo: '',
+    },
+  },
+  {
+    modalCenter: {
+      text: '',
+      picture: '',
+      buttonOne: '',
+      buttonTwo: '',
+    },
+    modalLeft: {
       text: 'modalLeft-text-3',
       picture: '',
       buttonOne: 'modalLeft-buttonOne-3',
@@ -495,4 +521,5 @@ export const LearningSteps: Array<LearningPropsType> = [
       buttonTwo: '',
     },
   },
+
 ];

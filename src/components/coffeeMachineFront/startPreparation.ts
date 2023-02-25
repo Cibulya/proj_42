@@ -46,23 +46,25 @@ function startPreparation() {
   (stream as HTMLElement).style.backgroundColor = color;
 
   const msg = document.querySelector('.message');
-  const modal = document.querySelector('.card');
+  const modal = document.getElementsByClassName('card');
 
   function start() {
-    if (!modal) CheckResources();
+    if (!modal.length) CheckResources();
     if (water > 0 && beans > 0 && wastePlace > 0) {
       addCup();
-      !modal ? msg.innerHTML = `Preparing ${coffee}...` : modal.innerHTML += coffee;
-      
+      if (!modal.length) {
+        msg.innerHTML = `Preparing ${coffee}...`;
+       } else {
+          if (modal[2]) modal[2].innerHTML += coffee;
+       } 
       const onBtn = document.getElementsByClassName('onBtn');
       (onBtn[0] as HTMLButtonElement).disabled = true;
-
-      if (!modal) reduceResources();
+      if (!modal.length) reduceResources();
     }
   }
 
   if (isOn === "true") {
-    modal ? setTimeout(() => {start()}, 8000) : start();
+    modal.length ? setTimeout(() => {start()}, 8000) : start();
   }
   
   return;

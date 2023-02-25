@@ -32,7 +32,7 @@
   "bugs": {
     "url": "https://github.com/Cibulya/proj__42/issues"
   },
-  "homepage": "https://github.com/Cibulya/proj__42#readme",
+  "homepage": ".",
   "devDependencies": {
     "@babel/core": "^7.17.5",
     "@babel/preset-env": "^7.16.11",

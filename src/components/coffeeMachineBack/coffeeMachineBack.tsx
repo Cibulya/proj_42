@@ -27,7 +27,9 @@ const CoffeeMachineBack = function() {
           <a href='https://github.com/MarinaKovel'>
             <div className="dev">Marina<br/>Kovel</div>
           </a>
-          <div className="design">Design by Antanna95</div>
+          <a href='https://www.linkedin.com/in/anna-antinyan-ab45aa3a/'>
+            <div className="design">Design by Antinyan Draw</div>
+          </a>
         </div>
       </div>
     </div>

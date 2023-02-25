@@ -14,6 +14,7 @@ type CreateUserBodyType = {
   name: string;
   email: string;
   password: string;
+  newPassword: string;
   secretWord: string;
 };
 
@@ -37,7 +38,7 @@ export const API = {
       .then((response: Response): Promise<IUserType> => response.json())
       .catch((error: Error) => console.log(error));
   },
-  createUser(body: CreateUserBodyType) {
+  createUser(body: Partial<CreateUserBodyType>) {
     return fetch(`${BASE_URL}${EndPoints.REGISTER}`, {
       method: 'POST',
       credentials: 'include',

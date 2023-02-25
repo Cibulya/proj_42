@@ -50,6 +50,8 @@
   }
 
   .card.modalRightTop {
+    position: relative;
+    z-index: 3;
     display: flex;
     width: 270px;
     height: 130px;
@@ -58,6 +60,8 @@
   }
 
   .card.modalRightBottom {
+    position: relative;
+    z-index: 3;
     display: flex;
     width: 270px;
     height: 130px;
@@ -90,6 +94,7 @@
     transition: all 0.3s;
     position: relative;
     padding: 2vh 5vh;
+    margin: 1vh;
     font-size: 1.5rem;
     border-radius: 1px;
     cursor: pointer;
