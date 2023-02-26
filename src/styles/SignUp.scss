@@ -23,7 +23,8 @@
     flex-direction: column;
     .error-text {
       font: var(--font-m);
-      color: #ff0000;
+      color: rgb(162, 2, 111);
+      font-weight: bold;
     }
     .label {
       color: var(--primary-color);
@@ -38,6 +39,12 @@
     .input::placeholder {
       font: var(--font-line-l);
       color: var(--inverted-bg-color);
+    }
+    .input:focus {
+      background: #dbbcd9;
+    }
+    .input:-webkit-autofill {
+      -webkit-box-shadow: inset 0 0 0   50px #ebc8e9;
     }
   }
   .submit {

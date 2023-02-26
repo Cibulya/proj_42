@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import LearningCard, { ModalStateType } from 'components/cards/LearningCard';
 import { classNames } from 'helpers/classNames/classNames';
 import { LearningSteps } from 'fonts/LearningSteps';
@@ -10,6 +10,9 @@ import Weather from 'weatherWidget/Weather';
 import Radio from 'components/sound/radio';
 import Authorization from 'components/auth/Authorization';
 import UserSettingsForm from 'components/auth/UserSettingsForm';
+import { StatsType } from 'components/statistics/statistics';
+import { API } from 'Api';
+import { coffee } from 'components/coffeeMachineFront/startPreparation'
 import 'styles/SignUp.scss';
 
 
@@ -42,6 +45,11 @@ const LearningModePage = () => {
     ['wrong__machine', 'right__modal', 'wrong__modal'],
     ['wrong__machine', 'wrong__modal', 'right__modal']
   ]
+  const [initialState, setInitialState] = useState<StatsType>({
+    email: '',
+    quizStatus: 0,
+    coffeeStatus: '',
+  });
 
   function openAuth() {
     (login as HTMLElement).style.display = 'flex';
@@ -50,6 +58,18 @@ const LearningModePage = () => {
   function openSettings() {
     (settings as HTMLElement).style.display = 'flex';
   }
+
+  
+  useEffect(() => {
+    API.getUser().then((data) => {
+      if (data && !data.hasOwnProperty('message')) {
+        setInitialState({
+          ...initialState,
+          email: data.email,
+        });
+      }
+    });
+  }, []);
 
   switch (progress) {
     case 1:
@@ -80,7 +100,6 @@ const LearningModePage = () => {
       break;
     case 6:
       machine.classList.add('blink__machine');
-      console.log(modal)
       setTimeout(() => {
         if (machine) machine.classList.remove('blink__machine');
         if (modal[3]) modal[3].classList.add('blink__modal');
@@ -109,6 +128,26 @@ const LearningModePage = () => {
       setTimeout(() => {
         setProgress(progress + 1)
         msg.innerHTML = '';
+        setInitialState({
+          ...initialState,
+          coffeeStatus: coffee,
+        });
+
+        const formData = new FormData();
+        formData.append('coffeeStatus', initialState.coffeeStatus);
+        formData.append('email', initialState.email);
+        
+        console.log(formData.get('coffeeStatus'))
+        console.log(formData.get('email'))
+        console.log(formData.get('quizStatus'))
+        console.log(initialState)
+
+        API.updateCoffeeStatus(formData).then((data) => {
+          setInitialState({
+            ...initialState,
+            coffeeStatus: data,
+          });
+        });
       }, 3000)
       break;
     case 12:
@@ -130,12 +169,29 @@ const LearningModePage = () => {
       setTimeout(() => {
         const finishMsg = document.querySelector('.modalCenter');
         if (finishMsg && !finishMsg.innerHTML.includes('QUIZ')) finishMsg.prepend(`QUIZ RESULT: You got ${score}/5 points.`);
+        
+        const formData = new FormData();
+        formData.append('email', initialState.email);
+        formData.append('quizStatus', score.toString());
+        console.log(formData.get('quizStatus'))
+        console.log(formData.get('email'))
+        API.updateQuizStatus(formData).then((data) => {
+          setInitialState({
+            ...initialState,
+            quizStatus: data,
+          });
+        });
+            
+        
+        
+        
       }, 0);
       const bonus = document.querySelector('.bonus');
       (bonus as HTMLElement).style.display = 'flex';
       break;
     default:
   }
+
 
   function setBlick(i: number) {
     setTimeout(() => {
