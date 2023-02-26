@@ -2,7 +2,7 @@ import { RouteProps } from 'react-router-dom';
 import { MainPage } from 'pages/MainPage';
 import { PauseModePage } from 'pages/PauseModePage';
 import { LearningModePage } from 'pages/LearningModePage';
-import { AuthPage } from 'pages/AuthPage';
+import { CommentsPage } from 'pages/CommentsPage';
 import { AboutPage } from 'pages/AboutPage';
 import { SecretPage } from 'pages/SecretPage';
 import { StatisticPage } from 'pages/StatisticPage';
@@ -12,7 +12,7 @@ export enum AppRoutes {
   MAIN = 'main',
   PAUSE = 'pause',
   LEARNING = 'learning',
-  AUTH = 'auth',
+  COMMENTS = 'comments',
   ABOUT = 'about',
   SECRET = 'secret',
   STATISTIC = 'statistic',
@@ -23,7 +23,7 @@ export const RoutePath: Record<AppRoutes, string> = {
   [AppRoutes.MAIN]: '/',
   [AppRoutes.PAUSE]: '/pause',
   [AppRoutes.LEARNING]: '/learning',
-  [AppRoutes.AUTH]: '/auth',
+  [AppRoutes.COMMENTS]: '/comments',
   [AppRoutes.ABOUT]: '/about',
   [AppRoutes.SECRET]: '/secret',
   [AppRoutes.STATISTIC]: '/statistic',
@@ -43,9 +43,9 @@ export const routeConfig: Record<AppRoutes, RouteProps> = {
     path: RoutePath.learning,
     element: <LearningModePage />,
   },
-  [AppRoutes.AUTH]: {
-    path: RoutePath.auth,
-    element: <AuthPage />,
+  [AppRoutes.COMMENTS]: {
+    path: RoutePath.comments,
+    element: <CommentsPage />,
   },
   [AppRoutes.ABOUT]: {
     path: RoutePath.about,
