@@ -100,6 +100,9 @@
     "react-howler": "^5.2.0",
     "react-i18next": "^11.15.5",
     "react-router-dom": "^6.8.0",
+    "react-tsparticles": "^2.9.3",
+    "tsparticles": "^2.9.3",
+    "tsparticles-engine": "^2.9.3",
     "use-sound": "^4.0.1"
   }
 }
