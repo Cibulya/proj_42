@@ -103,24 +103,28 @@ export const API = {
       .then((response) => response.json())
       .catch((error: Error) => console.log(error));
   },
-  updateCoffeeStatus(formData: FormData) {
+  updateCoffeeStatus(body: Partial<IUserType>) {
     return fetch(`${BASE_URL}${EndPoints.COFFEE_STATS}`, {
       method: 'PUT',
       credentials: 'same-origin',
       mode: 'cors',
-      headers: {},
-      body: formData,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(body),
     })
       .then((response) => response.json())
       .catch((error: Error) => console.log(error));
   },
-  updateQuizStatus(formData: FormData) {
+  updateQuizStatus(body: Partial<IUserType>) {
     return fetch(`${BASE_URL}${EndPoints.QUIZ_STATS}`, {
       method: 'PUT',
       credentials: 'same-origin',
       mode: 'cors',
-      headers: {},
-      body: formData,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(body),
     })
       .then((response) => response.json())
       .catch((error: Error) => console.log(error));

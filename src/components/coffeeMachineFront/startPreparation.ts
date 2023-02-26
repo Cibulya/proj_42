@@ -3,8 +3,6 @@ import CheckResources from './checkResources';
 import addCup from '../cup/addCup';
 import { water, beans, wastePlace, reduceResources } from './manageResources';
 
-export let coffee: string;
-
 function startPreparation() {
   let drinkBtn;
   if ((event.target as HTMLElement).getAttribute('class').includes('drink')) {
@@ -13,7 +11,7 @@ function startPreparation() {
     drinkBtn = (event.target as HTMLElement);
   } 
   
-  coffee = drinkBtn.getAttribute('value');
+  const coffee = drinkBtn.getAttribute('value');
   const size = drinkBtn.getAttribute('data-size');
   const color = drinkBtn.getAttribute('name');
 

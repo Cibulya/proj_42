@@ -12,7 +12,6 @@ import Authorization from 'components/auth/Authorization';
 import UserSettingsForm from 'components/auth/UserSettingsForm';
 import { StatsType } from 'components/statistics/statistics';
 import { API } from 'Api';
-import { coffee } from 'components/coffeeMachineFront/startPreparation'
 import 'styles/SignUp.scss';
 
 
@@ -58,7 +57,6 @@ const LearningModePage = () => {
   function openSettings() {
     (settings as HTMLElement).style.display = 'flex';
   }
-
   
   useEffect(() => {
     API.getUser().then((data) => {
@@ -119,6 +117,12 @@ const LearningModePage = () => {
       drinks.addEventListener('click', () => {
         setProgress(progress + 1)
         msg.innerHTML = '';
+        const newCoffeeStatus = ((event.target as HTMLElement).parentElement as HTMLButtonElement).value;
+        const coffeeBody = {
+          email: initialState.email,
+          coffeeStatus: newCoffeeStatus,
+        }
+        API.updateCoffeeStatus(coffeeBody).then((data) => { });
       })
       break;
     case 8:
@@ -126,28 +130,8 @@ const LearningModePage = () => {
     case 10:
     case 11:
       setTimeout(() => {
-        setProgress(progress + 1)
+        setProgress(progress + 1);
         msg.innerHTML = '';
-        setInitialState({
-          ...initialState,
-          coffeeStatus: coffee,
-        });
-
-        const formData = new FormData();
-        formData.append('coffeeStatus', initialState.coffeeStatus);
-        formData.append('email', initialState.email);
-        
-        console.log(formData.get('coffeeStatus'))
-        console.log(formData.get('email'))
-        console.log(formData.get('quizStatus'))
-        console.log(initialState)
-
-        API.updateCoffeeStatus(formData).then((data) => {
-          setInitialState({
-            ...initialState,
-            coffeeStatus: data,
-          });
-        });
       }, 3000)
       break;
     case 12:
@@ -169,29 +153,17 @@ const LearningModePage = () => {
       setTimeout(() => {
         const finishMsg = document.querySelector('.modalCenter');
         if (finishMsg && !finishMsg.innerHTML.includes('QUIZ')) finishMsg.prepend(`QUIZ RESULT: You got ${score}/5 points.`);
-        
-        const formData = new FormData();
-        formData.append('email', initialState.email);
-        formData.append('quizStatus', score.toString());
-        console.log(formData.get('quizStatus'))
-        console.log(formData.get('email'))
-        API.updateQuizStatus(formData).then((data) => {
-          setInitialState({
-            ...initialState,
-            quizStatus: data,
-          });
-        });
-            
-        
-        
-        
+        const scoreBody = {
+          email: initialState.email,
+          quizStatus: score,
+        }
+        API.updateQuizStatus(scoreBody).then((data) => { });
       }, 0);
       const bonus = document.querySelector('.bonus');
       (bonus as HTMLElement).style.display = 'flex';
       break;
     default:
   }
-
 
   function setBlick(i: number) {
     setTimeout(() => {

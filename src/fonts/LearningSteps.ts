@@ -373,7 +373,7 @@ export const LearningSteps: Array<LearningPropsType> = [
       buttonTwo: '',
     },
     modalLeft: {
-      text: 'modalLeft-text-answer',
+      text: 'modalLeft-text-answer-1',
       picture: '',
       buttonOne: 'Next',
       buttonTwo: '',
@@ -399,7 +399,7 @@ export const LearningSteps: Array<LearningPropsType> = [
       buttonTwo: '',
     },
     modalLeft: {
-      text: 'modalLeft-text-answer',
+      text: 'modalLeft-text-answer-2',
       picture: '',
       buttonOne: 'Next',
       buttonTwo: '',
@@ -425,7 +425,7 @@ export const LearningSteps: Array<LearningPropsType> = [
       buttonTwo: '',
     },
     modalLeft: {
-      text: 'modalLeft-text-answer',
+      text: 'modalLeft-text-answer-3',
       picture: '',
       buttonOne: 'Next',
       buttonTwo: '',
@@ -451,7 +451,7 @@ export const LearningSteps: Array<LearningPropsType> = [
       buttonTwo: '',
     },
     modalLeft: {
-      text: 'modalLeft-text-answer',
+      text: 'modalLeft-text-answer-4',
       picture: '',
       buttonOne: 'Next',
       buttonTwo: '',
@@ -477,7 +477,7 @@ export const LearningSteps: Array<LearningPropsType> = [
       buttonTwo: '',
     },
     modalLeft: {
-      text: 'modalLeft-text-answer',
+      text: 'modalLeft-text-answer-5',
       picture: '',
       buttonOne: 'Next',
       buttonTwo: '',
