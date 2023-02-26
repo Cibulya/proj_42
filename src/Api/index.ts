@@ -1,4 +1,5 @@
 const BASE_URL = 'https://guiseppe-production.up.railway.app/api/';
+const BASE_URL_POSTS = 'https://guiseppe-production.up.railway.app/post/';
 
 export enum EndPoints {
   COFFEE = 'coffee/',
@@ -8,6 +9,9 @@ export enum EndPoints {
   LOGOUT = 'logout/',
   SET_PICTURE = 'setpicture/',
   RESTORE = 'restore/',
+
+  POST_NEW = 'newpost/',
+  POST_ALL = 'all/',
 }
 
 type CreateUserBodyType = {
@@ -26,7 +30,10 @@ interface IUserType {
   name: string;
   userImage: string;
 }
-
+interface IPosts {
+  authorName: string;
+  postText: string;
+}
 export const API = {
   getUser() {
     return fetch(`${BASE_URL}${EndPoints.USER}`, {
@@ -98,6 +105,31 @@ export const API = {
       body: JSON.stringify(body),
     })
       .then((response) => response.json())
+      .catch((error: Error) => console.log(error));
+  },
+  getAllPosts() {
+    return fetch(`${BASE_URL_POSTS}${EndPoints.POST_ALL}`, {
+      method: 'GET',
+      credentials: 'same-origin',
+      mode: 'cors',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((response: Response) => response.json())
+      .catch((error: Error) => console.log(error));
+  },
+  createNewPost(body: IPosts) {
+    return fetch(`${BASE_URL_POSTS}${EndPoints.POST_NEW}`, {
+      method: 'POST',
+      credentials: 'include',
+      mode: 'cors',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(body),
+    })
+      .then((response: Response) => response.json())
       .catch((error: Error) => console.log(error));
   },
 };
