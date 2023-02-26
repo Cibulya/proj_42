@@ -8,6 +8,8 @@ export enum EndPoints {
   LOGOUT = 'logout/',
   SET_PICTURE = 'setpicture/',
   RESTORE = 'restore/',
+  COFFEE_STATS = 'coffeestat/',
+  QUIZ_STATS = 'quiz/',
 }
 
 type CreateUserBodyType = {
@@ -25,6 +27,7 @@ interface IUserType {
   isActivated: boolean;
   name: string;
   userImage: string;
+  quizStatus: number;
 }
 
 export const API = {
@@ -91,6 +94,32 @@ export const API = {
     return fetch(`${BASE_URL}${EndPoints.RESTORE}`, {
       method: 'POST',
       credentials: 'include',
+      mode: 'cors',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(body),
+    })
+      .then((response) => response.json())
+      .catch((error: Error) => console.log(error));
+  },
+  updateCoffeeStatus(body: Partial<IUserType>) {
+    return fetch(`${BASE_URL}${EndPoints.COFFEE_STATS}`, {
+      method: 'PUT',
+      credentials: 'same-origin',
+      mode: 'cors',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(body),
+    })
+      .then((response) => response.json())
+      .catch((error: Error) => console.log(error));
+  },
+  updateQuizStatus(body: Partial<IUserType>) {
+    return fetch(`${BASE_URL}${EndPoints.QUIZ_STATS}`, {
+      method: 'PUT',
+      credentials: 'same-origin',
       mode: 'cors',
       headers: {
         'Content-Type': 'application/json',

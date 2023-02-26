@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import LearningCard, { ModalStateType } from 'components/cards/LearningCard';
 import { classNames } from 'helpers/classNames/classNames';
 import { LearningSteps } from 'fonts/LearningSteps';
@@ -10,6 +10,8 @@ import Weather from 'weatherWidget/Weather';
 import Radio from 'components/sound/radio';
 import Authorization from 'components/auth/Authorization';
 import UserSettingsForm from 'components/auth/UserSettingsForm';
+import { StatsType } from 'components/statistics/statistics';
+import { API } from 'Api';
 import 'styles/SignUp.scss';
 
 
@@ -42,6 +44,11 @@ const LearningModePage = () => {
     ['wrong__machine', 'right__modal', 'wrong__modal'],
     ['wrong__machine', 'wrong__modal', 'right__modal']
   ]
+  const [initialState, setInitialState] = useState<StatsType>({
+    email: '',
+    quizStatus: 0,
+    coffeeStatus: '',
+  });
 
   function openAuth() {
     (login as HTMLElement).style.display = 'flex';
@@ -50,6 +57,17 @@ const LearningModePage = () => {
   function openSettings() {
     (settings as HTMLElement).style.display = 'flex';
   }
+  
+  useEffect(() => {
+    API.getUser().then((data) => {
+      if (data && !data.hasOwnProperty('message')) {
+        setInitialState({
+          ...initialState,
+          email: data.email,
+        });
+      }
+    });
+  }, []);
 
   switch (progress) {
     case 1:
@@ -80,7 +98,6 @@ const LearningModePage = () => {
       break;
     case 6:
       machine.classList.add('blink__machine');
-      console.log(modal)
       setTimeout(() => {
         if (machine) machine.classList.remove('blink__machine');
         if (modal[3]) modal[3].classList.add('blink__modal');
@@ -100,6 +117,12 @@ const LearningModePage = () => {
       drinks.addEventListener('click', () => {
         setProgress(progress + 1)
         msg.innerHTML = '';
+        const newCoffeeStatus = ((event.target as HTMLElement).parentElement as HTMLButtonElement).value;
+        const coffeeBody = {
+          email: initialState.email,
+          coffeeStatus: newCoffeeStatus,
+        }
+        API.updateCoffeeStatus(coffeeBody).then((data) => { });
       })
       break;
     case 8:
@@ -107,7 +130,7 @@ const LearningModePage = () => {
     case 10:
     case 11:
       setTimeout(() => {
-        setProgress(progress + 1)
+        setProgress(progress + 1);
         msg.innerHTML = '';
       }, 3000)
       break;
@@ -130,6 +153,11 @@ const LearningModePage = () => {
       setTimeout(() => {
         const finishMsg = document.querySelector('.modalCenter');
         if (finishMsg && !finishMsg.innerHTML.includes('QUIZ')) finishMsg.prepend(`QUIZ RESULT: You got ${score}/5 points.`);
+        const scoreBody = {
+          email: initialState.email,
+          quizStatus: score,
+        }
+        API.updateQuizStatus(scoreBody).then((data) => { });
       }, 0);
       const bonus = document.querySelector('.bonus');
       (bonus as HTMLElement).style.display = 'flex';

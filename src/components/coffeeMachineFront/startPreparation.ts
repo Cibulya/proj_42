@@ -11,7 +11,6 @@ function startPreparation() {
     drinkBtn = (event.target as HTMLElement);
   } 
   
-  
   const coffee = drinkBtn.getAttribute('value');
   const size = drinkBtn.getAttribute('data-size');
   const color = drinkBtn.getAttribute('name');
@@ -54,6 +53,7 @@ function startPreparation() {
       addCup();
       if (!modal.length) {
         msg.innerHTML = `Preparing ${coffee}...`;
+        
        } else {
           if (modal[2]) modal[2].innerHTML += coffee;
        } 
