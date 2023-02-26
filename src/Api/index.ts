@@ -9,9 +9,10 @@ export enum EndPoints {
   LOGOUT = 'logout/',
   SET_PICTURE = 'setpicture/',
   RESTORE = 'restore/',
-
   POST_NEW = 'newpost/',
   POST_ALL = 'all/',
+  COFFEE_STATS = 'coffeestat/',
+  QUIZ_STATS = 'quiz/',
 }
 
 type CreateUserBodyType = {
@@ -29,6 +30,7 @@ interface IUserType {
   isActivated: boolean;
   name: string;
   userImage: string;
+  quizStatus: number;
 }
 interface IPosts {
   authorName: string;
@@ -130,6 +132,32 @@ export const API = {
       body: JSON.stringify(body),
     })
       .then((response: Response) => response.json())
+      .catch((error: Error) => console.log(error));
+  },
+  updateCoffeeStatus(body: Partial<IUserType>) {
+    return fetch(`${BASE_URL}${EndPoints.COFFEE_STATS}`, {
+      method: 'PUT',
+      credentials: 'same-origin',
+      mode: 'cors',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(body),
+    })
+      .then((response) => response.json())
+      .catch((error: Error) => console.log(error));
+  },
+  updateQuizStatus(body: Partial<IUserType>) {
+    return fetch(`${BASE_URL}${EndPoints.QUIZ_STATS}`, {
+      method: 'PUT',
+      credentials: 'same-origin',
+      mode: 'cors',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(body),
+    })
+      .then((response) => response.json())
       .catch((error: Error) => console.log(error));
   },
 };

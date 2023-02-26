@@ -6,7 +6,8 @@
   appearance: none;
   position: relative;
   overflow: hidden;
-  color: red;
+  color: rgb(162, 2, 111);
+  font-weight: bold;
 
   &::-webkit-file-upload-button,
   &::file-selector-button {
