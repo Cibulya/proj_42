@@ -1,9 +1,9 @@
-import { sound } from "../sound/allSounds";
+import { sound } from '../sound/allSounds';
 import finishPreparation from './finishPreparation';
 
 function addCup() {
   const cup = document.querySelector('.wrapper');
-  (cup as HTMLElement).style.display = "flex";
+  (cup as HTMLElement).style.display = 'flex';
 
   let start = 0;
   requestAnimationFrame(function measure(time) {
@@ -12,7 +12,7 @@ function addCup() {
     const translate = progress * 5.5;
     (cup as HTMLElement).style.margin = `0 ${translate}vh`;
     if (progress < 1) requestAnimationFrame(measure);
-  })
+  });
 
   sound.play('cup-on-shell');
   setTimeout(() => {

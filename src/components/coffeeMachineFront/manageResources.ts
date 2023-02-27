@@ -1,5 +1,5 @@
 import CheckResources from './checkResources';
-import { sound } from "../sound/allSounds";
+import { sound } from '../sound/allSounds';
 
 export let water = 1;
 export let beans = 2;
@@ -22,9 +22,9 @@ export function addWater() {
   CheckResources();
   openDrinkChoice();
 }
-export function addBeans() { 
+export function addBeans() {
   if (!beans) sound.play('grains');
-  beans = 2; 
+  beans = 2;
   const indicator = document.querySelector('.indicator__beans');
   indicator.classList.remove('active');
   CheckResources();
@@ -45,7 +45,7 @@ export function reduceResources() {
   wastePlace--;
 }
 
-document.addEventListener('keydown', function(event) {
+document.addEventListener('keydown', function (event) {
   if (event.code == 'KeyW') addWater();
   if (event.code == 'KeyB') addBeans();
   if (event.code == 'KeyE') emptyWasteContainer();

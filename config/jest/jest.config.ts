@@ -16,24 +16,13 @@ export default {
   // Automatically clear mock calls, instances and results before every test
   clearMocks: true,
   testEnvironment: 'jsdom',
-  coveragePathIgnorePatterns: [
-    '\\\\node_modules\\\\'
-  ],
-  moduleDirectories: [
-    'node_modules'
-  ],
-  moduleFileExtensions: [
-    'js',
-    'jsx',
-    'ts',
-    'tsx',
-    'json',
-    'node'
-  ],
+  coveragePathIgnorePatterns: ['\\\\node_modules\\\\'],
+  moduleDirectories: ['node_modules'],
+  moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'json', 'node'],
   rootDir: '../../',
-  testMatch: [
-    `<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)`,
-  ],
+  modulePaths: ['<rootDir>src'],
+  setupFilesAfterEnv: ['<rootDir>config/jest/setupTests.ts'],
+  testMatch: [`<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)`],
   // Indicates whether the coverage information should be collected while executing the test
   // collectCoverage: false,
 
@@ -155,7 +144,6 @@ export default {
   // snapshotSerializers: [],
 
   // The test environment that will be used for testing
-
 
   // Options that will be passed to the testEnvironment
   // testEnvironmentOptions: {},

@@ -1,57 +1,95 @@
-
 .header {
+  position: relative;
+  z-index: 4;
+  display: flex;
   width: 100%;
   height: var(--header-height);
-  display: flex;
   align-items: center;
   padding: 20px;
-  position: relative;
-  z-index: 1;
-  background: url('https://raw.githubusercontent.com/MarinaKovel/coffeemachinedata/main/design/header.png') center top no-repeat;
+  background: url('https://raw.githubusercontent.com/MarinaKovel/coffeemachinedata/main/design/header.png') center top
+    no-repeat;
   background-size: 100% var(--header-height);
 
   .lang-switcher,
   .theme-switcher {
-    font: var(--font-xl);
     color: var(--inverted-primary-color);
+    font: var(--font-xl);
     letter-spacing: -3px;
   }
 
+  .theme-switcher {
+    @media screen and (max-width: 768px) {
+      margin-left: auto;
+    }
+  }
+
   .link {
-    letter-spacing: -3px;
     font: var(--font-xl);
+    letter-spacing: -3px;
     text-decoration: none;
   }
 }
 
 .header-logo {
-  z-index: 10;
   position: relative;
+  z-index: 10;
   top: 0.5vh;
+  display: block;
   width: 18vh;
   height: 15vh;
-  display: block;
-  background: url("https://raw.githubusercontent.com/MarinaKovel/coffeemachinedata/main/design/logo.png") 0% 50%/ 100% no-repeat;
+  background: url('https://raw.githubusercontent.com/MarinaKovel/coffeemachinedata/main/design/logo.png') 0% 50%/ 100% no-repeat;
   background-size: contain;
 }
 
 .navbar {
   margin-top: 2px;
   margin-left: auto;
+
+  &.tablet {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: none;
+    width: 0;
+    transition: 1s ease-in;
+  }
+
+  &.tablet.active {
+    z-index: 5;
+    top: calc(var(--header-height) - 3px);
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    align-items: flex-start;
+    align-self: flex-start;
+    justify-content: flex-end;
+    background-color: #0000003c;
+
+    .navbar-links {
+      display: flex;
+      width: 250px;
+      height: 50vh;
+      flex-direction: column;
+      justify-content: center;
+      padding-left: 5vh;
+      border-radius: 0 0 10px 10px;
+      background-color: #000000cd;
+    }
+  }
 }
 
 .link {
-  text-decoration: none;
-  text-transform: uppercase;
   margin-right: 15px;
   margin-bottom: 10px;
-  color: var(--primary-color)
+  color: var(--primary-color);
+  text-decoration: none;
+  text-transform: uppercase;
 }
 
 .primary {
-  color: var(--primary-color)
+  color: var(--primary-color);
 }
 
 .secondary {
-  color: var(--inverted-primary-color)
+  color: var(--inverted-primary-color);
 }

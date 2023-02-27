@@ -1,7 +1,6 @@
 import React from 'react';
 
-const Steam = function() {
-
+const Steam = function () {
   return (
     <div className="steam">
       <div className="coffee-medium__smoke coffee-medium__smoke-one"></div>
@@ -10,6 +9,6 @@ const Steam = function() {
       <div className="coffee-medium__smoke coffee-medium__smoke-four"></div>
     </div>
   );
-}
+};
 
 export default Steam;

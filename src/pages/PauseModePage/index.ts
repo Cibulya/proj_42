@@ -1,1 +1,1 @@
-export {PauseModePageAsync as PauseModePage} from './ui/PauseModePage.async'
+export { PauseModePageAsync as PauseModePage } from './ui/PauseModePage.async';

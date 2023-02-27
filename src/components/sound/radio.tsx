@@ -1,9 +1,8 @@
 import React from 'react';
-import { Howl } from "howler";
+import { Howl } from 'howler';
 import ToggleButton from '@mui/material/ToggleButton';
 import Grid from '@mui/material/Grid';
 import Slider from '@mui/material/Slider';
-
 
 let radio: null | Howl = null;
 
@@ -18,11 +17,11 @@ function Radio() {
       handleSliderChange(event, 30);
     } else {
       radio = new Howl({
-      src: ['https://stream.nightride.fm/nightride.mp3'],
-      html5: true,
-      volume: 0.5
-    });
-    radio.play();
+        src: ['https://stream.nightride.fm/nightride.mp3'],
+        html5: true,
+        volume: 0.5,
+      });
+      radio.play();
     }
   }
 
@@ -46,7 +45,9 @@ function Radio() {
               setSelected(!selected);
             }}
             className="radio"
-            > Music ON/OFF
+          >
+            {' '}
+            Music ON/OFF
           </ToggleButton>
         </Grid>
         <Grid item className="volume__icon"></Grid>
@@ -60,7 +61,7 @@ function Radio() {
         </Grid>
       </Grid>
     </div>
-  )
+  );
 }
 
 export default Radio;
