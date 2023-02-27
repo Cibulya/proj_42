@@ -11,7 +11,7 @@
 }
 .error {
   margin-top: 7vh;
-  font-size: 7rem;
+  font-size: calc(var(--font-size-xl) * 2);
   font-weight: bold;
-  line-height: 7rem;
+  line-height: calc(var(--font-size-xl) * 2);
 }

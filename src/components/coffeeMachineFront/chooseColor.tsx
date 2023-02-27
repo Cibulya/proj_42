@@ -1,5 +1,5 @@
 import React, { useState} from "react";
-import 'components/coffeeMachineFront/chooseColor.scss';
+import 'styles/chooseColor.scss';
 import 'styles/LearningPage.scss';
 import startPreparation from "./startPreparation";
 

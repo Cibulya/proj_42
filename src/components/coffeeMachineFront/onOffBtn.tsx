@@ -1,5 +1,5 @@
 import React from 'react';
-import { ToggleButton } from '@mui/material';
+import { modalClasses, ToggleButton } from '@mui/material';
 import { sound } from "../sound/allSounds";
 
 export let turnOff: Function;
@@ -39,11 +39,10 @@ function TurnOnOff() {
     const auth = document.querySelector('.auth');
 
     if (!selected) {
-      if (modal) {
+      if (modal && !modal.innerHTML.includes('Pause')) {
         (authIcon as HTMLElement).style.display = 'block';
         (screen as HTMLElement).style.display = 'none';
         drinks.classList.add('hidden');
-        
       } else {
         if (auth) (auth as HTMLElement).style.display = 'none';
         (screen as HTMLElement).style.display = 'none';

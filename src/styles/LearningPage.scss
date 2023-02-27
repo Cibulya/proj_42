@@ -86,6 +86,8 @@
     grid-row: 1/6;
     left: calc(50vw - 23vh);
     z-index: 1;
+    overflow: hidden;
+    max-width: fit-content;
   }
 
   .learning__btn {
@@ -95,7 +97,7 @@
     position: relative;
     padding: 2vh 5vh;
     margin: 1vh;
-    font-size: 1.5rem;
+    font-size: var(--font-size-l);
     border-radius: 1px;
     cursor: pointer;
   }

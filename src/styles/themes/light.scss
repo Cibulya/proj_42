@@ -7,21 +7,25 @@
 
 .app.light.main {
   background: url('https://raw.githubusercontent.com/MarinaKovel/coffeemachinedata/main/design/bg-main-day.jpg') center top no-repeat;
-  background-size: auto 100vh;
+  background-attachment: fixed;
   background-color: #d8a6b0;
+  background-size: cover;
 }
 
 .app.light.pause,
 .app.light.learning,
 .app.light.about {
   background: url('https://raw.githubusercontent.com/MarinaKovel/coffeemachinedata/main/design/table-light.jpg') center top no-repeat;
-  background-size: auto 100vh;
+  background-attachment: fixed;
   background-color: #d8a6b0;
+  background-size: cover;
 }
 .app.light.auth,
-.app.light.statistic {
-  background: url('https://raw.githubusercontent.com/MarinaKovel/coffeemachinedata/main/design/schema-light.jpg') center top no-repeat;
-  background-size: auto 100vh;
+.app.light.statistic,
+.app.light.comments {
+  background: url('https://raw.githubusercontent.com/MarinaKovel/coffeemachinedata/main/design/schema-light.jpg') center top repeat;
+  background-attachment: fixed;
+  background-size: cover;
   background-color: #88719b;
 }
 

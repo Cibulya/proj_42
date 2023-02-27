@@ -31,7 +31,7 @@ const Header = ({ className }: HeaderProps) => {
       <Navbar callback={setOpen} burgerIsOpen={isOpen} isBurger={isBurger} />
       <ThemeSwitcher />
       <LangSwitcher />
-      {isBurger && <Hamburger color="#4FD1C5" size={28} toggled={isOpen} toggle={setOpen} rounded />}
+      {isBurger && <Hamburger color="#ffffff" size={28} toggled={isOpen} toggle={setOpen} rounded />}
     </header>
   );
 };
