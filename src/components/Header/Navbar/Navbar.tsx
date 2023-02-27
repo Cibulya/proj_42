@@ -13,19 +13,18 @@ interface NavbarProps {
 const Navbar = ({ className, burgerIsOpen, isBurger, callback }: NavbarProps) => {
   const { t } = useTranslation();
 
+  const closeBurger = () => {
+    callback(false);
+  }
+
   return (
-    <div className={classNames('navbar', { tablet: isBurger, active: burgerIsOpen }, [className])}>
+    <div className={classNames('navbar', { tablet: isBurger, active: burgerIsOpen }, [className])} onClick={closeBurger}>
       <div className="navbar-links">
-        {isBurger && (
           <AppLink callback={callback} isBurger={isBurger} theme={AppLinkTheme.SECONDARY} to={'/'}>
             {t('Main')}
           </AppLink>
-        )}
         <AppLink callback={callback} isBurger={isBurger} theme={AppLinkTheme.SECONDARY} to={'/about'}>
           {t('About')}
-        </AppLink>
-        <AppLink callback={callback} isBurger={isBurger} theme={AppLinkTheme.SECONDARY} to={'/statistic'}>
-          {t('Statistic')}
         </AppLink>
         <AppLink callback={callback} isBurger={isBurger} theme={AppLinkTheme.SECONDARY} to={'/comments'}>
           {t('Comments')}

@@ -216,7 +216,7 @@ const LearningModePage = () => {
 	return (
 		<div className={classNames('learning-mode')}>
       {
-        <Box className={classNames('progress')} sx={{ width: '80%' }}>
+        <Box className={classNames('progress')} sx={{ width: '100%' }}>
 				  <LinearProgress color="secondary" variant="buffer" value={progress / 19 * 100} valueBuffer={100} />
 			  </Box>
       }
@@ -225,7 +225,6 @@ const LearningModePage = () => {
 			{LearningSteps.length > progress
 				? modals.map((modal) => {
 					if (modal[1].text !== '') {
-            console.log(progress)
 						return (
 							<LearningCard key={`${modal[0]}-index`}
 										  className={classNames(`${modal[0]}`,
