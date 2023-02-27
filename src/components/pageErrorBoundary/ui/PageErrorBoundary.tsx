@@ -12,9 +12,9 @@ const PageErrorBoundary = ({ className }: PageErrorBoundaryProps) => {
     location.reload();
   };
   return (
-    <div className={classNames('page-error', {}, [className])}>
+    <div className={classNames('error-boundary', {}, [className])}>
       <h2>{t('boundaryError')}</h2>
-      <Button variant="outlined" color="error">
+      <Button onClick={reloadPage} variant="contained" color="secondary">
         {t('reload')}
       </Button>
     </div>

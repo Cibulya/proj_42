@@ -6,6 +6,7 @@ import AppRouter from 'providers/router/AppRouter';
 import Header from 'components/Header/Header';
 
 import './styles/index.scss';
+import { ErrorBoundary } from 'providers/ErrorBoundary';
 
 const App = () => {
   const { theme } = useTheme();
@@ -14,7 +15,9 @@ const App = () => {
     <div className={classNames('app', {}, [theme, page])}>
       <Suspense fallback="">
         <Header />
-        <AppRouter />
+        <ErrorBoundary>
+          <AppRouter />
+        </ErrorBoundary>
       </Suspense>
     </div>
   );
