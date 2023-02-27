@@ -500,7 +500,7 @@ export const LearningSteps: Array<LearningPropsType> = [
       text: 'modalCenter-text-19',
       picture: '',
       buttonOne: 'modalCenter-buttonOne-19',
-      buttonTwo: '',
+      buttonTwo: 'Statistic',
     },
     modalLeft: {
       text: '',

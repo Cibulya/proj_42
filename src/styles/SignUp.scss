@@ -1,12 +1,14 @@
 .sign-wrapper.card {
   display: none;
-  position: relative;
+  position: absolute !important;
+  top: 20px;
   z-index: 3;
-  
-  width: 320px;
+  width: 300px;
   padding: 20px;
+  left: calc(50vw - 160px);
+  right: calc(50vw - 160px);
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   h2 {
     margin: 20px auto;

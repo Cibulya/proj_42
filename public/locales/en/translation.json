@@ -58,7 +58,7 @@
   "modalRightTop-text-5": "CONTROLLER \nreceives input from VIEW, uses logic to translate the input to a request for the MODEL",
   "modalRightTop-text-8": "'CONTROLLER:\nChecking validation of the User",
   "modalRightTop-text-9": "CONTROLLER:\nChecking water, coffee beans and free space in the waste container…",
-  "next": "Next",
+  "next": "Skip",
   "password": "Password",
   "register": "Register",
   "restore": "Restore password",
