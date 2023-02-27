@@ -11,7 +11,7 @@ const CommentsPage = () => {
   const { t } = useTranslation();
 
   useEffect(() => {
-    API.getUser().then((data) => setUser(data ? data.name : t('anonymous')));
+    API.getUser().then((data) => setUser(data && data.name ? data.name : t('anonymous')));
     API.getAllPosts().then((data) => {
       setPosts(data ? data : []);
     });
