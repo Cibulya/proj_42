@@ -1,49 +1,57 @@
 .wrapper {
   display: none;
-  justify-content: center;
   width: 35vh;
   height: 100%;
   flex-wrap: wrap;
   align-content: flex-end;
+  justify-content: center;
   margin: 0 auto;
 }
+
 .cup-container {
   position: relative;
-  flex: 1;
-  height: 100%;
   display: flex;
+  height: 100%;
+  flex: 1;
   flex-wrap: wrap;
   align-content: flex-end;
   cursor: auto;
 }
+
 .controls {
   max-width: 190px;
 }
+
 #Drawing {
   max-width: 400px;
 }
+
 #Coffee {
-  transition: cubic-bezier(.68,-0.55,.27,1.35) all 3s;
   transform-origin: bottom;
+  transition: cubic-bezier(0.68, -0.55, 0.27, 1.35) all 3s;
 }
 
 @keyframes liquid {
   0% {
-    height: 0px;  
+    height: 0;
     opacity: 1;
   }
+
   5% {
-    height: 0px;  
+    height: 0;
     opacity: 1;
   }
+
   20% {
-    height: 70px;  
+    height: 70px;
     opacity: 1;
   }
+
   95% {
     height: 70px;
     opacity: 1;
   }
+
   100% {
     height: 70px;
     opacity: 0;
@@ -51,22 +59,22 @@
 }
 
 .liquid {
-  display: none;
-  width: 8px;
-  border-radius: 0 0 5px 5px;
-  height: 71px;
-  opacity: 0;
   position: absolute;
   top: 20vh;
   left: 48%;
-  background-color: #443530;
+  display: none;
+  width: 8px;
+  height: 71px;
+  border-radius: 0 0 5px 5px;
   animation: liquid 4s 4s linear infinite;
+  background-color: #443530;
+  opacity: 0;
 }
 
 .coffee-medium__smoke {
+  position: absolute;
   width: 8px;
   height: 20px;
-  position: absolute;  
   border-radius: 5px;
   background-color: #b3aeae;
 }
@@ -75,14 +83,17 @@
     bottom: 15vh;
     opacity: 0;
   }
+
   40% {
     bottom: 20vh;
-    opacity: .5;
+    opacity: 0.5;
   }
+
   80% {
     bottom: 30vh;
-    opacity: .3;
+    opacity: 0.3;
   }
+
   100% {
     bottom: 30vh;
     opacity: 0;
@@ -93,47 +104,55 @@
     bottom: 20vh;
     opacity: 0;
   }
+
   40% {
     bottom: 25vh;
-    opacity: .5;
+    opacity: 0.5;
   }
+
   80% {
     bottom: 35vh;
-    opacity: .3;
+    opacity: 0.3;
   }
+
   100% {
     bottom: 35vh;
     opacity: 0;
   }
 }
+
 .coffee-medium__smoke-one {
-  opacity: 0;
   bottom: 50vh;
   left: 25vh;
-  filter: blur(4px);
   animation: smokeOne 3s 4s linear infinite;
-}
-.coffee-medium__smoke-two {
+  filter: blur(4px);
   opacity: 0;
+}
+
+.coffee-medium__smoke-two {
   bottom: 70vh;
   left: 23vh;
-  filter: blur(4px);
   animation: smokeTwo 3s 5s linear infinite;
+  filter: blur(4px);
+  opacity: 0;
 }
+
 .coffee-medium__smoke-three {
-  opacity: 0;
-  bottom: 65vh;
   right: 28vh;
-  filter: blur(4px);
+  bottom: 65vh;
   animation: smokeTwo 3s 6s linear infinite;
-}
-.coffee-medium__smoke-four {
-  opacity: 0;
-  bottom: 50vh;
-  right: 25vh;
   filter: blur(4px);
-  animation: smokeOne 3s 5s linear infinite;
+  opacity: 0;
 }
+
+.coffee-medium__smoke-four {
+  right: 25vh;
+  bottom: 50vh;
+  animation: smokeOne 3s 5s linear infinite;
+  filter: blur(4px);
+  opacity: 0;
+}
+
 .steam {
   display: none;
 }

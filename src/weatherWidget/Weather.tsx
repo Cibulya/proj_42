@@ -11,20 +11,18 @@ const Weather = () => {
   const [weather, setWeather] = useState(null);
 
   useEffect(() => {
-    navigator.geolocation.getCurrentPosition(position => {
+    navigator.geolocation.getCurrentPosition((position) => {
       const { latitude, longitude } = position.coords;
       fetch(`${BASE_URL}current?key=${WEATHER_API_KEY}&lang=${i18n.language}&lat=${latitude}&lon=${longitude}&units=M`)
         .then((response: Response): Promise<IWeather> => response.json())
-        .then(response => {
+        .then((response) => {
           setWeather(response.data[0]);
         })
-        .catch(err => console.error(err));
+        .catch((err) => console.error(err));
     });
   }, [i18n.language]);
 
-  return (
-    <CurrentWeather weather={weather} />
-  );
+  return <CurrentWeather weather={weather} />;
 };
 
 export default Weather;

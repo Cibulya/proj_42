@@ -3,8 +3,8 @@ import CoffeeMachineBack from 'components/coffeeMachineBack/coffeeMachineBack';
 
 const AboutPage = () => {
   return (
-    <div className = "container">
-      <CoffeeMachineBack/>
+    <div className="container">
+      <CoffeeMachineBack />
     </div>
   );
 };

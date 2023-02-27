@@ -5,7 +5,6 @@ import Backend from 'i18next-http-backend';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import XHR from 'i18next-xhr-backend';
 
-
 i18n
   .use(XHR)
   .use(Backend)

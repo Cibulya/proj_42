@@ -1,19 +1,21 @@
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
+
 .invitation {
   position: relative;
   display: flex;
+  padding: 15px;
+  border-radius: 20px;
   margin: 20px;
   background-color: #89607ccf;
   color: #fff;
-  border-radius: 20px;
-  padding: 15px;
   font-size: calc(var(--font-size-m) * 1.2);
 }
+
 .machine {
   //position: fixed;
   //top: 67px;
@@ -21,167 +23,200 @@
   width: calc(70vh / 1.5);
   height: 70vh;
   border-radius: 10px;
-  background: url('https://raw.githubusercontent.com/MarinaKovel/coffeemachinedata/main/design/machine-front1.png') 50% / 100% no-repeat;
+  background: url('https://raw.githubusercontent.com/MarinaKovel/coffeemachinedata/main/design/machine-front1.png') 50% /
+    100% no-repeat;
 }
+
 .control {
+  display: flex;
   width: 93%;
   height: 27%;
-  border-radius: 10px 10px 0 0;
-  display: flex;
   justify-content: space-between;
   padding: 5% 4%;
+  border-radius: 10px 10px 0 0;
   margin-top: 12%;
   margin-left: 4%;
 }
+
 .onBtn {
   margin-left: 15% !important;
 }
+
 .container__left > button {
   width: 3vh;
   height: 3vh;
-  border-radius: 25px;
-  box-shadow: 1px 1px 10px 4px #ff0000;
   padding: 0 2%;
+  border-radius: 25px;
   margin-right: 5px;
-  background: url('https://raw.githubusercontent.com/MarinaKovel/onlinestoredata/main/on.png') 100% 100%/100% 100% no-repeat;
+  background: url('https://raw.githubusercontent.com/MarinaKovel/onlinestoredata/main/on.png') 100% 100%/100% 100%
+    no-repeat;
+  box-shadow: 1px 1px 10px 4px #f00;
 }
-.container__left > button[aria-pressed="true"] {
+
+.container__left > button[aria-pressed='true'] {
   box-shadow: 1px 1px 10px 4px #008000;
 }
+
 .container__left {
   position: relative;
   top: -5px;
   width: 20%;
 }
+
 .control__middle {
   display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-wrap: wrap;
-  height: 100%;
   width: 100%;
+  height: 100%;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
   margin-top: 1px;
 }
+
 .hidden {
   display: none !important;
 }
+
 .control__middle > button {
   border-radius: 4px;
 }
+
 .drink__picture {
   width: 100%;
   height: 120%;
-  background-color: #000;
   border-radius: 4px !important;
+  background-color: #000;
 }
+
 .drink__picture:hover {
   border: 1px solid #000;
 }
+
 .drink {
+  overflow: hidden;
   width: 27%;
   height: 48%;
-  background-color: #000;
-  border-radius: 4px !important;
   padding: 0 !important;
-  overflow: hidden;
+  border-radius: 4px !important;
+  background-color: #000;
 }
+
 .control__right {
-  width: 78%;
   display: flex;
+  width: 78%;
 }
+
 .control__screen {
+  display: flex;
   width: 100%;
-  color: rgb(227, 214, 214);
-  border-radius: 5px;
+  flex: 1;
+  flex-direction: column;
   padding: 5px;
+  border-radius: 5px;
+  color: rgb(227, 214, 214);
   font-size: var(--font-size-m);
   line-height: 100%;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
 }
+
 .message {
   position: relative;
   top: -5px;
   text-align: center;
 }
+
 .indicators {
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-wrap: wrap;
-  height: 30%;
   width: 100%;
+  height: 30%;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
 }
+
 .indicator {
   width: 1vh;
   height: 1vh;
-  background-color: rgba(109, 103, 103, 0.721);
   border-radius: 25px;
   margin: 15% 11%;
+  background-color: rgba(109, 103, 103, 0.721);
 }
+
 .active {
-  background-color: #ff0000;
-  box-shadow: 0px 0px 4px 2px #ff0000;
+  background-color: #f00;
+  box-shadow: 0 0 4px 2px #f00;
 }
+
 .icon__water {
   width: 4vh;
   height: 1.5vh;
-  background: url('https://raw.githubusercontent.com/MarinaKovel/onlinestoredata/main/water.png') 100% 100%/100% 100% no-repeat;
+  background: url('https://raw.githubusercontent.com/MarinaKovel/onlinestoredata/main/water.png') 100% 100%/100% 100%
+    no-repeat;
 }
+
 .icon__beans {
   width: 3vh;
   height: 3vh;
-  background: url('https://raw.githubusercontent.com/MarinaKovel/onlinestoredata/main/grains.png') 100% 100%/100% 100% no-repeat;
+  background: url('https://raw.githubusercontent.com/MarinaKovel/onlinestoredata/main/grains.png') 100% 100%/100% 100%
+    no-repeat;
 }
+
 .icon__waste {
   width: 3vh;
   height: 3vh;
-  background: url('https://raw.githubusercontent.com/MarinaKovel/onlinestoredata/main/waste.png') 100% 100%/100% 100% no-repeat;
+  background: url('https://raw.githubusercontent.com/MarinaKovel/onlinestoredata/main/waste.png') 100% 100%/100% 100%
+    no-repeat;
 }
+
 .placeForCup {
+  position: relative;
   width: 100%;
   height: 52%;
-  position: relative;
 }
+
 .shelf {
   width: 100%;
   height: 10%;
   border-radius: 0 0 10px 10px;
 }
+
 .cup {
-  display: none;
   position: absolute;
   bottom: -11vh;
   left: calc((70vh / 1.2 / 2) - 17.5vh);
+  display: none;
   width: 35vh;
   height: 35vh;
 }
+
 button {
   border: none;
 }
+
 .music__container {
-  display: flex;
-  justify-content: center;
-  background-color: #ebc8e9d5;
-  border: 1px solid rgb(162, 2, 111);
-  box-shadow: 1px 2px 3px rgba(16, 16, 16, 0.829);
-  border-radius: 15px;
-  padding: 20px;
-  margin: 0 3px 10px;
-  height: 150px;
-  width: 300px;
   z-index: 2;
+  display: flex;
+  width: 300px;
+  height: 150px;
+  justify-content: center;
+  padding: 20px;
+  border: 1px solid rgb(162, 2, 111);
+  border-radius: 15px;
+  margin: 0 3px 10px;
+  background-color: #ebc8e9d5;
+  box-shadow: 1px 2px 3px rgba(16, 16, 16, 0.829);
   transition: 1s;
 }
+
 .volume__icon {
   position: relative;
   top: 5px;
   width: 35px;
   height: 35px;
   margin: 10px 0 10px 20px !important;
-  background: url('https://raw.githubusercontent.com/MarinaKovel/coffeemachinedata/main/Sounds/volume-purple.png') 0% 100% / 100% 100% no-repeat;
+  background: url('https://raw.githubusercontent.com/MarinaKovel/coffeemachinedata/main/Sounds/volume-purple.png') 0%
+    100% / 100% 100% no-repeat;
 }
+
 .radio {
   width: 15vh;
   border-radius: 50px !important;
@@ -189,30 +224,35 @@ button {
   box-shadow: 2px 3px 5px rgb(16, 16, 16);
   color: #fff !important;
 }
+
 .auth-icon {
   display: none;
   width: 9vh;
   height: 9vh;
-  margin: 1vh 3vh;
   border-radius: 50px;
+  margin: 1vh 3vh;
+  animation: blinkUser 3s infinite;
   background-image: url('https://raw.githubusercontent.com/MarinaKovel/coffeemachinedata/main/user.png');
   background-position: 0% 0%;
-  background-size: 100% 100%;
   background-repeat: no-repeat;
-  animation: blinkUser 3s infinite;
+  background-size: 100% 100%;
 }
+
 .auth-icon:hover {
   cursor: pointer;
 }
+
 .account {
-  font-size: calc(var(--font-size-l) / 2.3);
-  color: #fff;
   position: relative;
   top: 9vh;
+  color: #fff;
+  font-size: calc(var(--font-size-l) / 2.3);
   text-align: center;
 }
 @keyframes blinkUser {
-  50% {box-shadow: 0px 0px 10px 5px #ffffff;}
+  50% {
+    box-shadow: 0 0 10px 5px #fff;
+  }
 }
 
 .hint {
@@ -229,17 +269,15 @@ button {
 }
 
 @keyframes hintBlink {
-  5% {box-shadow: 0 0 20px 10px #e53650;}
+  5% {
+    box-shadow: 0 0 20px 10px #e53650;
+  }
 }
 
-
 @media screen and (max-width: 915px) {
-
   .bg,
   .bg-night {
     height: 117%;
     background-size: auto 117vh;
   }
-
 }
-

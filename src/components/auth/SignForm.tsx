@@ -78,7 +78,7 @@ const SignForm = (props: SignFormPropsType) => {
             password: initialState.password,
           }).then((data) => {
             if (!data.hasOwnProperty('error')) {
-              ((formRef.current as HTMLDivElement).parentElement.style.display = 'none');
+              (formRef.current as HTMLDivElement).parentElement.style.display = 'none';
               const authIcon = document.querySelector('.auth-icon');
               const account = document.querySelector('.account');
               account.innerHTML = data.name;

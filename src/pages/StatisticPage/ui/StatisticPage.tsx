@@ -3,9 +3,9 @@ import Statistics from 'components/statistics/statistics';
 
 const StatisticPage = () => {
   return (
-  <div className="statistic">
-    <Statistics/>
-  </div>
+    <div className="statistic">
+      <Statistics />
+    </div>
   );
 };
 

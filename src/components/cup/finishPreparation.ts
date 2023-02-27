@@ -1,18 +1,18 @@
-import { sound } from "../sound/allSounds";
+import { sound } from '../sound/allSounds';
 import fillCup from './fillCup';
 
-export let removeCup: Function; 
+export let removeCup: Function;
 
 function finishPreparation() {
   fillCup(0.1);
   setTimeout(() => {
     sound.play('fillcup');
     fillCup(1.6);
-    const liquid = document.querySelector(".liquid");
+    const liquid = document.querySelector('.liquid');
     setTimeout(() => {
       (liquid as HTMLElement).style.display = 'none';
-    }, 4000)
-  }, 8000)
+    }, 4000);
+  }, 8000);
 
   const msg = document.querySelector('.message');
   const cup = document.querySelector('.wrapper');
@@ -28,10 +28,10 @@ function finishPreparation() {
 
   const takeCup = function () {
     const steam = document.querySelector('.steam');
-    (cup as HTMLElement).style.display = "none";
-    (steam as HTMLElement).style.display = "none";
-    !modal ? msg.innerHTML = 'Choose your coffee' : msg.innerHTML = '';
-    
+    (cup as HTMLElement).style.display = 'none';
+    (steam as HTMLElement).style.display = 'none';
+    !modal ? (msg.innerHTML = 'Choose your coffee') : (msg.innerHTML = '');
+
     const screen = document.querySelector('.control__screen');
     const drinkBtns = document.querySelector('.control__middle');
     setTimeout(() => {
@@ -41,7 +41,7 @@ function finishPreparation() {
 
     const onBtn = document.getElementsByClassName('onBtn');
     (onBtn[0] as HTMLButtonElement).disabled = false;
-  }
+  };
 
   removeCup = takeCup;
 

@@ -1,21 +1,20 @@
 .input-file {
+  position: relative;
+  overflow: hidden;
   width: 187px;
   padding: 8px 12px;
   border: 1px solid rgba(162, 2, 111, 0.8);
   border-radius: 4px;
   appearance: none;
-  position: relative;
-  overflow: hidden;
   color: rgb(162, 2, 111);
   font-weight: bold;
 
   &::-webkit-file-upload-button,
   &::file-selector-button {
     position: absolute;
-    visibility: hidden;
-    margin-left: 10px;
-    height: 100%;
     width: 0;
+    height: 100%;
+    margin-left: 10px;
+    visibility: hidden;
   }
 }
-

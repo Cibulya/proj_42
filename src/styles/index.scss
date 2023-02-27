@@ -1,33 +1,33 @@
-@import "./variables/global";
-@import "./themes/light";
-@import "./themes/dark";
-@import "./header/header";
+@import './variables/global';
+@import './themes/light';
+@import './themes/dark';
+@import './header/header';
 
-@import "reset";
-@import "mainPage";
-@import "LearningPage";
-@import "fonts";
-@import "SignUp";
-@import "UserSettingsForm";
-@import "comments";
-
+@import 'reset';
+@import 'mainPage';
+@import 'LearningPage';
+@import 'fonts';
+@import 'SignUp';
+@import 'UserSettingsForm';
+@import 'comments';
 
 @font-face {
-  font-family: "DigitalNumbers";
-  src: url("../fonts/digitalnumbers-regular.ttf") format("truetype");
+  font-family: 'DigitalNumbers';
   font-style: normal;
   font-weight: normal;
+  src: url('../fonts/digitalnumbers-regular.ttf') format('truetype');
 }
 
 .app {
   position: relative;
-  font: var(--font-m);
+  min-height: 100vh;
   background-color: var(--bg-color);
   color: var(--primary-color);
-  min-height: 100vh;
+  font: var(--font-m);
 }
+
 .loading {
   position: absolute;
-  left: 50%;
   top: 50%;
+  left: 50%;
 }

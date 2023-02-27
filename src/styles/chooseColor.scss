@@ -1,20 +1,22 @@
 .choose__color {
-    border-radius: 5px;
-    margin: 0 10px;
+  border-radius: 5px;
+  margin: 0 10px;
 }
+
 .color__btn {
-    border-radius: 5px;
-    padding: 0 5px;
-    border: 1px solid #000;
-    cursor: pointer;
+  padding: 0 5px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  cursor: pointer;
 }
+
 .choose__message {
-    position: relative;
-    display: none;
-    margin: 20px;
-    background-color: #89607ccf;
-    color: #fff;
-    border-radius: 20px;
-    padding: 15px;
-    font-size: calc(var(--font-size-m) * 1.2);
-  }
+  position: relative;
+  display: none;
+  padding: 15px;
+  border-radius: 20px;
+  margin: 20px;
+  background-color: #89607ccf;
+  color: #fff;
+  font-size: calc(var(--font-size-m) * 1.2);
+}

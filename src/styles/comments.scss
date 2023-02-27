@@ -1,9 +1,9 @@
 .comments-page {
   display: flex;
   flex-direction: column;
-  padding: 20px;
   align-items: center;
   justify-content: flex-start;
+  padding: 20px;
 
   .comments-box {
     width: 90%;
@@ -14,22 +14,22 @@
 
 .comment-wrapper {
   display: flex;
-  flex-direction: column;
-  margin-top: 10px;
-  gap: 5px;
   width: 100%;
+  flex-direction: column;
   padding: 10px;
-  background-color: #e8b3fbeb;
   border-radius: 10px;
+  margin-top: 10px;
   animation: animation 1s ease-out;
+  background-color: #e8b3fbeb;
+  gap: 5px;
 
   .comment__input {
     position: relative;
     height: 100px;
-    color: #000000;
-    background-color: #eceaea;
-    border-radius: 10px;
     padding: 10px;
+    border-radius: 10px;
+    background-color: #eceaea;
+    color: #000;
     resize: none;
     scrollbar-width: none;
 
@@ -47,16 +47,16 @@
   }
 
   .comment__btn {
-    color: #ffffff;
     width: 80px;
     height: 30px;
-    font: var(--font-m);
-    text-transform: uppercase;
-    background: rgba(162, 2, 111, 0.8);
     border: 0;
     border-radius: 10px;
-    transition: 0.3s;
+    background: rgba(162, 2, 111, 0.8);
+    color: #fff;
     cursor: pointer;
+    font: var(--font-m);
+    text-transform: uppercase;
+    transition: 0.3s;
 
     &:hover,
     &:focus {

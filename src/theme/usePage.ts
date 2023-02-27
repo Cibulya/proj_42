@@ -1,4 +1,4 @@
-import {useContext} from "react";
+import { useContext } from 'react';
 import { PageContext } from 'theme/PageContext';
 
 interface UsePageResult {
@@ -13,10 +13,10 @@ export function usePage(): UsePageResult {
     const newPage = link;
 
     setPage(newPage);
-  }
+  };
 
   return {
     page,
     togglePage,
-  }
+  };
 }

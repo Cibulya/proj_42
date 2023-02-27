@@ -8,15 +8,15 @@ function startPreparation() {
   if ((event.target as HTMLElement).getAttribute('class').includes('drink')) {
     drinkBtn = (event.target as HTMLElement).parentElement;
   } else {
-    drinkBtn = (event.target as HTMLElement);
-  } 
-  
+    drinkBtn = event.target as HTMLElement;
+  }
+
   const coffee = drinkBtn.getAttribute('value');
   const size = drinkBtn.getAttribute('data-size');
   const color = drinkBtn.getAttribute('name');
 
   const screen = document.querySelector('.control__screen');
-  const isOn = document.querySelector('.onBtn').getAttribute("aria-pressed");
+  const isOn = document.querySelector('.onBtn').getAttribute('aria-pressed');
 
   const drinks = document.querySelector('.control__middle');
   drinks.classList.add('hidden');
@@ -53,20 +53,23 @@ function startPreparation() {
       addCup();
       if (!modal.length) {
         msg.innerHTML = `Preparing ${coffee}...`;
-        
-       } else {
-          if (modal[2]) modal[2].innerHTML += coffee;
-       } 
+      } else {
+        if (modal[2]) modal[2].innerHTML += coffee;
+      }
       const onBtn = document.getElementsByClassName('onBtn');
       (onBtn[0] as HTMLButtonElement).disabled = true;
       if (!modal.length) reduceResources();
     }
   }
 
-  if (isOn === "true") {
-    modal.length ? setTimeout(() => {start()}, 8000) : start();
+  if (isOn === 'true') {
+    modal.length
+      ? setTimeout(() => {
+          start();
+        }, 8000)
+      : start();
   }
-  
+
   return;
 }
 

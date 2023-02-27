@@ -31,7 +31,7 @@ const Authorization = (props: AuthorizationPropsType) => {
         >
           <Tab value="login" label={t('login')} />
           <Tab value="sign-up" label={t('sign-up')} />
-          <Tab value="restore" disableRipple={true} disabled={true} className="hidden"/>
+          <Tab value="restore" disableRipple={true} disabled={true} className="hidden" />
         </Tabs>
       </Box>
       <SignForm typeForm={value} />

@@ -15,14 +15,17 @@ const Navbar = ({ className, burgerIsOpen, isBurger, callback }: NavbarProps) =>
 
   const closeBurger = () => {
     callback(false);
-  }
+  };
 
   return (
-    <div className={classNames('navbar', { tablet: isBurger, active: burgerIsOpen }, [className])} onClick={closeBurger}>
+    <div
+      className={classNames('navbar', { tablet: isBurger, active: burgerIsOpen }, [className])}
+      onClick={closeBurger}
+    >
       <div className="navbar-links">
-          <AppLink callback={callback} isBurger={isBurger} theme={AppLinkTheme.SECONDARY} to={'/'}>
-            {t('Main')}
-          </AppLink>
+        <AppLink callback={callback} isBurger={isBurger} theme={AppLinkTheme.SECONDARY} to={'/'}>
+          {t('Main')}
+        </AppLink>
         <AppLink callback={callback} isBurger={isBurger} theme={AppLinkTheme.SECONDARY} to={'/about'}>
           {t('About')}
         </AppLink>

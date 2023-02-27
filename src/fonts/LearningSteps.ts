@@ -521,5 +521,4 @@ export const LearningSteps: Array<LearningPropsType> = [
       buttonTwo: '',
     },
   },
-
 ];
