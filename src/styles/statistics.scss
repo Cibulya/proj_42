@@ -1,3 +1,4 @@
+
 .container__stats {
   display: flex;
   justify-content: center;
@@ -17,6 +18,7 @@
   justify-content: center;
   align-items: stretch;
   text-align: center;
+  max-height: 800px;
 }
 .stats__content {
   display: flex;
@@ -41,8 +43,8 @@
   border: 1px dashed #000;
 }
 .stats__score {
-  font-size: 1.7rem;
-  line-height: 1.7rem;
+  font-size: var(--font-line-m);
+  line-height: var(--font-line-m);
   font-weight: bold;
   color: rgb(162, 2, 111);
 }
@@ -54,4 +56,33 @@
   width: 200px;
   height: 250px;
   border-radius: 10px;
+}
+
+@media screen and (max-width: 1600px) {
+
+  .stats {
+    max-height: 600px;
+  }
+  
+}
+
+@media screen and (max-width: 1100px) {
+
+  .stats {
+    max-height: 800px;
+  }
+  .stats__quiz,
+  .stats__coffee {
+    height: auto;
+  }
+  
+}
+
+@media screen and (max-width: 900px) {
+
+  .coffee__img {
+    width: 15vw;
+    height: 15vw;
+  }
+  
 }

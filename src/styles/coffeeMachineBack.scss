@@ -7,6 +7,7 @@
 }
 .machine__back {
   display: flex;
+  align-self: flex-start;
   justify-content: center;
   flex-direction: column;
   width: calc(70vh / 1.5);
@@ -29,14 +30,14 @@
   height: 13vh;
   line-height: 2vh;;
   border-radius: 50px;
-  font-size: 0.5rem;
+  font-size: calc(var(--font-size-m) / 1.4);
   background: url('https://raw.githubusercontent.com/MarinaKovel/coffeemachinedata/8891efc79765994427c203eaf543d5185bf72620/github.svg') 100% / 100% no-repeat;
   padding: 0vh 2vh 0 2vh;
   margin: 1.5vh;
 }
 .dev:hover {
   background: linear-gradient(#1e1b20, #1e1b20) padding-box, linear-gradient(130deg, #b91d88, #9648b3) border-box;
-  font-size: 0.8rem;
+  font-size: var(--font-size-m);
   transition: 0.5s;
 }
 .design {
@@ -47,11 +48,11 @@
   border-radius: 50px;
   background: linear-gradient(#1e1b20, #1e1b20) padding-box, linear-gradient(130deg, #fb02ac, #9648b3) border-box;
   border: 0.5vh solid transparent;
-  font-size: 0.7rem;
+  font-size: calc(var(--font-size-m) / 1.4);
   margin: 1.5vh;
 }
 .design:hover {
-  font-size: 0.8rem;
+  font-size: calc(var(--font-size-m) / 1.2);
 }
 .dev:hover,
 .design:hover {
@@ -66,6 +67,7 @@
   color: #fff;
   padding: 5vh;
   width: 40%;
+  font-size: calc(var(--font-size-m) * 1.2);
 }
 
 @media screen and (max-width: 1100px) {
@@ -89,7 +91,7 @@
 @media screen and (max-width: 730px) {
 
   .container__back {
-    flex-direction: column;
+    flex-direction: column-reverse;
   }
   .description {
     width: 90%;
@@ -98,6 +100,9 @@
   .bgback-night {
     height: 200%;
     background-size: auto 200vh;
+  }
+  .machine__back {
+    align-self: auto;
   }
 
 }

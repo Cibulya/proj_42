@@ -12,9 +12,11 @@
   color: #fff;
   border-radius: 20px;
   padding: 15px;
-  font-size: 1.2rem;
+  font-size: calc(var(--font-size-m) * 1.2);
 }
 .machine {
+  //position: fixed;
+  //top: 67px;
   position: relative;
   width: calc(70vh / 1.5);
   height: 70vh;
@@ -92,7 +94,7 @@
   color: rgb(227, 214, 214);
   border-radius: 5px;
   padding: 5px;
-  font-size: 0.9rem;
+  font-size: var(--font-size-m);
   line-height: 100%;
   flex: 1;
   display: flex;
@@ -198,7 +200,7 @@ button {
   cursor: pointer;
 }
 .account {
-  font-size: 0.55rem;
+  font-size: calc(var(--font-size-l) / 2.3);
   color: #fff;
   position: relative;
   top: 9vh;
@@ -207,6 +209,26 @@ button {
 @keyframes blinkUser {
   50% {box-shadow: 0px 0px 10px 5px #ffffff;}
 }
+
+.hint {
+  position: absolute;
+  right: 7vh;
+  bottom: 10.2vh;
+  width: 9px;
+  height: 3px;
+  animation: hintBlink 10s infinite;
+}
+
+.hint:hover {
+  cursor: pointer;
+}
+
+@keyframes hintBlink {
+  5% {
+    box-shadow: 0 0 20px 10px #e53650;
+  }
+}
+
 
 @media screen and (max-width: 915px) {
 

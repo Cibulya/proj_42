@@ -7,9 +7,14 @@ import 'styles/cup.scss';
 import Steam from '../cup/steam';
 import Drinks from 'providers/drinks/drinks';
 import CanvasClock from 'components/canvasClock';
+import { sound } from "../sound/allSounds";
 
 
 const CoffeeMachineFront = function() {
+
+  function playSecret() {
+    sound.play('secret');
+  }
 
   return (
     <div className = "machine">
@@ -35,6 +40,9 @@ const CoffeeMachineFront = function() {
         <Cup/>
       </div>
       <div className = "shelf"></div>
+      <a href="/secret" target="_blank">
+        <div className="hint" onClick={playSecret}></div>
+      </a>
     </div>
   );
 }

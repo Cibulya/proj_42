@@ -8,19 +8,23 @@
 
 .app.dark.main {
   background: url('https://raw.githubusercontent.com/MarinaKovel/coffeemachinedata/main/design/bg-main-night2.jpg') center top no-repeat;
-  background-size: auto 100vh;
+  background-attachment: fixed;
+  background-size: cover;
   background-color: #6e5054;
 }
 .app.dark.pause,
 .app.dark.learning,
 .app.dark.about {
   background: url('https://raw.githubusercontent.com/MarinaKovel/coffeemachinedata/main/design/table-dark.jpg') center top no-repeat;
-  background-size: auto 100vh;
+  background-attachment: fixed;
+  background-size: cover;
   background-color: #6e5054;
 }
 .app.dark.auth,
-.app.dark.statistic {
+.app.dark.statistic,
+.app.dark.comments {
   background: url('https://raw.githubusercontent.com/MarinaKovel/coffeemachinedata/main/design/schema-dark.jpg') center top no-repeat;
-  background-size: auto 100vh;
+  background-attachment: fixed;
+  background-size: cover;
   background-color: #56495b;
 }

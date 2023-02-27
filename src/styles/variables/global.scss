@@ -12,3 +12,29 @@
 
   --header-height: 14vh;
 }
+
+@media screen and (min-width: 1500px) {
+
+  :root {
+    --font-size-m: 20px;
+    --font-line-m: 28px;
+    --font-size-l: 28px;
+    --font-line-l: 36px;
+    --font-size-xl: 36px;
+    --font-line-xl: 44px;
+  }
+  
+}
+
+@media screen and (max-width: 768px) {
+
+  :root {
+    --font-size-m: 12px;
+    --font-line-m: 20px;
+    --font-size-l: 20px;
+    --font-line-l: 28px;
+    --font-size-xl: 28px;
+    --font-line-xl: 36px;
+  }
+  
+}
