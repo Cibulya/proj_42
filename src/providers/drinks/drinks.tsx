@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import startPreparation from 'components/coffeeMachineFront/startPreparation';
+import { MsgNoResourcesPropsType } from 'components/coffeeMachineFront/addIndicators';
 
 interface Drink {
   name: string;
@@ -11,7 +12,7 @@ interface Drink {
   index: string;
 }
 
-const Drinks = () => {
+const Drinks = ({ msgNoResources, enjoy, choose }: MsgNoResourcesPropsType) => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
@@ -38,7 +39,7 @@ const Drinks = () => {
       className="control__middle hidden"
       value={alignment}
       exclusive
-      onChange={() => startPreparation()}
+      onChange={() => startPreparation(msgNoResources, enjoy, choose)}
     >
       {data &&
         data.map((drinkData: Drink) => {

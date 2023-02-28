@@ -5,6 +5,7 @@ import { LearningSteps } from 'fonts/LearningSteps';
 import { turnOff } from 'components/coffeeMachineFront/onOffBtn';
 import { removeCup } from 'components/cup/finishPreparation';
 import { API } from 'Api';
+import AppLink from 'components/Header/Navbar/AppLink/AppLink';
 
 export type ModalStateType = {
   text: string;
@@ -63,15 +64,19 @@ const LearningCard = (props: CardProps) => {
       ) : (
         <></>
       )}
-      {props.state.buttonTwo !== '' ? (
+      {props.state.buttonTwo !== '' && props.state.buttonTwo !== 'Statistic' ? (
         <button
           className="learning__btn"
           onClick={(event) => {
-            raiseProgress(props.progress + 1);
+            if (props.state.buttonTwo !== '') raiseProgress(props.progress + 1);
           }}
         >
           {t(`${props.state.buttonTwo}`)}
         </button>
+      ) : props.state.buttonTwo === 'Statistic' ? (
+        <AppLink to={'/statistic'}>
+          <button className="learning__btn">{t(`${props.state.buttonTwo}`)}</button>
+        </AppLink>
       ) : (
         <></>
       )}

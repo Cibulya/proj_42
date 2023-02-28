@@ -1,6 +1,6 @@
 import { water, beans, wastePlace } from './manageResources';
 
-function checkResources() {
+function checkResources(msgNoResources: Array<string>) {
   const resources = [water, beans, wastePlace];
   const indicators = [
     document.querySelector('.indicator__water'),
@@ -10,11 +10,7 @@ function checkResources() {
 
   const msg = document.querySelector('.message');
   msg.innerHTML = '';
-  const msgNoResources = [
-    'Add water (press "W"). ',
-    'Add coffee beans (press "B"). ',
-    'Empty waste container (press "E").',
-  ];
+
   const drinks = document.querySelector('.control__middle');
 
   for (let i = 0; i < resources.length; i++) {

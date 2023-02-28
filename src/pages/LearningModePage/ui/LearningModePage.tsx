@@ -48,7 +48,7 @@ const LearningModePage = () => {
     quizStatus: 0,
     coffeeStatus: '',
   });
-
+  const msgNoResources = [t('pause-water'), t('pause-beans'), t('pause-empty')];
   function openAuth() {
     (login as HTMLElement).style.display = 'flex';
     (settings as HTMLElement).style.display = 'none';
@@ -228,6 +228,8 @@ const LearningModePage = () => {
         score++;
     }
   }
+  const enjoy = t('pause-finish');
+  const choose = t('pause-choose');
 
   return (
     <div className={classNames('learning-mode')}>
@@ -257,7 +259,7 @@ const LearningModePage = () => {
       )}
       {
         <div className="learning__machine">
-          <CoffeeMachineFront />
+          <CoffeeMachineFront msgNoResources={msgNoResources} enjoy={enjoy} choose={choose} />
         </div>
       }
       <div className="bonus">

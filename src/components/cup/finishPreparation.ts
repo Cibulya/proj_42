@@ -3,7 +3,7 @@ import fillCup from './fillCup';
 
 export let removeCup: Function;
 
-function finishPreparation() {
+function finishPreparation(enjoy: string, choose: string) {
   fillCup(0.1);
   setTimeout(() => {
     sound.play('fillcup');
@@ -18,7 +18,7 @@ function finishPreparation() {
   const cup = document.querySelector('.wrapper');
 
   setTimeout(() => {
-    msg.innerHTML = `Enjoy your coffee! Take your cup.`;
+    msg.innerHTML = enjoy;
     const cupContainer = document.querySelector('.cup-container');
     (cupContainer as HTMLElement).style.cursor = 'pointer';
     cup.addEventListener('click', takeCup);
@@ -30,7 +30,7 @@ function finishPreparation() {
     const steam = document.querySelector('.steam');
     (cup as HTMLElement).style.display = 'none';
     (steam as HTMLElement).style.display = 'none';
-    !modal ? (msg.innerHTML = 'Choose your coffee') : (msg.innerHTML = '');
+    !modal ? (msg.innerHTML = choose) : (msg.innerHTML = '');
 
     const screen = document.querySelector('.control__screen');
     const drinkBtns = document.querySelector('.control__middle');

@@ -1,7 +1,8 @@
 import { sound } from '../sound/allSounds';
 import finishPreparation from './finishPreparation';
 
-function addCup() {
+
+function addCup(enjoy: string, choose: string) {
   const cup = document.querySelector('.wrapper');
   (cup as HTMLElement).style.display = 'flex';
 
@@ -19,7 +20,7 @@ function addCup() {
     sound.play('making-coffee');
   }, 1000);
 
-  finishPreparation();
+  finishPreparation(enjoy, choose);
 
   return;
 }

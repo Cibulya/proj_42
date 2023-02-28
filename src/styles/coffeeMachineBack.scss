@@ -79,6 +79,14 @@
   font-size: calc(var(--font-size-m) * 1.2);
 }
 
+.course {
+  width: 100px;
+  height: 35px;
+  display: block;
+  fill: #ce3232;
+
+}
+
 @media screen and (max-width: 1100px) {
   .bgback,
   .bgback-night {

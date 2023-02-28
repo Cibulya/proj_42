@@ -3,7 +3,7 @@ import CheckResources from './checkResources';
 import addCup from '../cup/addCup';
 import { water, beans, wastePlace, reduceResources } from './manageResources';
 
-function startPreparation() {
+function startPreparation(msgNoResources: Array<string>, enjoy: string, choose: string) {
   let drinkBtn;
   if ((event.target as HTMLElement).getAttribute('class').includes('drink')) {
     drinkBtn = (event.target as HTMLElement).parentElement;
@@ -47,10 +47,10 @@ function startPreparation() {
   const msg = document.querySelector('.message');
   const modal = document.getElementsByClassName('card');
 
-  function start() {
-    if (!modal.length) CheckResources();
+  function start(msgNoResources: Array<string>, enjoy: string, choose: string) {
+    if (!modal.length) CheckResources(msgNoResources);
     if (water > 0 && beans > 0 && wastePlace > 0) {
-      addCup();
+      addCup(enjoy, choose);
       if (!modal.length) {
         msg.innerHTML = `Preparing ${coffee}...`;
       } else {
@@ -65,9 +65,9 @@ function startPreparation() {
   if (isOn === 'true') {
     modal.length
       ? setTimeout(() => {
-          start();
+          start(msgNoResources, enjoy, choose);
         }, 8000)
-      : start();
+      : start(msgNoResources, enjoy, choose);
   }
 
   return;
