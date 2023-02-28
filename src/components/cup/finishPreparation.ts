@@ -20,7 +20,7 @@ function finishPreparation(enjoy: string, choose: string) {
   setTimeout(() => {
     msg.innerHTML = enjoy;
     const cupContainer = document.querySelector('.cup-container');
-    (cupContainer as HTMLElement).style.cursor = 'pointer';
+    if (cupContainer) (cupContainer as HTMLElement).style.cursor = 'pointer';
     cup.addEventListener('click', takeCup);
   }, 12000);
 

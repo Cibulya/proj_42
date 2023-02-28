@@ -173,9 +173,13 @@ const LearningModePage = () => {
     setTimeout(() => {
       const elements = [machine, modal[3], modal[4]];
       removeBlick();
-      elements.forEach((element) => element.addEventListener('click', showAnswer, { once: true }));
+      elements.forEach((element) => {
+        if (element) element.addEventListener('click', showAnswer, { once: true })
+      });
       function showAnswer() {
-        elements.forEach((element) => element.removeEventListener('click', showAnswer));
+        elements.forEach((element) => {
+          if (element) element.removeEventListener('click', showAnswer)
+        });
         elements.forEach((element: HTMLElement, index: number) => {
           if (element === event.currentTarget) (event.currentTarget as HTMLElement).classList.add(answers[i][index]);
         });
@@ -209,10 +213,10 @@ const LearningModePage = () => {
     countScore();
     machine.classList.remove('right__machine');
     machine.classList.remove('wrong__machine');
-    modal[3].classList.remove('right__modal');
-    modal[3].classList.remove('wrong__modal');
-    modal[4].classList.remove('right__modal');
-    modal[4].classList.remove('wrong__modal');
+    if (modal[3]) modal[3].classList.remove('right__modal');
+    if (modal[3]) modal[3].classList.remove('wrong__modal');
+    if (modal[4]) modal[4].classList.remove('right__modal');
+    if (modal[4]) modal[4].classList.remove('wrong__modal');
   }
 
   function countScore() {

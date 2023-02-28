@@ -135,15 +135,9 @@ const UserPhotoForm = (props: UserFormPropsType) => {
         <button ref={buttonSubmitRef} className="learning__btn" disabled>
           {t('save')}
         </button>
-<<<<<<< HEAD
-=======
-        <button className="learning__btn" onClick={closeHandler}>
-          {t('closePhoto')}
-        </button>
->>>>>>> 9c8e73beeb41b354b8ec2d7804a711a889444808
       </div>
     </form>
-    <button className="learning__btn close">{t('closePhoto')}</button>
+    <button className="learning__btn close" onClick={closeHandler}>{t('closePhoto')}</button>
     </>
   );
 };
