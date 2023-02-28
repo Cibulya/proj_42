@@ -5,6 +5,19 @@
   justify-content: center;
 }
 
+.school__link {
+  width: 70px;
+  height: 70px;
+}
+
+.school__info {
+  margin-top: 30px;
+  display: flex;
+  height: 40px;
+  justify-content: center;
+  gap: 20px;
+}
+
 .machine__back {
   display: flex;
   width: calc(70vh / 1.5);
@@ -14,7 +27,7 @@
   justify-content: center;
   padding: 10vh 7vh 15vh 7.5vh;
   border-radius: 10px;
-  background: url('https://raw.githubusercontent.com/MarinaKovel/coffeemachinedata/main/design/machine-back-qr.png') 50% /
+  background: url("https://raw.githubusercontent.com/MarinaKovel/coffeemachinedata/main/design/machine-back-qr.png") 50% /
     100% no-repeat;
   color: white;
   text-align: center;
@@ -34,7 +47,7 @@
   padding: 0 2vh;
   border-radius: 50px;
   margin: 1.5vh;
-  background: url('https://raw.githubusercontent.com/MarinaKovel/coffeemachinedata/8891efc79765994427c203eaf543d5185bf72620/github.svg')
+  background: url("https://raw.githubusercontent.com/MarinaKovel/coffeemachinedata/8891efc79765994427c203eaf543d5185bf72620/github.svg")
     100% / 100% no-repeat;
   font-size: calc(var(--font-size-m) / 1.4);
   line-height: 2vh;
@@ -84,7 +97,6 @@
   height: 35px;
   display: block;
   fill: #ce3232;
-
 }
 
 @media screen and (max-width: 1100px) {

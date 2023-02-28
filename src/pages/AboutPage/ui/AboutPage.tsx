@@ -1,6 +1,5 @@
-import React from 'react';
 import CoffeeMachineBack from 'components/coffeeMachineBack/coffeeMachineBack';
-
+import { SchoolInfo } from 'components/schoolInfo/schoolInfo';
 const AboutPage = () => {
   return (
     <div className="container">
