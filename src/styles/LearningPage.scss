@@ -26,7 +26,9 @@
     color: #fff;
     text-align: center;
   }
-
+  .card.settings {
+    display: flex;
+  }
   .card.modalLeft {
     z-index: 2;
     display: flex;

@@ -26,6 +26,7 @@ let score = 0;
 const LearningModePage = () => {
   const { t } = useTranslation();
   const [progress, setProgress] = useState(0);
+  const [isOpen, setOpen] = useState(false);
   const state = LearningSteps[progress];
   const modals = Object.entries(state);
 
@@ -37,7 +38,7 @@ const LearningModePage = () => {
   const drinks = document.querySelector('.control__middle');
   const screen = document.querySelector('.control__screen');
   const login = document.querySelector('.sign-wrapper.card.login');
-  const settings = document.querySelector('.sign-wrapper.card.settings');
+
   const answers = [
     ['right__machine', 'wrong__modal', 'wrong__modal'],
     ['wrong__machine', 'right__modal', 'wrong__modal'],
@@ -51,10 +52,10 @@ const LearningModePage = () => {
   const msgNoResources = [t('pause-water'), t('pause-beans'), t('pause-empty')];
   function openAuth() {
     (login as HTMLElement).style.display = 'flex';
-    (settings as HTMLElement).style.display = 'none';
+    setOpen(false);
   }
   function openSettings() {
-    (settings as HTMLElement).style.display = 'flex';
+    setOpen(true);
   }
 
   useEffect(() => {
@@ -76,21 +77,19 @@ const LearningModePage = () => {
     case 2:
       if (authIcon) authIcon.addEventListener('click', openAuth);
       const form = document.querySelector('.form');
-      const close = document.querySelector('.close');
       if (form)
         form.addEventListener('submit', () => {
           if (authIcon) authIcon.removeEventListener('click', openAuth);
           if (authIcon) authIcon.addEventListener('click', openSettings);
         });
-      (close as HTMLButtonElement).addEventListener('click', () => {
-        (modal[1] as HTMLElement).style.display = 'none';
-        (authIcon as HTMLElement).style.animation = 'none';
-        setTimeout(() => {
-          (authIcon as HTMLElement).style.display = 'none';
-          (screen as HTMLElement).style.display = 'flex';
-          setProgress(progress + 1);
-        }, 2000);
-      });
+      break;
+    case 3:
+      (modal[1] as HTMLElement).style.display = 'none';
+      (authIcon as HTMLElement).style.animation = 'none';
+      setTimeout(() => {
+        (authIcon as HTMLElement).style.display = 'none';
+        (screen as HTMLElement).style.display = 'flex';
+      }, 2000);
       break;
     case 5:
       machine.classList.add('blink__machine');
@@ -219,7 +218,7 @@ const LearningModePage = () => {
   }
 
   function countScore() {
-    if (machine && modal[1] && modal[2]) {
+    if (machine && modal[3] && modal[4]) {
       if (
         machine.getAttribute('class').includes('right__machine') ||
         modal[3].getAttribute('class').includes('right__modal') ||
@@ -239,7 +238,15 @@ const LearningModePage = () => {
         </Box>
       }
       <Authorization className={'card login'} />
-      <UserSettingsForm className={'card settings'} />
+      {isOpen && (
+        <UserSettingsForm
+          callbackProgress={setProgress}
+          progress={progress}
+          callBackIsOpen={setOpen}
+          isOpen={isOpen}
+          className={'card settings'}
+        />
+      )}
       {LearningSteps.length > progress ? (
         modals.map((modal) => {
           if (modal[1].text !== '') {
