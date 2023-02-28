@@ -23,7 +23,7 @@ type CreateUserBodyType = {
   secretWord: string;
 };
 
-interface IUserType {
+export type IUserType = {
   activationLink: string;
   coffeeStatus: string;
   email: string;
@@ -31,7 +31,9 @@ interface IUserType {
   name: string;
   userImage: string;
   quizStatus: number;
-}
+  message: string;
+};
+
 interface IPosts {
   authorName: string;
   postText: string;
@@ -44,7 +46,7 @@ export const API = {
       mode: 'cors',
       headers: {},
     })
-      .then((response: Response): Promise<IUserType> => response.json())
+      .then((response: Response): Promise<Partial<IUserType>> => response.json())
       .catch((error: Error) => console.log(error));
   },
   createUser(body: Partial<CreateUserBodyType>) {
