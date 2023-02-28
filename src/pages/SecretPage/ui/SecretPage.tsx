@@ -1,5 +1,7 @@
 import { BgParticles } from 'components/secretBg/secretBg';
 import '../../../styles/secretPage.scss';
+import { useTranslation } from 'react-i18next';
+
 
 function bigWindow(event: any) {
   const targeEl = event.currentTarget;
@@ -25,11 +27,12 @@ function bigWindow(event: any) {
 }
 
 const SecretPage = () => {
+  const { t } = useTranslation();
   return (
     <div className="secret">
       <div className="secret__content" id="particles">
-        <h1 className="secret__title">This is Secret page</h1>
-        <p className="secret__subtitle">Here we show some concept arts of this app</p>
+        <h1 className="secret__title">{t(`secret-title`)}</h1>
+        <p className="secret__subtitle">{t(`secret-text`)}</p>
         <div className="content__gallery">
           <div onClick={bigWindow} className="back art"></div>
           <div onClick={bigWindow} className="left art"></div>

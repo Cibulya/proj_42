@@ -13,29 +13,28 @@ function openDrinkChoice() {
     (screen as HTMLElement).style.display = 'none';
   }
 }
-
-export function addWater() {
+export function addWater(msgNoResources: Array<string>) {
   if (!water) sound.play('water');
   water = 1;
   const indicator = document.querySelector('.indicator__water');
   indicator.classList.remove('active');
-  CheckResources();
+  CheckResources(msgNoResources);
   openDrinkChoice();
 }
-export function addBeans() {
+export function addBeans(msgNoResources: Array<string>) {
   if (!beans) sound.play('grains');
   beans = 2;
   const indicator = document.querySelector('.indicator__beans');
   indicator.classList.remove('active');
-  CheckResources();
+  CheckResources(msgNoResources);
   openDrinkChoice();
 }
-export function emptyWasteContainer() {
+export function emptyWasteContainer(msgNoResources: Array<string>) {
   if (!wastePlace) sound.play('container');
   wastePlace = 1;
   const indicator = document.querySelector('.indicator__waste');
   indicator.classList.remove('active');
-  CheckResources();
+  CheckResources(msgNoResources);
   openDrinkChoice();
 }
 
@@ -44,9 +43,3 @@ export function reduceResources() {
   beans--;
   wastePlace--;
 }
-
-document.addEventListener('keydown', function (event) {
-  if (event.code == 'KeyW') addWater();
-  if (event.code == 'KeyB') addBeans();
-  if (event.code == 'KeyE') emptyWasteContainer();
-});

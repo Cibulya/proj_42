@@ -14,7 +14,7 @@ const StartCard = (props: CardProps) => {
     <div className={classNames('card', {}, [`${props.className}`])}>
       <h2>{t(`${props.linkTitle}`)}</h2>
       <AppLink theme={AppLinkTheme.SECONDARY} to={props.to}>
-        {t(`next`)}
+        {t(`Start`)}
       </AppLink>
     </div>
   );

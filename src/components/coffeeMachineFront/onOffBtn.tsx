@@ -1,11 +1,13 @@
 import React from 'react';
 import { modalClasses, ToggleButton } from '@mui/material';
 import { sound } from '../sound/allSounds';
+import { useTranslation } from 'react-i18next';
 
 export let turnOff: Function;
 
 function TurnOnOff() {
   const [selected, setSelected] = React.useState(false);
+  const { t } = useTranslation();
 
   const indicators = document.getElementsByClassName('active');
   while (indicators.length) {
@@ -18,15 +20,15 @@ function TurnOnOff() {
   const drinks = document.querySelector('.control__middle');
   const modal = document.querySelector('.card');
 
-  if (msg && msg.innerHTML === 'Turn on the coffee machine' && selected) {
-    msg.innerHTML = 'Choose coffee';
+  if (msg && msg.innerHTML === t(`pause-turnon`) && selected) {
+    msg.innerHTML = t(`pause-choose`);
     (invitation as HTMLElement).style.display = 'none';
     (chooseMessage as HTMLElement).style.display = 'flex';
   } else if (msg && modal) {
     msg.innerHTML = '';
     drinks.classList.add('hidden');
   } else if (msg && !modal) {
-    msg.innerHTML = 'Turn on the coffee machine';
+    msg.innerHTML = t(`pause-turnon`);
     drinks.classList.add('hidden');
     (invitation as HTMLElement).style.display = 'flex';
     (chooseMessage as HTMLElement).style.display = 'none';
