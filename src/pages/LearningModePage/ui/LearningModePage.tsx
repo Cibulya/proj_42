@@ -13,6 +13,7 @@ import UserSettingsForm from 'components/auth/UserSettingsForm';
 import { StatsType } from 'components/statistics/statistics';
 import { API } from 'Api';
 import 'styles/SignUp.scss';
+import { Howler } from 'howler';
 
 export interface LearningPropsType {
   modalCenter?: ModalStateType;
@@ -29,7 +30,7 @@ const LearningModePage = () => {
   const state = LearningSteps[progress];
   const modals = Object.entries(state);
 
-  const machine = document.querySelector('.machine');
+  const machine = document.querySelector('.learning__machine');
   const msg = document.querySelector('.message');
   const modal = document.getElementsByClassName('card');
   const btn = document.querySelector('.learning__btn');
@@ -38,6 +39,7 @@ const LearningModePage = () => {
   const screen = document.querySelector('.control__screen');
   const login = document.querySelector('.sign-wrapper.card.login');
   const settings = document.querySelector('.sign-wrapper.card.settings');
+  
   const answers = [
     ['right__machine', 'wrong__modal', 'wrong__modal'],
     ['wrong__machine', 'right__modal', 'wrong__modal'],
@@ -105,12 +107,8 @@ const LearningModePage = () => {
         if (modal[3]) modal[3].classList.add('blink__modal');
       }, 3000);
       setTimeout(() => {
-        if (modal[3]) modal[3].classList.remove('blink__modal');
         if (modal[4]) modal[4].classList.add('blink__modal');
       }, 6000);
-      setTimeout(() => {
-        if (modal[4]) modal[4].classList.remove('blink__modal');
-      }, 9000);
       break;
     case 7:
       if (authIcon) (authIcon as HTMLElement).style.display = 'none';
@@ -168,6 +166,7 @@ const LearningModePage = () => {
       }, 0);
       const bonus = document.querySelector('.bonus');
       (bonus as HTMLElement).style.display = 'flex';
+      addEventListener('beforeunload', (event) => { Howler.stop()});
       break;
     default:
   }
@@ -266,6 +265,7 @@ const LearningModePage = () => {
         <Weather />
         <Radio />
       </div>
+      <div className='event-log-contents'></div>
     </div>
   );
 };

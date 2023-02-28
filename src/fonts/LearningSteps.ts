@@ -114,7 +114,7 @@ export const LearningSteps: Array<LearningPropsType> = [
     },
     modalLeft: {
       text: 'modalLeft-text-4',
-      picture: 'modalLeft-picture-4',
+      picture: 'https://raw.githubusercontent.com/MarinaKovel/coffeemachinedata/main/mvc.png',
       buttonOne: 'OK',
       buttonTwo: '',
     },

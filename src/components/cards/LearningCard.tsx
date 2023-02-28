@@ -6,6 +6,7 @@ import { turnOff } from 'components/coffeeMachineFront/onOffBtn';
 import { removeCup } from 'components/cup/finishPreparation';
 import { API } from 'Api';
 import AppLink from 'components/Header/Navbar/AppLink/AppLink';
+import { Howler } from 'howler';
 
 export type ModalStateType = {
   text: string;
@@ -26,6 +27,7 @@ const LearningCard = (props: CardProps) => {
     if (ind === LearningSteps.length) {
       props.callback(ind - 1);
       window.open('https://www.youtube.com/watch?v=OBGxt8zhbRk');
+      Howler.stop();
       setTimeout(() => {
         API.logoutUser().then((data) => {});
       }, 0);
