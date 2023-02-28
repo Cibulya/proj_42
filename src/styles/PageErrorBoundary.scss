@@ -6,7 +6,22 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
 }
 
-
+.container__error {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.error-page {
+  margin-bottom: 3vh;
+}
+.error {
+  margin-top: 7vh;
+  font-size: calc(var(--font-size-xl) * 2);
+  font-weight: bold;
+  line-height: calc(var(--font-size-xl) * 2);
+}
