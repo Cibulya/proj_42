@@ -3,31 +3,30 @@ import '../../../styles/secretPage.scss';
 import { useTranslation } from 'react-i18next';
 
 
-function bigWindow(event: any) {
-  const targeEl = event.currentTarget;
-  const wrapper = targeEl.closest('.secret');
-  const newEl = targeEl.cloneNode(targeEl);
-  const imageLink = window.getComputedStyle(targeEl, null).backgroundImage;
-  const artDescription = targeEl.cloneNode(targeEl);
-  const artContainer = targeEl.cloneNode(targeEl);
-  artContainer.className = 'fullscreen__art';
-  artContainer.style.backgroundImage = imageLink;
-  artDescription.className = 'fullscreen__desc';
-  artDescription.innerText = 'Prototype image #42069';
-  newEl.className = 'fullscreen__image';
-  newEl.append(artDescription, artContainer);
-  console.log(imageLink);
-  wrapper.append(newEl);
-  targeEl.classList.add('bigscreen');
-  newEl.addEventListener('click', () => {
-    targeEl.classList.remove('bigscreen');
-    newEl.style.transform = 'scale(0)';
-    newEl.remove();
-  });
-}
-
 const SecretPage = () => {
   const { t } = useTranslation();
+  function bigWindow(event: any) {
+    const targeEl = event.currentTarget;
+    const wrapper = targeEl.closest('.secret');
+    const newEl = targeEl.cloneNode(targeEl);
+    const imageLink = window.getComputedStyle(targeEl, null).backgroundImage;
+    const artDescription = targeEl.cloneNode(targeEl);
+    const artContainer = targeEl.cloneNode(targeEl);
+    artContainer.className = 'fullscreen__art';
+    artContainer.style.backgroundImage = imageLink;
+    artDescription.className = 'fullscreen__desc';
+    artDescription.innerText = 'Prototype image #42069';
+    newEl.className = 'fullscreen__image';
+    newEl.append(artDescription, artContainer);
+    console.log(imageLink);
+    wrapper.append(newEl);
+    targeEl.classList.add('bigscreen');
+    newEl.addEventListener('click', () => {
+      targeEl.classList.remove('bigscreen');
+      newEl.style.transform = 'scale(0)';
+      newEl.remove();
+    });
+  }
   return (
     <div className="secret">
       <div className="secret__content" id="particles">
