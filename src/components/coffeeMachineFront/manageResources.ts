@@ -38,7 +38,6 @@ export function emptyWasteContainer(msgNoResources: Array<string>) {
   wastePlace = 1;
   const indicator = document.querySelector('.indicator__waste');
   indicator.classList.remove('on');
-  indicators[2].nextElementSibling.setAttribute('disabled', 'true');
   CheckResources(msgNoResources);
   openDrinkChoice();
 }

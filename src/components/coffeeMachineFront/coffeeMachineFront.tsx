@@ -17,13 +17,14 @@ const CoffeeMachineFront = function ({ msgNoResources, enjoy, choose }: MsgNoRes
     sound.play('secret');
   }
   const modal = document.getElementsByClassName('card');
-    if (!modal) {
-      document.addEventListener('keydown', (event) => {
+  console.log(modal.length)
+  if (!modal.length) {
+    document.addEventListener('keydown', (event) => {
       if (event.code == 'KeyW') addWater(msgNoResources);
       if (event.code == 'KeyB') addBeans(msgNoResources);
       if (event.code == 'KeyE') emptyWasteContainer(msgNoResources);
-    }
-  )}
+    })
+  }
   return (
     <div className="machine">
       <div className="control">

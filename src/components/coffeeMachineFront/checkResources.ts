@@ -18,7 +18,6 @@ function checkResources(msgNoResources: Array<string>) {
       indicators[i].classList.add('on');
       msg.innerHTML += msgNoResources[i];
       drinks.classList.add('hidden');
-      (indicators[i].nextElementSibling as HTMLButtonElement).disabled = false;
     }
   }
 
