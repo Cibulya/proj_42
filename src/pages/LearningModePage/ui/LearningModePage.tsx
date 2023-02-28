@@ -102,10 +102,10 @@ const LearningModePage = () => {
       machine.classList.add('blink__machine');
       setTimeout(() => {
         if (machine) machine.classList.remove('blink__machine');
-        if (modal[3]) modal[3].classList.add('blink__modal');
+        if (modal[2]) modal[2].classList.add('blink__modal');
       }, 3000);
       setTimeout(() => {
-        if (modal[4]) modal[4].classList.add('blink__modal');
+        if (modal[3]) modal[3].classList.add('blink__modal');
       }, 6000);
       break;
     case 7:
@@ -171,7 +171,7 @@ const LearningModePage = () => {
 
   function setBlick(i: number) {
     setTimeout(() => {
-      const elements = [machine, modal[3], modal[4]];
+      const elements = [machine, modal[2], modal[3]];
       removeBlick();
       elements.forEach((element) => {
         if (element) element.addEventListener('click', showAnswer, { once: true })
@@ -195,8 +195,8 @@ const LearningModePage = () => {
       function (event) {
         removeBlick();
         if (event.code == 'KeyV') machine.classList.add(answers[i][0]);
-        if (event.code == 'KeyC') modal[3].classList.add(answers[i][1]);
-        if (event.code == 'KeyM') modal[4].classList.add(answers[i][2]);
+        if (event.code == 'KeyC') modal[2].classList.add(answers[i][1]);
+        if (event.code == 'KeyM') modal[3].classList.add(answers[i][2]);
         setTimeout(() => {
           removeBlick();
           setProgress(progress + 1);
@@ -213,18 +213,19 @@ const LearningModePage = () => {
     countScore();
     machine.classList.remove('right__machine');
     machine.classList.remove('wrong__machine');
+
+    if (modal[2]) modal[2].classList.remove('right__modal');
+    if (modal[2]) modal[2].classList.remove('wrong__modal');
     if (modal[3]) modal[3].classList.remove('right__modal');
     if (modal[3]) modal[3].classList.remove('wrong__modal');
-    if (modal[4]) modal[4].classList.remove('right__modal');
-    if (modal[4]) modal[4].classList.remove('wrong__modal');
   }
 
   function countScore() {
-    if (machine && modal[3] && modal[4]) {
+    if (machine && modal[3] && modal[2]) {
       if (
         machine.getAttribute('class').includes('right__machine') ||
-        modal[3].getAttribute('class').includes('right__modal') ||
-        modal[4].getAttribute('class').includes('right__modal')
+        modal[2].getAttribute('class').includes('right__modal') ||
+        modal[3].getAttribute('class').includes('right__modal')
       )
         score++;
     }
