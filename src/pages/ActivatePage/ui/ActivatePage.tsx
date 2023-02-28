@@ -1,16 +1,15 @@
 import { BgParticles } from 'components/secretBg/secretBg';
 import '../../../styles/activatePage.scss';
-// Перевод
-//Staronka aktyvacyi akaŭnta
-//Dziakuj za aktyvacyju
-//Vy možacie zakryć hetuju ŭkładku...
+import { useTranslation } from 'react-i18next';
+
 const ActivatePage = () => {
+  const { t } = useTranslation();
   return (
     <div className="activate__page">
       <BgParticles />
-      <h1 className="activate__title">This is a User activation page!</h1>
-      <p className="activate__text">Thank you for account activation!</p>
-      <p className="activate__description">You can close this tab...</p>
+      <h1 className="activate__title">{t('activate-title')}</h1>
+      <p className="activate__text">{t('activate-text')}</p>
+      <p className="activate__description">{t('activate-description')}</p>
     </div>
   );
 };
