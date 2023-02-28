@@ -52,7 +52,7 @@ export function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
           [
             'i18next-extract',
             {
-              locales: ['en', 'ru'],
+              locales: ['en', 'by'],
               keyAsDefaultValue: false,
               saveMissing: true,
               outputPath: 'public/locales/{{locale}}/{{ns}}.json',
