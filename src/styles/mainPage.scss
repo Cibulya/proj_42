@@ -5,9 +5,10 @@
 
   .cards {
     display: flex;
-    width: 60vh;
+    width: 30vw;
     height: 60vh;
     max-height: 500px;
+    min-width: 270px;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
@@ -49,5 +50,10 @@
 @media screen and (max-width: 1200px) {
   .main-page .cards {
     margin-left: 0;
+  }
+}
+@media screen and (max-width: 768px) {
+  .main-page .cards {
+    margin: 0 auto;
   }
 }
