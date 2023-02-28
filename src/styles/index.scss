@@ -1,0 +1,33 @@
+@import './variables/global';
+@import './themes/light';
+@import './themes/dark';
+@import './header/header';
+
+@import 'reset';
+@import 'mainPage';
+@import 'LearningPage';
+@import 'fonts';
+@import 'SignUp';
+@import 'UserSettingsForm';
+@import 'comments';
+
+@font-face {
+  font-family: 'DigitalNumbers';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../fonts/digitalnumbers-regular.ttf') format('truetype');
+}
+
+.app {
+  position: relative;
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  color: var(--primary-color);
+  font: var(--font-m);
+}
+
+.loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}

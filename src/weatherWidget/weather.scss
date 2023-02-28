@@ -1,0 +1,20 @@
+.weather-wrapper {
+  z-index: 2;
+  display: flex;
+  width: 300px;
+  height: 150px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border: 1px solid rgb(162, 2, 111);
+  border-radius: 20px;
+  margin: 0 3px 10px;
+  background-color: #ebc8e9d5;
+  box-shadow: 1px 2px 3px rgba(16, 16, 16, 0.829);
+  transition: 1s;
+
+  h2 {
+    font-size: 32px;
+  }
+}
