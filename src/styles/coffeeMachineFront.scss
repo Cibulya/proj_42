@@ -17,8 +17,6 @@
 }
 
 .machine {
-  //position: fixed;
-  //top: 67px;
   position: relative;
   width: calc(70vh / 1.5);
   height: 70vh;
@@ -141,7 +139,7 @@
   background-color: rgba(109, 103, 103, 0.721);
 }
 
-.active {
+.on {
   background-color: #f00;
   box-shadow: 0 0 4px 2px #f00;
 }
@@ -149,6 +147,8 @@
 .icon__water {
   width: 4vh;
   height: 1.5vh;
+  position: relative;
+  z-index: 3;
   background: url('https://raw.githubusercontent.com/MarinaKovel/onlinestoredata/main/water.png') 100% 100%/100% 100%
     no-repeat;
 }

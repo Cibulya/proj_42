@@ -16,12 +16,14 @@ const CoffeeMachineFront = function ({ msgNoResources, enjoy, choose }: MsgNoRes
   function playSecret() {
     sound.play('secret');
   }
-  document.addEventListener('keydown', (event) => {
-    if (event.code == 'KeyW') addWater(msgNoResources);
-    if (event.code == 'KeyB') addBeans(msgNoResources);
-    if (event.code == 'KeyE') emptyWasteContainer(msgNoResources);
-  }
-  )
+  const modal = document.getElementsByClassName('card');
+    if (!modal) {
+      document.addEventListener('keydown', (event) => {
+      if (event.code == 'KeyW') addWater(msgNoResources);
+      if (event.code == 'KeyB') addBeans(msgNoResources);
+      if (event.code == 'KeyE') emptyWasteContainer(msgNoResources);
+    }
+  )}
   return (
     <div
      

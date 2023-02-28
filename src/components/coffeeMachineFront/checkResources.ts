@@ -15,9 +15,10 @@ function checkResources(msgNoResources: Array<string>) {
 
   for (let i = 0; i < resources.length; i++) {
     if (!resources[i]) {
-      indicators[i].classList.add('active');
+      indicators[i].classList.add('on');
       msg.innerHTML += msgNoResources[i];
       drinks.classList.add('hidden');
+      (indicators[i].nextElementSibling as HTMLButtonElement).disabled = false;
     }
   }
 

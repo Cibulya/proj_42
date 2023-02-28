@@ -36,7 +36,7 @@ const { t } = useTranslation();
   return (
     <div className="container__stats">
       <div className="stats">
-        <h1>{t(`Statistic`)}</h1>
+        <h1>{t(`Statistic`).toUpperCase()}</h1>
         <div className="stats__content">
           <div className="stats__quiz">
             <h2>{t(`stats-title-1`)}</h2>
@@ -48,10 +48,16 @@ const { t } = useTranslation();
           <div className="stats__coffee">
             <h2>{t(`stats-title-2`)}</h2>
             <p className="stats__score">{initialState.coffeeStatus}</p>
-            <img
-              className="coffee__img"
-              src={`https://raw.githubusercontent.com/MarinaKovel/coffeemachinedata/main/coffee-types/${initialState.coffeeStatus.toLowerCase()}.png`}
-            />
+            { initialState.coffeeStatus !== 'No' ? (
+              <img
+                className="coffee__img"
+                src={`https://raw.githubusercontent.com/MarinaKovel/coffeemachinedata/main/coffee-types/${initialState.coffeeStatus.toLowerCase()}.png`}
+              />
+            ) : (
+              <></>
+            ) 
+            }
+            
           </div>
         </div>
       </div>

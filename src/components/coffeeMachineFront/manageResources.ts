@@ -5,6 +5,8 @@ export let water = 1;
 export let beans = 2;
 export let wastePlace = 1;
 
+const indicators = document.getElementsByClassName('icon');
+
 function openDrinkChoice() {
   if (water && beans && wastePlace) {
     const drinks = document.querySelector('.control__middle');
@@ -17,7 +19,8 @@ export function addWater(msgNoResources: Array<string>) {
   if (!water) sound.play('water');
   water = 1;
   const indicator = document.querySelector('.indicator__water');
-  indicator.classList.remove('active');
+  indicator.classList.remove('on');
+  indicators[0].nextElementSibling.setAttribute('disabled', 'true');
   CheckResources(msgNoResources);
   openDrinkChoice();
 }
@@ -25,7 +28,8 @@ export function addBeans(msgNoResources: Array<string>) {
   if (!beans) sound.play('grains');
   beans = 2;
   const indicator = document.querySelector('.indicator__beans');
-  indicator.classList.remove('active');
+  indicator.classList.remove('on');
+  indicators[1].nextElementSibling.setAttribute('disabled', 'true');
   CheckResources(msgNoResources);
   openDrinkChoice();
 }
@@ -33,7 +37,8 @@ export function emptyWasteContainer(msgNoResources: Array<string>) {
   if (!wastePlace) sound.play('container');
   wastePlace = 1;
   const indicator = document.querySelector('.indicator__waste');
-  indicator.classList.remove('active');
+  indicator.classList.remove('on');
+  indicators[2].nextElementSibling.setAttribute('disabled', 'true');
   CheckResources(msgNoResources);
   openDrinkChoice();
 }
