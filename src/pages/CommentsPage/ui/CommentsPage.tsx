@@ -2,7 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { classNames } from 'helpers/classNames/classNames';
 import { API } from 'Api';
 import { useTranslation } from 'react-i18next';
-import { IPosts } from 'Api/types';
+
+type IPosts = {
+  authorName: string,
+  postText: string,
+}
 
 const CommentsPage = () => {
   const [user, setUser] = useState<string>();

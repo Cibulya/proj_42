@@ -1,11 +1,9 @@
 import { AboutPage } from 'pages/AboutPage';
 import { ActivatePage } from 'pages/ActivatePage';
-import { AuthPage } from 'pages/AuthPage';
 import { LearningModePage } from 'pages/LearningModePage';
 import { MainPage } from 'pages/MainPage';
 import { NotFoundPage } from 'pages/NotFoundPage';
 import { PauseModePage } from 'pages/PauseModePage';
-import { LearningModePage } from 'pages/LearningModePage';
 import { CommentsPage } from 'pages/CommentsPage';
 import { SecretPage } from 'pages/SecretPage';
 import { StatisticPage } from 'pages/StatisticPage';
