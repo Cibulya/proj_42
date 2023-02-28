@@ -2,17 +2,18 @@ import React, { useEffect, useState } from 'react';
 import { classNames } from 'helpers/classNames/classNames';
 import { API } from 'Api';
 import { useTranslation } from 'react-i18next';
+import { IPosts } from 'Api/types';
 
 const CommentsPage = () => {
-  const [user, setUser] = useState<any>({});
-  const [posts, setPosts] = useState<Array<any>>([]);
+  const [user, setUser] = useState<string>();
+  const [posts, setPosts] = useState<Array<IPosts>>([]);
   const [text, setText] = useState<string>('');
   const { t } = useTranslation();
 
   useEffect(() => {
-    API.getUser().then((data) => setUser(data));
+    API.getUser().then((data) => setUser(data && data.name ? data.name : t('anonymous')));
     API.getAllPosts().then((data) => {
-      setPosts(data);
+      setPosts(data ? data : []);
     });
   }, []);
 
@@ -20,11 +21,11 @@ const CommentsPage = () => {
     const postText = text.trim();
     if (postText.length === 0) return;
     API.createNewPost({
-      authorName: user.name,
+      authorName: user,
       postText: postText,
     }).then(() => {
       API.getAllPosts().then((data) => {
-        setPosts(data);
+        setPosts(data ? data : []);
       });
     });
   };
@@ -33,7 +34,7 @@ const CommentsPage = () => {
     <div className="comments-page">
       <div className={classNames('comments-box')}>
         <div className="comment-wrapper">
-          <h2 className="comment-user">{user.name}</h2>
+          <h2 className="comment-user">{user}</h2>
           <textarea
             className="comment__input"
             placeholder={t('Add a comment')}
