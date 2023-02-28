@@ -7,6 +7,10 @@ import UserPhotoForm from 'components/auth/UserPhotoForm';
 
 type UserFormPropsType = {
   className?: string;
+  callbackProgress?: (progress: number) => void;
+  progress?: number;
+  callBackIsOpen?: (isOpen: boolean) => void;
+  isOpen: boolean;
 };
 
 const UserSettingsForm = (props: UserFormPropsType) => {
@@ -31,7 +35,12 @@ const UserSettingsForm = (props: UserFormPropsType) => {
           <Tab value="one" label={t('changePhoto')} />
         </Tabs>
       </Box>
-      <UserPhotoForm />
+      <UserPhotoForm
+        callbackProgress={props.callbackProgress}
+        progress={props.progress}
+        callBackIsOpen={props.callBackIsOpen}
+        isOpen={props.isOpen}
+      />
     </div>
   );
 };

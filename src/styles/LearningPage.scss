@@ -26,12 +26,14 @@
     color: #fff;
     text-align: center;
   }
-
+  .card.settings {
+    display: flex;
+  }
   .card.modalLeft {
     z-index: 2;
     display: flex;
     width: 300px;
-    max-height: 35vh;
+    max-height: 41vh;
     margin-left: 140px;
     grid-column: 1/4;
     grid-row: 1/6;
@@ -157,14 +159,12 @@
 
   @keyframes blinkMachine {
     50% {
-      background-color: #ffffffe5;
-      box-shadow: 0 0 10px 10px rgb(249, 249, 250);
+      box-shadow: 0px 0px 25px 5px #ffffffe5; 
+      background-color: #ffffff77;
     }
   }
   @keyframes blinkModal {
-    50% {
-      box-shadow: 0 0 10px 10px rgb(249, 249, 250);
-    }
+    50% {box-shadow: 0px 0px 10px 10px rgb(249, 249, 250);}
   }
   @keyframes rightMachine {
     50% {
@@ -194,7 +194,7 @@
   }
 
   .blink__modal {
-    animation: blinkModal 3s infinite;
+    animation: blinkModal 3s 1;
   }
 
   .right__machine {

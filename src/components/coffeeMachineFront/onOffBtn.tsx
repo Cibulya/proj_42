@@ -9,9 +9,9 @@ function TurnOnOff() {
   const [selected, setSelected] = React.useState(false);
   const { t } = useTranslation();
 
-  const indicators = document.getElementsByClassName('active');
+  const indicators = document.getElementsByClassName('on');
   while (indicators.length) {
-    indicators[0].classList.remove('active');
+    indicators[0].classList.remove('on');
   }
 
   const invitation = document.querySelector('.invitation');

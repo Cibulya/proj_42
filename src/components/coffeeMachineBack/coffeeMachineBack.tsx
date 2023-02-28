@@ -1,6 +1,6 @@
-import React from 'react';
-import 'styles/coffeeMachineBack.scss';
+import { SchoolInfo } from 'components/schoolInfo/schoolInfo';
 import { useTranslation } from 'react-i18next';
+import 'styles/coffeeMachineBack.scss';
 
 const CoffeeMachineBack = function () {
   const { t } = useTranslation();
@@ -14,6 +14,7 @@ const CoffeeMachineBack = function () {
         <br />
         <br />
         {t(`about-3`)}
+        <SchoolInfo />
       </div>
       <div className="machine__back">
         <div>{t(`Developers`)}</div>

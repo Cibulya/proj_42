@@ -1,11 +1,15 @@
 import React, { ChangeEvent, FormEvent, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Avatar } from '@mui/material';
-import { API } from 'Api';
+import { API, IUserType } from 'Api';
 import ErrorSpan from 'components/auth/ErrorSpan';
 
 type UserFormPropsType = {
   className?: string;
+  callbackProgress?: (progress: number) => void;
+  progress?: number;
+  callBackIsOpen?: (isOpen: boolean) => void;
+  isOpen: boolean;
 };
 
 export type UserDataType = {
@@ -34,8 +38,8 @@ const UserPhotoForm = (props: UserFormPropsType) => {
   const formRef = useRef();
 
   useEffect(() => {
-    API.getUser().then((data) => {
-      if (data && !data.hasOwnProperty('message')) {
+    API.getUser().then((data: Partial<IUserType>) => {
+      if (data.name) {
         setInitialState({
           ...initialState,
           email: data.email,
@@ -45,11 +49,9 @@ const UserPhotoForm = (props: UserFormPropsType) => {
         });
         if (!data.isActivated) {
           (labelRef.current as HTMLLabelElement).textContent = `${t('activate')}`;
-          (fileInput.current as HTMLInputElement).disabled = Boolean(!initialState.userName);
         }
       } else {
         (labelRef.current as HTMLLabelElement).textContent = `${t('login-reload')}`;
-        (fileInput.current as HTMLInputElement).disabled = Boolean(!initialState.userName);
       }
     });
   }, [setPhoto]);
@@ -73,28 +75,52 @@ const UserPhotoForm = (props: UserFormPropsType) => {
   };
 
   const selectPhoto = (e: ChangeEvent<HTMLInputElement>) => {
-    const fileList = e.target.files;
-    if (!fileList) return;
-    const file = fileList[0];
-    if (
-      (file.type === 'image/png' || file.type === 'image/jpeg' || file.type === 'image/jpg') &&
-      file.size / 1024 < 512
-    ) {
-      setPhoto(file);
-      setInitialState({
-        ...initialState,
-        userImage: URL.createObjectURL(file),
+    if (!initialState.isActivated) {
+      API.getUser().then((data: Partial<IUserType>) => {
+        if (data.name) {
+          setInitialState({
+            ...initialState,
+            email: data.email,
+            userName: data.name,
+            userImage: data.userImage,
+            isActivated: data.isActivated,
+          });
+          if (!data.isActivated) {
+            (labelRef.current as HTMLLabelElement).textContent = `${t('activate')}`;
+          } else {
+            (labelRef.current as HTMLLabelElement).textContent = `${t('add-file')}`;
+          }
+        } else {
+          (labelRef.current as HTMLLabelElement).textContent = `${t('login-reload')}`;
+        }
       });
-      (buttonSubmitRef.current as HTMLButtonElement).disabled = Boolean(!initialState.email);
-      setError('');
     } else {
-      e.target.files = null;
-      fileInput.current.value = '';
-      setPhoto(null);
-      setError(`${t('loadImg')}`);
+      const fileList = e.target.files;
+      if (!fileList) return;
+      const file = fileList[0];
+      if (
+        (file.type === 'image/png' || file.type === 'image/jpeg' || file.type === 'image/jpg') &&
+        file.size / 1024 < 512
+      ) {
+        setPhoto(file);
+        setInitialState({
+          ...initialState,
+          userImage: URL.createObjectURL(file),
+        });
+        (buttonSubmitRef.current as HTMLButtonElement).disabled = Boolean(!initialState.email);
+        setError('');
+      } else {
+        e.target.files = null;
+        fileInput.current.value = '';
+        setPhoto(null);
+        setError(`${t('loadImg')}`);
+      }
     }
   };
-
+  const closeHandler = () => {
+    props.callBackIsOpen(false);
+    props.callbackProgress(props.progress + 1);
+  };
   return (
     <>
     <form ref={formRef} className="form" onSubmit={checkSubmitForm} noValidate>
@@ -109,6 +135,12 @@ const UserPhotoForm = (props: UserFormPropsType) => {
         <button ref={buttonSubmitRef} className="learning__btn" disabled>
           {t('save')}
         </button>
+<<<<<<< HEAD
+=======
+        <button className="learning__btn" onClick={closeHandler}>
+          {t('closePhoto')}
+        </button>
+>>>>>>> 9c8e73beeb41b354b8ec2d7804a711a889444808
       </div>
     </form>
     <button className="learning__btn close">{t('closePhoto')}</button>
