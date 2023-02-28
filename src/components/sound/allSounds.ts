@@ -2,8 +2,8 @@ import { Howl } from 'howler';
 
 export const sound = new Howl({
   src: [
-    'https://github.com/MarinaKovel/coffeemachinedata/blob/main/Sounds/Sound.webm?raw=true',
-    'https://github.com/MarinaKovel/coffeemachinedata/blob/main/Sounds/Sound.mp3?raw=true',
+    'https://guiseppe-production.up.railway.app/sounds/Sound.webm',
+    'https://guiseppe-production.up.railway.app/sounds/Sound.mp3',
   ],
   sprite: {
     container: [0, 936.0090702947846],

@@ -23,10 +23,7 @@ const CoffeeMachineFront = function ({ msgNoResources, enjoy, choose }: MsgNoRes
   }
   )
   return (
-    <div
-     
-      className="machine"
-    >
+    <div className="machine">
       <div className="control">
         <div className="container__left">
           <TurnOnOff />

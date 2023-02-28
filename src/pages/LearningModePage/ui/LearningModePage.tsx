@@ -29,7 +29,7 @@ const LearningModePage = () => {
   const state = LearningSteps[progress];
   const modals = Object.entries(state);
 
-  const machine = document.querySelector('.machine');
+  const machine = document.querySelector('.learning__machine');
   const msg = document.querySelector('.message');
   const modal = document.getElementsByClassName('card');
   const btn = document.querySelector('.learning__btn');

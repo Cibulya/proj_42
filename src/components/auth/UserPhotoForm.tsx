@@ -96,6 +96,7 @@ const UserPhotoForm = (props: UserFormPropsType) => {
   };
 
   return (
+    <>
     <form ref={formRef} className="form" onSubmit={checkSubmitForm} noValidate>
       <Avatar alt={t('userPhoto')} src={initialState.userImage} sx={{ width: 72, height: 72 }} />
       <h3>{initialState.userName}</h3>
@@ -108,9 +109,10 @@ const UserPhotoForm = (props: UserFormPropsType) => {
         <button ref={buttonSubmitRef} className="learning__btn" disabled>
           {t('save')}
         </button>
-        <button className="learning__btn close">{t('closePhoto')}</button>
       </div>
     </form>
+    <button className="learning__btn close">{t('closePhoto')}</button>
+    </>
   );
 };
 
