@@ -1,12 +1,15 @@
-import { RouteProps } from 'react-router-dom';
+import { AboutPage } from 'pages/AboutPage';
+import { ActivatePage } from 'pages/ActivatePage';
+import { AuthPage } from 'pages/AuthPage';
+import { LearningModePage } from 'pages/LearningModePage';
 import { MainPage } from 'pages/MainPage';
+import { NotFoundPage } from 'pages/NotFoundPage';
 import { PauseModePage } from 'pages/PauseModePage';
 import { LearningModePage } from 'pages/LearningModePage';
 import { CommentsPage } from 'pages/CommentsPage';
-import { AboutPage } from 'pages/AboutPage';
 import { SecretPage } from 'pages/SecretPage';
 import { StatisticPage } from 'pages/StatisticPage';
-import { NotFoundPage } from 'pages/NotFoundPage';
+import { RouteProps } from 'react-router-dom';
 
 export enum AppRoutes {
   MAIN = 'main',
@@ -16,11 +19,13 @@ export enum AppRoutes {
   ABOUT = 'about',
   SECRET = 'secret',
   STATISTIC = 'statistic',
+  ACTIVATE = 'activate',
   NOT_FOUND = 'not_found',
 }
 
 export const RoutePath: Record<AppRoutes, string> = {
   [AppRoutes.MAIN]: '/',
+  [AppRoutes.ACTIVATE]: '/activate',
   [AppRoutes.PAUSE]: '/pause',
   [AppRoutes.LEARNING]: '/learning',
   [AppRoutes.COMMENTS]: '/comments',
@@ -31,6 +36,10 @@ export const RoutePath: Record<AppRoutes, string> = {
 };
 
 export const routeConfig: Record<AppRoutes, RouteProps> = {
+  [AppRoutes.ACTIVATE]: {
+    path: RoutePath.activate,
+    element: <ActivatePage />,
+  },
   [AppRoutes.MAIN]: {
     path: RoutePath.main,
     element: <MainPage />,
